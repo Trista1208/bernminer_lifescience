@@ -1,0 +1,487 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T09:24:04.453355+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 2,
+  "company_count": 2,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T09:24:04.453307+00:00",
+      "id": "mabwell_shanghai_bioscience",
+      "name": "Mabwell (Shanghai) Bioscience",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": null,
+        "source_type": "text",
+        "source_ref": "inline",
+        "meta_title": "",
+        "meta_description": "",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "disabled",
+        "web_sources": [],
+        "summary_method": "rules"
+      },
+      "profile": {
+        "sector": "pharma",
+        "subsector": null,
+        "description": "Antibody-drug conjugate ADC oncology toripalimab.",
+        "what_they_do": "Mabwell is an innovation-driven biopharmaceutical company with end-to-end capabilities from drug discovery to commercialization.",
+        "keywords": [
+          "antibody"
+        ],
+        "needs": [],
+        "hq_city": "Shanghai",
+        "hq_country": "China",
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "source",
+          "evidence": "labelled HQ / location line in the source",
+          "url": null,
+          "verified": true
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "Primary focus signals: Biologics / biomanufacturing (31.2% relevance, n=1).",
+          "focus_clusters": [
+            {
+              "id": "biologics",
+              "label": "Biologics / biomanufacturing",
+              "stage": "late",
+              "canonical": "biologics",
+              "count": 1,
+              "lead_count": 1,
+              "relevance": 31.2,
+              "top_term": "antibody"
+            }
+          ],
+          "early_ranked": [
+            {
+              "term": "antibody",
+              "stage": "late",
+              "cluster_id": "biologics",
+              "cluster_label": "Biologics / biomanufacturing",
+              "count": 1,
+              "lead_count": 1,
+              "relevance": 28.5,
+              "semantic_boost": 8.0
+            }
+          ],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 31.0,
+        "tier": "Possible — need more signal",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 / front relevance — strongest keyword 'drug discovery' (48.0% relevance). Collaboration potential 31%.",
+          "Possible — gather more needs / capability detail (31.0%).",
+          "Collaboration potential 31.0% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 6.0/10 + capability overlap 5.5/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: biologics, immunology, antibody, biomanufacturing. Source ecosystem: University of Bern.",
+          "HQ outside Switzerland — lower proximity score.",
+          "No stated partnership needs (clinical validation, university, talent…)."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "components": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 0.0,
+            "signal_depth": 6.0,
+            "capability_overlap": 5.5,
+            "focused_keywords": 4.5,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.383,
+            "best_capability": "biologics_immuno",
+            "needs_scored": [],
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 13.4,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 3.2
+            },
+            "capability_points": 16.6,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 30.0,
+            "focused_keywords": [
+              "drug discovery",
+              "immunology",
+              "oncology"
+            ],
+            "focused_early_keywords": [],
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 31.0,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "biologics_immuno",
+              "name": "Biologics, Immunology & Biomanufacturing Talent",
+              "score": 3.2,
+              "overlap_terms": [
+                "biologics",
+                "immunology",
+                "antibody",
+                "biomanufacturing"
+              ],
+              "source": "University of Bern"
+            }
+          ],
+          "bern_records_loaded": 0,
+          "why_not_higher": [
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
+            "No company website on file."
+          ]
+        },
+        "reasoning": {
+          "summary": "31.0% collaboration potential — Possible — gather more needs / capability detail. Top capability: Biologics, Immunology & Biomanufacturing Talent via biologics, immunology, antibody, biomanufacturing.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'pharma' is within the life-science domain.",
+            "P3 / front relevance — strongest keyword 'drug discovery' (48.0% relevance). Collaboration potential 31%.",
+            "Possible — gather more needs / capability detail (31.0%).",
+            "Collaboration potential 31.0% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 6.0/10 + capability overlap 5.5/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'pharma' maps to Bern's life-science value proposition.",
+            "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: biologics, immunology, antibody, biomanufacturing. Source ecosystem: University of Bern.",
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…)."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "components": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 0.0,
+              "signal_depth": 6.0,
+              "capability_overlap": 5.5,
+              "focused_keywords": 4.5,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.383,
+              "best_capability": "biologics_immuno",
+              "needs_scored": [],
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 13.4,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 3.2
+              },
+              "capability_points": 16.6,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 30.0,
+              "focused_keywords": [
+                "drug discovery",
+                "immunology",
+                "oncology"
+              ],
+              "focused_early_keywords": [],
+              "verdict": "possible",
+              "verdict_label": "Possible — gather more needs / capability detail",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 31.0,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "biologics_immuno",
+                "name": "Biologics, Immunology & Biomanufacturing Talent",
+                "score": 3.2,
+                "overlap_terms": [
+                  "biologics",
+                  "immunology",
+                  "antibody",
+                  "biomanufacturing"
+                ],
+                "source": "University of Bern"
+              }
+            ],
+            "bern_records_loaded": 0,
+            "why_not_higher": [
+              "HQ outside Switzerland — lower proximity score.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
+              "No company website on file."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+          ],
+          "bern_units": [
+            "Faculty of Medicine",
+            "Institute of Immunology"
+          ],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P3",
+            "priority_stage": "mid",
+            "run_first": [
+              "drug discovery",
+              "immunology",
+              "oncology",
+              "biologics",
+              "antibody"
+            ],
+            "run_later": [
+              "biologics",
+              "biomanufacturing",
+              "antibody"
+            ],
+            "capability_ids": [
+              "biologics_immuno"
+            ]
+          }
+        },
+        "early_keywords": [
+          "drug discovery",
+          "immunology",
+          "oncology"
+        ],
+        "mid_keywords": [
+          "biologics",
+          "biomanufacturing"
+        ],
+        "late_keywords": [
+          "antibody"
+        ],
+        "early_relevance": [
+          {
+            "term": "drug discovery",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "immunology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "oncology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          }
+        ],
+        "focus_clusters": [
+          {
+            "id": "biologics",
+            "label": "Biologics / biomanufacturing",
+            "stage": "late",
+            "canonical": "biologics",
+            "count": 1,
+            "lead_count": 1,
+            "relevance": 31.2,
+            "top_term": "antibody"
+          }
+        ],
+        "bern_units": [
+          "Faculty of Medicine",
+          "Institute of Immunology"
+        ],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+        ],
+        "capability_matches": [
+          {
+            "id": "biologics_immuno",
+            "name": "Biologics, Immunology & Biomanufacturing Talent",
+            "score": 3.2,
+            "overlap_terms": [
+              "biologics",
+              "immunology",
+              "antibody",
+              "biomanufacturing"
+            ],
+            "source": "University of Bern",
+            "units": [
+              "Faculty of Medicine",
+              "Institute of Immunology"
+            ],
+            "reason": "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: biologics, immunology, antibody, biomanufacturing. Source ecosystem: University of Bern."
+          }
+        ],
+        "teammate_queries_early": [
+          "drug discovery",
+          "immunology",
+          "oncology",
+          "biologics",
+          "antibody"
+        ],
+        "teammate_queries_later": [
+          "biologics",
+          "biomanufacturing",
+          "antibody"
+        ],
+        "suggested_queries": [
+          "immunology",
+          "oncology",
+          "biologics",
+          "antibody",
+          "drug discovery"
+        ],
+        "handoff_note": "P3 / front relevance — strongest keyword 'drug discovery' (48.0% relevance). Collaboration potential 31%."
+      },
+      "extraction": {
+        "confidence": 0.8,
+        "method": "rules",
+        "warnings": [
+          "Web enrich disabled (set WEB_ENRICH=1). Name-only seeds force a search.",
+          "ollama call failed: timed out — is the Ollama app running at http://localhost:11434?",
+          "LLM profile: no valid JSON returned; using rule-based fields."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P3",
+        "priority_stage": "mid",
+        "priority_score": 36.6
+      },
+      "source_text_excerpt": "Company Name: Mabwell (Shanghai) Bioscience\nHeadquarters: Shanghai, China\n\nMabwell is an innovation-driven biopharmaceutical company with end-to-end capabilities from drug discovery to commercialization. Antibody-drug conjugate ADC oncology toripalimab."
+    },
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T09:24:04.453343+00:00",
+      "id": "unknown_company",
+      "name": "Unknown company",
+      "domain": "life_science",
+      "in_scope": false,
+      "website_info": {
+        "url": "https://mabwell.com/en/",
+        "source_type": "url",
+        "source_ref": "https://mabwell.com/en/",
+        "meta_title": null,
+        "meta_description": null,
+        "fetched_language": null,
+        "translated_to_english": false,
+        "translation_method": null,
+        "web_enrich_method": "",
+        "web_sources": [],
+        "summary_method": "rules"
+      },
+      "profile": {
+        "sector": null,
+        "subsector": null,
+        "description": "",
+        "what_they_do": "",
+        "keywords": [],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": null,
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {}
+      },
+      "match": {
+        "match_rate": 0.0,
+        "tier": "Out of scope — not life science",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Insufficient life-science evidence in the source — not matched in this domain layer.",
+          "No Bern life-science match computed for out-of-domain companies."
+        ],
+        "score_breakdown": {
+          "match_rate": 0.0,
+          "why_not_higher": [
+            "Out of life-science scope."
+          ]
+        },
+        "reasoning": {
+          "summary": "Out of life-science scope — match rate 0.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Insufficient life-science evidence in the source — not matched in this domain layer."
+          ],
+          "score_breakdown": {
+            "match_rate": 0.0
+          },
+          "backend_hints": {
+            "priority_rating": "P4",
+            "priority_stage": "none"
+          }
+        },
+        "early_keywords": [],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [],
+        "focus_clusters": [],
+        "bern_units": [],
+        "bern_matches": [],
+        "economic_hooks": [],
+        "capability_matches": [],
+        "teammate_queries_early": [],
+        "teammate_queries_later": [],
+        "suggested_queries": [],
+        "handoff_note": "Out of life-science scope — do not queue for navigator matching."
+      },
+      "extraction": {
+        "confidence": 0.0,
+        "method": "rules",
+        "warnings": [
+          "Could not read source: Skipped fetching https://mabwell.com/en/: time budget used up."
+        ]
+      },
+      "queue": {
+        "position": 2,
+        "priority_rating": "P4",
+        "priority_stage": "none",
+        "priority_score": 0.0
+      },
+      "source_text_excerpt": ""
+    }
+  ]
+}

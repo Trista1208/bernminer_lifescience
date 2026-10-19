@@ -1,0 +1,321 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T09:20:13.082488+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T09:20:13.082451+00:00",
+      "id": "mabel",
+      "name": "Mabel",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "http://www.babynamer.com/mabel",
+        "source_type": "text",
+        "source_ref": "inline",
+        "meta_title": "",
+        "meta_description": "Mabel is an English female name derived from the Latin amabilis, \"lovable, dear\".",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "wikipedia+snippet",
+        "web_sources": [
+          "http://www.babynamer.com/mabel",
+          "https://en.wikipedia.org/wiki/Mabel"
+        ],
+        "summary_method": "ollama:qwen2.5:3b"
+      },
+      "profile": {
+        "sector": null,
+        "subsector": null,
+        "description": "However, there is no information provided about the company's products, technologies, or diagnostic/therapeutic focus in the given excerpt.",
+        "what_they_do": "Mabel is a company name derived from the Latin word \"amabilis,\" meaning \"lovable, dear.\" The company's official website is available at http://www.babynamer.com/mabel.",
+        "keywords": [],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "none",
+          "evidence": null,
+          "url": null,
+          "verified": false
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 13.0,
+        "tier": "Weak — low priority",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Life-science signals detected: therapeutic, diagnostic.",
+          "P4 / front relevance — strongest keyword 'diagnostics' (48.0% relevance). Collaboration potential 13%.",
+          "Weak — low collaboration priority for now (13.0%).",
+          "Collaboration potential 13.0% = domain fit 0.0/15 + swiss proximity 0.0/15 + signal depth 8.5/10 + capability overlap 2.6/25 + focused keywords 1.9/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diagnostic, diagnostics. Source ecosystem: Diabetes Center Berne.",
+          "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+          "Sector is life-science but not a top Bern priority vertical."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "weak",
+          "verdict_label": "Weak — low collaboration priority for now",
+          "components": {
+            "domain_fit": 0.0,
+            "swiss_proximity": 0.0,
+            "signal_depth": 8.5,
+            "capability_overlap": 2.6,
+            "focused_keywords": 1.9,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.181,
+            "best_capability": "diabetes_cgm",
+            "needs_scored": [],
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 6.3,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 1.6
+            },
+            "capability_points": 7.9,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 12.5,
+            "focused_keywords": [
+              "diagnostics"
+            ],
+            "focused_early_keywords": [],
+            "verdict": "weak",
+            "verdict_label": "Weak — low collaboration priority for now",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 13.0,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "diabetes_cgm",
+              "name": "Diabetes & Continuous Glucose Monitoring",
+              "score": 2.3,
+              "overlap_terms": [
+                "diagnostic",
+                "diagnostics"
+              ],
+              "source": "Diabetes Center Berne"
+            }
+          ],
+          "bern_records_loaded": 0,
+          "why_not_higher": [
+            "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+            "Sector is life-science but not a top Bern priority vertical.",
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ]
+        },
+        "reasoning": {
+          "summary": "13.0% collaboration potential — Weak — low collaboration priority for now. Top capability: Diabetes & Continuous Glucose Monitoring via diagnostic, diagnostics.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Life-science signals detected: therapeutic, diagnostic.",
+            "P4 / front relevance — strongest keyword 'diagnostics' (48.0% relevance). Collaboration potential 13%.",
+            "Weak — low collaboration priority for now (13.0%).",
+            "Collaboration potential 13.0% = domain fit 0.0/15 + swiss proximity 0.0/15 + signal depth 8.5/10 + capability overlap 2.6/25 + focused keywords 1.9/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diagnostic, diagnostics. Source ecosystem: Diabetes Center Berne.",
+            "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+            "Sector is life-science but not a top Bern priority vertical."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "weak",
+            "verdict_label": "Weak — low collaboration priority for now",
+            "components": {
+              "domain_fit": 0.0,
+              "swiss_proximity": 0.0,
+              "signal_depth": 8.5,
+              "capability_overlap": 2.6,
+              "focused_keywords": 1.9,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.181,
+              "best_capability": "diabetes_cgm",
+              "needs_scored": [],
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 6.3,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 1.6
+              },
+              "capability_points": 7.9,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 12.5,
+              "focused_keywords": [
+                "diagnostics"
+              ],
+              "focused_early_keywords": [],
+              "verdict": "weak",
+              "verdict_label": "Weak — low collaboration priority for now",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 13.0,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "diabetes_cgm",
+                "name": "Diabetes & Continuous Glucose Monitoring",
+                "score": 2.3,
+                "overlap_terms": [
+                  "diagnostic",
+                  "diagnostics"
+                ],
+                "source": "Diabetes Center Berne"
+              }
+            ],
+            "bern_records_loaded": 0,
+            "why_not_higher": [
+              "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+              "Sector is life-science but not a top Bern priority vertical.",
+              "HQ outside Switzerland — lower proximity score.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration."
+          ],
+          "bern_units": [
+            "Diabetes Center Berne",
+            "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+          ],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P4",
+            "priority_stage": "mid",
+            "run_first": [
+              "diagnostics",
+              "diagnostic"
+            ],
+            "run_later": [],
+            "capability_ids": [
+              "diabetes_cgm"
+            ]
+          }
+        },
+        "early_keywords": [
+          "diagnostics",
+          "diagnostic"
+        ],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [
+          {
+            "term": "diagnostics",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "diagnostic",
+            "stage": "early",
+            "count": 1,
+            "relevance": 42.0,
+            "cluster_label": "capability overlap"
+          }
+        ],
+        "focus_clusters": [],
+        "bern_units": [
+          "Diabetes Center Berne",
+          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+        ],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration."
+        ],
+        "capability_matches": [
+          {
+            "id": "diabetes_cgm",
+            "name": "Diabetes & Continuous Glucose Monitoring",
+            "score": 2.3,
+            "overlap_terms": [
+              "diagnostic",
+              "diagnostics"
+            ],
+            "source": "Diabetes Center Berne",
+            "units": [
+              "Diabetes Center Berne",
+              "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+            ],
+            "reason": "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diagnostic, diagnostics. Source ecosystem: Diabetes Center Berne."
+          }
+        ],
+        "teammate_queries_early": [
+          "diagnostics",
+          "diagnostic"
+        ],
+        "teammate_queries_later": [],
+        "suggested_queries": [
+          "diagnostic",
+          "diagnostics"
+        ],
+        "handoff_note": "P4 / front relevance — strongest keyword 'diagnostics' (48.0% relevance). Collaboration potential 13%."
+      },
+      "extraction": {
+        "confidence": 0.73,
+        "method": "llm-summary",
+        "warnings": [
+          "Corrected 'Mabwell' → 'Mabel' (Wikipedia suggest)."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P4",
+        "priority_stage": "mid",
+        "priority_score": 21.0
+      },
+      "source_text_excerpt": "Mabwell\n\nUser typed: Mabwell\nCanonical name: Mabel\n\nCompany name: Mabel\n\n[1] Mabel\nMabel is an English female name derived from the Latin amabilis, \"lovable, dear\".\nSource: https://en.wikipedia.org/wiki/Mabel\n\n[2] Mabel official site\nOfficial website: http://www.babynamer.com/mabel\nSource: http://www.babynamer.com/mabel"
+    }
+  ]
+}

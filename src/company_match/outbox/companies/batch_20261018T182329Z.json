@@ -1,0 +1,825 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-18T18:23:29.886904+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-18T18:23:29.886868+00:00",
+      "id": "dexcom",
+      "name": "Dexcom",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "https://www.dexcom.com/g7-cgm-system?ipc=CH",
+        "source_type": "url",
+        "source_ref": "https://www.dexcom.com/g7-cgm-system?ipc=CH",
+        "meta_title": "Dexcom G7 15 Day CGM Sensor for Managing Diabetes | Dexcom",
+        "meta_description": "Dexcom G7 15 Day is the longest lasting and most accurate CGM sensor, a connected device to better control your diabetes, lower A1C and improve your health.",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "disabled",
+        "web_sources": [],
+        "summary_method": "profile:ollama:qwen2.5:7b"
+      },
+      "profile": {
+        "sector": "medtech",
+        "subsector": "diabetes / metabolic",
+        "description": "Dexcom leads in continuous glucose monitoring (CGM) technology, providing accurate sensors for diabetes management and improving patient health.",
+        "what_they_do": "Manufactures CGM sensors for managing type 1, type 2, and gestational diabetes, offering connectivity with pumps and health apps.",
+        "keywords": [
+          "continuous glucose monitoring",
+          "glucose monitoring",
+          "diabetes",
+          "glucose",
+          "type 1 diabetes",
+          "type 2 diabetes",
+          "insulin delivery",
+          "insulin",
+          "implants",
+          "cgm",
+          "type 1",
+          "type 2",
+          "insulin pump",
+          "implant",
+          "implantable"
+        ],
+        "needs": [],
+        "hq_city": "San Diego",
+        "hq_country": "United States",
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "source",
+          "evidence": "labelled HQ / location line in the source",
+          "url": null,
+          "verified": true
+        },
+        "bern_sites": [],
+        "medical_profile": {
+          "therapeutic_areas": [
+            {
+              "term": "Diabetes",
+              "evidence": "Dexcom G7 15 Day CGM Sensor for Managing Diabetes"
+            }
+          ],
+          "indications": [],
+          "modalities_technologies": [
+            {
+              "term": "Continuous Glucose Monitoring (CGM)",
+              "evidence": "Dexcom G7 15 Day is the longest lasting and most accurate CGM sensor"
+            },
+            {
+              "term": "Connectivity",
+              "evidence": "Connect to a wide range of compatible pumps, pens, and health apps"
+            }
+          ],
+          "products_platforms": [],
+          "patient_populations": [],
+          "development_activities": [],
+          "business_model": {
+            "value": "medical device manufacturer",
+            "evidence": "Dexcom G7 15 Day is the longest lasting and most accurate CGM sensor"
+          },
+          "partnership_needs": [],
+          "headquarters": null,
+          "sites": [],
+          "medical_keywords": [],
+          "what_they_do": "Manufactures CGM sensors for managing type 1, type 2, and gestational diabetes, offering connectivity with pumps and health apps.",
+          "summary": "Dexcom leads in continuous glucose monitoring (CGM) technology, providing accurate sensors for diabetes management and improving patient health.",
+          "information_sufficiency": "sufficient",
+          "missing_information": [],
+          "company_name": "Dexcom",
+          "dropped_unsupported": [],
+          "model": "ollama:qwen2.5:7b",
+          "prompt_version": "medical-profile-lite-v2"
+        },
+        "semantic_profile": {
+          "activity_summary": "Primary focus signals: Diabetes care & insulin delivery (100.0% relevance, n=19); Glucose sensing / CGM (94.7% relevance, n=11); Medical devices / medtech (25.2% relevance, n=1).",
+          "focus_clusters": [
+            {
+              "id": "diabetes_care",
+              "label": "Diabetes care & insulin delivery",
+              "stage": "early",
+              "canonical": "diabetes",
+              "count": 19,
+              "lead_count": 11,
+              "relevance": 100.0,
+              "top_term": "diabetes"
+            },
+            {
+              "id": "glucose_sensing",
+              "label": "Glucose sensing / CGM",
+              "stage": "early",
+              "canonical": "continuous glucose monitoring",
+              "count": 11,
+              "lead_count": 8,
+              "relevance": 94.7,
+              "top_term": "cgm"
+            },
+            {
+              "id": "medtech_devices",
+              "label": "Medical devices / medtech",
+              "stage": "mid",
+              "canonical": "medical device",
+              "count": 1,
+              "lead_count": 0,
+              "relevance": 25.2,
+              "top_term": "implantable"
+            }
+          ],
+          "early_ranked": [
+            {
+              "term": "diabetes",
+              "stage": "early",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 13,
+              "lead_count": 7,
+              "relevance": 80.5,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "cgm",
+              "stage": "early",
+              "cluster_id": "glucose_sensing",
+              "cluster_label": "Glucose sensing / CGM",
+              "count": 10,
+              "lead_count": 8,
+              "relevance": 76.2,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "type 1",
+              "stage": "mid",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 2,
+              "lead_count": 2,
+              "relevance": 51.8,
+              "semantic_boost": 8.0
+            }
+          ],
+          "mid_ranked": [
+            {
+              "term": "type 2",
+              "stage": "mid",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 2,
+              "lead_count": 2,
+              "relevance": 51.8,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "insulin pump",
+              "stage": "late",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 1,
+              "lead_count": 0,
+              "relevance": 28.5,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "glucose",
+              "stage": "late",
+              "cluster_id": "glucose_sensing",
+              "cluster_label": "Glucose sensing / CGM",
+              "count": 1,
+              "lead_count": 0,
+              "relevance": 20.5,
+              "semantic_boost": 8.0
+            }
+          ],
+          "late_ranked": [
+            {
+              "term": "implantable",
+              "stage": "late",
+              "cluster_id": "medtech_devices",
+              "cluster_label": "Medical devices / medtech",
+              "count": 1,
+              "lead_count": 0,
+              "relevance": 20.5,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "insulin",
+              "stage": "late",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 1,
+              "lead_count": 0,
+              "relevance": 20.5,
+              "semantic_boost": 8.0
+            }
+          ]
+        }
+      },
+      "match": {
+        "match_rate": 59.8,
+        "tier": "Promising — explore with Bern units",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'medtech' is within the life-science domain.",
+          "P1 — collaboration potential 60%. Queue for navigator; lead with 'diabetes'.",
+          "Promising — worth exploring with Bern units (59.8%).",
+          "Collaboration potential 59.8% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 10.0/10 + capability overlap 16.9/25 + focused keywords 13.9/15 + partnership readiness 4.8/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+          "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+10.0).",
+          "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, type 1, type 2 (linked to stated needs: aid). Source ecosystem: Diabetes Center Berne.",
+          "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, implant, sensor, wearable. Source ecosystem: ARTORG Center.",
+          "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: health data, connected device. Source ecosystem: ARTORG / Diabetes Center Berne.",
+          "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+          "HQ outside Switzerland — lower proximity score.",
+          "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "promising",
+          "verdict_label": "Promising — worth exploring with Bern units",
+          "components": {
+            "domain_fit": 14.2,
+            "swiss_proximity": 0.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 16.9,
+            "focused_keywords": 13.9,
+            "partnership_readiness": 4.8
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.753,
+            "best_capability": "diabetes_cgm",
+            "needs_scored": [
+              "european clinical partners",
+              "aid integration",
+              "academic research"
+            ],
+            "focus_cluster": "diabetes_care",
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 26.4,
+              "breadth": 6.3,
+              "needs_alignment": 3.6,
+              "bern_presence": 0.0,
+              "focus_synergy": 10.0,
+              "evidence": 8.0
+            },
+            "capability_points": 50.6,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 92.5,
+            "focused_keywords": [
+              "continuous glucose monitoring",
+              "glucose monitoring",
+              "diabetes",
+              "glucose",
+              "sensors",
+              "type 1 diabetes",
+              "type 2 diabetes",
+              "insulin delivery",
+              "wearable devices",
+              "implants",
+              "insulin"
+            ],
+            "focused_early_keywords": [
+              "continuous glucose monitoring",
+              "glucose monitoring",
+              "diabetes",
+              "glucose",
+              "type 1 diabetes",
+              "type 2 diabetes",
+              "insulin delivery",
+              "wearable devices"
+            ],
+            "verdict": "promising",
+            "verdict_label": "Promising — worth exploring with Bern units",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 59.8,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "diabetes_cgm",
+              "name": "Diabetes & Continuous Glucose Monitoring",
+              "score": 15.3,
+              "overlap_terms": [
+                "diabetes",
+                "cgm",
+                "glucose",
+                "insulin",
+                "type 1",
+                "type 2",
+                "aid",
+                "pump",
+                "continuous glucose monitoring"
+              ],
+              "source": "Diabetes Center Berne"
+            },
+            {
+              "id": "biomed_eng",
+              "name": "Biomedical Engineering & Medical Devices",
+              "score": 6.2,
+              "overlap_terms": [
+                "medical device",
+                "medtech",
+                "implant",
+                "sensor",
+                "wearable"
+              ],
+              "source": "ARTORG Center"
+            },
+            {
+              "id": "digital_health",
+              "name": "Digital Health & Remote Monitoring",
+              "score": 3.74,
+              "overlap_terms": [
+                "health data",
+                "connected device"
+              ],
+              "source": "ARTORG / Diabetes Center Berne"
+            },
+            {
+              "id": "metabolic_nutrition",
+              "name": "Metabolic Health & Nutrition Science",
+              "score": 0.8,
+              "overlap_terms": [
+                "metabolic"
+              ],
+              "source": "University of Bern / Diabetes Center Berne"
+            }
+          ],
+          "bern_records_loaded": 0,
+          "why_not_higher": [
+            "HQ outside Switzerland — lower proximity score.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ]
+        },
+        "reasoning": {
+          "summary": "59.8% collaboration potential — Promising — worth exploring with Bern units. Top capability: Diabetes & Continuous Glucose Monitoring via diabetes, cgm, glucose, insulin.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'medtech' is within the life-science domain.",
+            "P1 — collaboration potential 60%. Queue for navigator; lead with 'diabetes'.",
+            "Promising — worth exploring with Bern units (59.8%).",
+            "Collaboration potential 59.8% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 10.0/10 + capability overlap 16.9/25 + focused keywords 13.9/15 + partnership readiness 4.8/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+            "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+10.0).",
+            "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, type 1, type 2 (linked to stated needs: aid). Source ecosystem: Diabetes Center Berne.",
+            "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, implant, sensor, wearable. Source ecosystem: ARTORG Center.",
+            "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: health data, connected device. Source ecosystem: ARTORG / Diabetes Center Berne.",
+            "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+            "HQ outside Switzerland — lower proximity score.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "promising",
+            "verdict_label": "Promising — worth exploring with Bern units",
+            "components": {
+              "domain_fit": 14.2,
+              "swiss_proximity": 0.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 16.9,
+              "focused_keywords": 13.9,
+              "partnership_readiness": 4.8
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.753,
+              "best_capability": "diabetes_cgm",
+              "needs_scored": [
+                "european clinical partners",
+                "aid integration",
+                "academic research"
+              ],
+              "focus_cluster": "diabetes_care",
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 26.4,
+                "breadth": 6.3,
+                "needs_alignment": 3.6,
+                "bern_presence": 0.0,
+                "focus_synergy": 10.0,
+                "evidence": 8.0
+              },
+              "capability_points": 50.6,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 92.5,
+              "focused_keywords": [
+                "continuous glucose monitoring",
+                "glucose monitoring",
+                "diabetes",
+                "glucose",
+                "sensors",
+                "type 1 diabetes",
+                "type 2 diabetes",
+                "insulin delivery",
+                "wearable devices",
+                "implants",
+                "insulin"
+              ],
+              "focused_early_keywords": [
+                "continuous glucose monitoring",
+                "glucose monitoring",
+                "diabetes",
+                "glucose",
+                "type 1 diabetes",
+                "type 2 diabetes",
+                "insulin delivery",
+                "wearable devices"
+              ],
+              "verdict": "promising",
+              "verdict_label": "Promising — worth exploring with Bern units",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 59.8,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "diabetes_cgm",
+                "name": "Diabetes & Continuous Glucose Monitoring",
+                "score": 15.3,
+                "overlap_terms": [
+                  "diabetes",
+                  "cgm",
+                  "glucose",
+                  "insulin",
+                  "type 1",
+                  "type 2",
+                  "aid",
+                  "pump",
+                  "continuous glucose monitoring"
+                ],
+                "source": "Diabetes Center Berne"
+              },
+              {
+                "id": "biomed_eng",
+                "name": "Biomedical Engineering & Medical Devices",
+                "score": 6.2,
+                "overlap_terms": [
+                  "medical device",
+                  "medtech",
+                  "implant",
+                  "sensor",
+                  "wearable"
+                ],
+                "source": "ARTORG Center"
+              },
+              {
+                "id": "digital_health",
+                "name": "Digital Health & Remote Monitoring",
+                "score": 3.74,
+                "overlap_terms": [
+                  "health data",
+                  "connected device"
+                ],
+                "source": "ARTORG / Diabetes Center Berne"
+              },
+              {
+                "id": "metabolic_nutrition",
+                "name": "Metabolic Health & Nutrition Science",
+                "score": 0.8,
+                "overlap_terms": [
+                  "metabolic"
+                ],
+                "source": "University of Bern / Diabetes Center Berne"
+              }
+            ],
+            "bern_records_loaded": 0,
+            "why_not_higher": [
+              "HQ outside Switzerland — lower proximity score.",
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+            ]
+          },
+          "focus_synergy": [
+            "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+10.0)."
+          ],
+          "economic_hooks": [
+            "Clinical / KOL need → Inselspital + UniBE investigator matching.",
+            "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
+            "Medtech / AI fit → ARTORG co-development and validation pathway."
+          ],
+          "bern_units": [
+            "Diabetes Center Berne",
+            "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+            "ARTORG Center for Biomedical Engineering Research",
+            "ARTORG"
+          ],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P1",
+            "priority_stage": "early",
+            "run_first": [
+              "diabetes",
+              "cgm",
+              "continuous glucose monitoring",
+              "glucose monitoring",
+              "type 1 diabetes",
+              "type 2 diabetes",
+              "insulin delivery",
+              "wearable devices"
+            ],
+            "run_later": [
+              "type 1",
+              "type 2",
+              "implants",
+              "aid",
+              "pump",
+              "medical device",
+              "medtech",
+              "implant",
+              "sensor",
+              "wearable"
+            ],
+            "capability_ids": [
+              "diabetes_cgm",
+              "biomed_eng",
+              "digital_health",
+              "metabolic_nutrition"
+            ]
+          }
+        },
+        "early_keywords": [
+          "diabetes",
+          "cgm",
+          "continuous glucose monitoring",
+          "glucose monitoring",
+          "type 1 diabetes",
+          "type 2 diabetes",
+          "insulin delivery",
+          "wearable devices"
+        ],
+        "mid_keywords": [
+          "type 1",
+          "type 2",
+          "implants",
+          "aid",
+          "pump",
+          "medical device",
+          "medtech",
+          "implant"
+        ],
+        "late_keywords": [
+          "sensor",
+          "wearable",
+          "health data",
+          "connected device",
+          "metabolic",
+          "insulin pump",
+          "glucose",
+          "implantable",
+          "insulin"
+        ],
+        "early_relevance": [
+          {
+            "term": "diabetes",
+            "stage": "early",
+            "cluster_id": "diabetes_care",
+            "cluster_label": "Diabetes care & insulin delivery",
+            "count": 13,
+            "lead_count": 7,
+            "relevance": 80.5,
+            "semantic_boost": 8.0
+          },
+          {
+            "term": "cgm",
+            "stage": "early",
+            "cluster_id": "glucose_sensing",
+            "cluster_label": "Glucose sensing / CGM",
+            "count": 10,
+            "lead_count": 8,
+            "relevance": 76.2,
+            "semantic_boost": 8.0
+          },
+          {
+            "term": "continuous glucose monitoring",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "glucose monitoring",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "type 1 diabetes",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "type 2 diabetes",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "insulin delivery",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "wearable devices",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          }
+        ],
+        "focus_clusters": [
+          {
+            "id": "diabetes_care",
+            "label": "Diabetes care & insulin delivery",
+            "stage": "early",
+            "canonical": "diabetes",
+            "count": 19,
+            "lead_count": 11,
+            "relevance": 100.0,
+            "top_term": "diabetes"
+          },
+          {
+            "id": "glucose_sensing",
+            "label": "Glucose sensing / CGM",
+            "stage": "early",
+            "canonical": "continuous glucose monitoring",
+            "count": 11,
+            "lead_count": 8,
+            "relevance": 94.7,
+            "top_term": "cgm"
+          },
+          {
+            "id": "medtech_devices",
+            "label": "Medical devices / medtech",
+            "stage": "mid",
+            "canonical": "medical device",
+            "count": 1,
+            "lead_count": 0,
+            "relevance": 25.2,
+            "top_term": "implantable"
+          }
+        ],
+        "bern_units": [
+          "Diabetes Center Berne",
+          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+          "ARTORG Center for Biomedical Engineering Research",
+          "ARTORG"
+        ],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Clinical / KOL need → Inselspital + UniBE investigator matching.",
+          "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
+          "Medtech / AI fit → ARTORG co-development and validation pathway."
+        ],
+        "capability_matches": [
+          {
+            "id": "diabetes_cgm",
+            "name": "Diabetes & Continuous Glucose Monitoring",
+            "score": 15.3,
+            "overlap_terms": [
+              "diabetes",
+              "cgm",
+              "glucose",
+              "insulin",
+              "type 1",
+              "type 2",
+              "aid",
+              "pump",
+              "continuous glucose monitoring"
+            ],
+            "source": "Diabetes Center Berne",
+            "units": [
+              "Diabetes Center Berne",
+              "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+            ],
+            "reason": "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, type 1, type 2 (linked to stated needs: aid). Source ecosystem: Diabetes Center Berne."
+          },
+          {
+            "id": "biomed_eng",
+            "name": "Biomedical Engineering & Medical Devices",
+            "score": 6.2,
+            "overlap_terms": [
+              "medical device",
+              "medtech",
+              "implant",
+              "sensor",
+              "wearable"
+            ],
+            "source": "ARTORG Center",
+            "units": [
+              "ARTORG Center for Biomedical Engineering Research"
+            ],
+            "reason": "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, implant, sensor, wearable. Source ecosystem: ARTORG Center."
+          },
+          {
+            "id": "digital_health",
+            "name": "Digital Health & Remote Monitoring",
+            "score": 3.74,
+            "overlap_terms": [
+              "health data",
+              "connected device"
+            ],
+            "source": "ARTORG / Diabetes Center Berne",
+            "units": [
+              "ARTORG",
+              "Diabetes Center Berne"
+            ],
+            "reason": "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: health data, connected device. Source ecosystem: ARTORG / Diabetes Center Berne."
+          },
+          {
+            "id": "metabolic_nutrition",
+            "name": "Metabolic Health & Nutrition Science",
+            "score": 0.8,
+            "overlap_terms": [
+              "metabolic"
+            ],
+            "source": "University of Bern / Diabetes Center Berne",
+            "units": [
+              "Diabetes Center Berne",
+              "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+            ],
+            "reason": "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne."
+          }
+        ],
+        "teammate_queries_early": [
+          "diabetes",
+          "cgm",
+          "continuous glucose monitoring",
+          "glucose monitoring",
+          "type 1 diabetes",
+          "type 2 diabetes",
+          "insulin delivery",
+          "wearable devices"
+        ],
+        "teammate_queries_later": [
+          "type 1",
+          "type 2",
+          "implants",
+          "aid",
+          "pump",
+          "medical device",
+          "medtech",
+          "implant",
+          "sensor",
+          "wearable"
+        ],
+        "suggested_queries": [
+          "glucose sensors",
+          "continuous glucose monitoring",
+          "biosensing",
+          "cgm",
+          "diabetes",
+          "glucose",
+          "metabolic",
+          "glucose monitoring",
+          "type 1 diabetes",
+          "type 2 diabetes"
+        ],
+        "handoff_note": "P1 — collaboration potential 60%. Queue for navigator; lead with 'diabetes'."
+      },
+      "extraction": {
+        "confidence": 0.95,
+        "method": "llm-profile",
+        "warnings": [
+          "Web enrich disabled (set WEB_ENRICH=1). Name-only seeds force a search."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P1",
+        "priority_stage": "early",
+        "priority_score": 78.9
+      },
+      "source_text_excerpt": "Dexcom G7 15 Day is the longest lasting and most accurate CGM sensor, a connected device to better control your diabetes, lower A1C and improve your health.\n\nDexcom G7 15 Day CGM Sensor for Managing Diabetes | Dexcom\n\nUS\nEN ES\nOverview\nOverview Type 1 Type 2 Gestational How it works Cost & Coverage Medicare\nGet started\nType 1 diabetes\nLearn more\nType 2 diabetes\nLearn more\nGestational diabetes\nLearn more\nCost and coverage\nDexcom is the most widely covered CGM brand, ||,3 and most covered patients pay $20 or less per month. ¶,3 It’s also the preferred CGM for Medicare Advantage patients at pharmacy. #,3\nLearn more\nConnected partners\nDexcom is the leader in CGM connectivity, offering the most connected CGM systems. 3 Connect to a wide range of compatible pumps, ** pens, and health apps to create a setup that fits your life, your way.\nExplore partners\nDexcom All Access Learning Hub\nInterested in learning more? Check out the Dexcom All Access learning hub for fun and easy-to-read articles about diabetes management tips and tricks, product deep dives, clinical education, and real user stories.\nStart learning\nGet Started with Dexcom\nTake the first step towards better health! Glucose health is a critical part of overall health, and Dexcom has a sensing solution for you or your loved one regardless of your health goals. We'll make getting started easy from the comfort of your home.\n* Fingersticks required for diabetes treatment decisions if symptoms or expectations do not match readings. †To view a list of compatible devices, visit dexcom.com/compatibility . ‡A study was conducted to assess the sensor life where 73.9% of sensors lasted the full 15 days. When using the product per the package labeling, approximately 26% of sensors may not last for the full 15 days. §Excludes implantable CGM systems.\n||Individual coverage may vary depending on insurance plan. ¶Individual pricing may vary depending on insurance coverage. IQVIA FIA retail data, paid sensor claims. #Preferred refers to the coverage tier of health insurance plans' formulary lists. Coverage criteria may vary by plan. **To learn more about insulin pump integrations and compatibility with Dexcom CGM Systems, visit https://www.dexcom.com/connectedpumps\n1 Ehrhardt N, et al. Clin Diabetes. 2020:38(2):126-131. 2 Clark TL, et al. Diabetes Technol Ther. 2024;26(10):700-8. 3 Dexcom, Data on File, 2025. 4 Beck, RW, et al. JAMA. 2017;317(4):371-378. 5 Beck RW, et al. Ann Intern Med. 2017;167(6):365-374. 6 Martens T, et al. JAMA. 2021;325(22):2262-2272. 7 Garg SK, et al. Diabetes Technol Ther. 2025;27(6):413-502. 8 Welsh JB, et al. J Diabetes Sci Technol. 2024;18(1):143-7.\nMAT-10578\nAbout Dexcom\nAbout Dexcom\nAbout Us All Access learning hub Leadership Dexcom Media Kit News Careers Contact Dexcom Ventures Investors Partnership Interest\nTerms & Policies\nTerms & Policies\nNotice of Privacy Practices Dexcom Cookie Policy US State Privacy Rights Consumer Health Data Privacy Policy Your Privacy Choices Ethics, Integrity & Compliance Security at Dexcom Trademark & Copyright Policy Third Party Inventor Policy Sensor Replacement Policy\nInformation\nInformation\nHealthcare Professionals Developers Dexcom System Status Dexcom Distributors Portal Dexcom Procurement Accessibility Google API Limited Disclosure Safety Information\nPrivacy Policy Terms of Use Dexcom, Dexcom Clarity, Dexcom Follow, Dexcom One, Dexcom Share, Stelo, and any related logos and design marks are either registered trademarks or trademarks of Dexcom, Inc. in the United States and/or other countries.\nMAT-5161\n• MAT-10578\n© 2026 Dexcom, Inc. All rights reserved.\nUS\nChange region"
+    }
+  ]
+}

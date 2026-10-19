@@ -1,0 +1,689 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T11:59:59.138281+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T11:59:59.138263+00:00",
+      "id": "unknown",
+      "name": "浙江海昇药业股份有限公司",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "https://www.zcpc.net",
+        "source_type": "url",
+        "source_ref": "https://www.zcpc.net",
+        "meta_title": "Zhejiang Haisheng Pharmaceutical Co., Ltd. - Trusted API Manufacturer",
+        "meta_description": "The company independently mastered the synthesis technology of the main products in the sulfonamide API and intermediate industry chain made of basic chemical raw materials, and produced veterinary APIs with antimicrobial and parasite as the core and pharmaceutical APIs with antipyretic, analgesic and antibacterial as the core. It has the advantages of synchronous development of veterinary APIs, pharmaceutical APIs and pharmaceutical intermediates.",
+        "fetched_language": "zh",
+        "translated_to_english": true,
+        "translation_method": "deep_translator",
+        "web_enrich_method": "disabled",
+        "web_sources": [],
+        "summary_method": "rules"
+      },
+      "profile": {
+        "sector": "pharma",
+        "subsector": null,
+        "description": "The company independently mastered the synthesis technology of the main products in the sulfonamide API and intermediate industry chain made of basic chemical raw materials, and produced veterinary APIs with antimicrobial and parasite as the core and pharmaceutical APIs with antipyretic, analgesic and antibacterial as the core. It has the advantages of synchronous development of veterinary APIs, pharmaceutical APIs and pharmaceutical intermediates.",
+        "what_they_do": "Pharmaceutical company (source terms: veterinary).",
+        "keywords": [
+          "veterinary"
+        ],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "none",
+          "evidence": null,
+          "url": null,
+          "verified": false
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 34.9,
+        "tier": "Possible — need more signal",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 / front relevance — strongest keyword 'veterinary medicine' (48.0% relevance). Collaboration potential 35%.",
+          "Possible — gather more needs / capability detail (34.9%).",
+          "Collaboration potential 34.9% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 8.5/10 + capability overlap 7.6/25 + focused keywords 3.8/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "Aligns with Bern capability 'One Health & Veterinary Sciences' via terms: veterinary. Source ecosystem: University of Bern.",
+          "Verified Bern match: Committee Members (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary. Source: https://www.mic.unibe.ch/about_us/committee_members",
+          "Verified Bern match: NCCS-Impacts-Health project (unit, Institute of Social and Preventive Medicine) matches on expertise: veterinary medicine, veterinary. Source: https://www.ispm.unibe.ch/research/research_groups_and_themes/climate_epidemiology_and_public_health/nccs_impacts_health_project/index_eng.html",
+          "Verified Bern match: Prof. Dr. Sabine Kässmeyer (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary; description: veterinary. Source: https://www.mic.unibe.ch/about_us/staff/kaessmeyer_sabine",
+          "HQ outside Switzerland — lower proximity score.",
+          "No stated partnership needs (clinical validation, university, talent…)."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "components": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 0.0,
+            "signal_depth": 8.5,
+            "capability_overlap": 7.6,
+            "focused_keywords": 3.8,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.11,
+            "best_capability": "one_health_vet",
+            "needs_scored": [],
+            "evidence_source": "bern_records",
+            "capability_components": {
+              "capability_fit": 3.9,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 19.0
+            },
+            "capability_points": 22.8,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 25.0,
+            "focused_keywords": [
+              "veterinary medicine",
+              "parasitology"
+            ],
+            "focused_early_keywords": [],
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 34.9,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "one_health_vet",
+              "name": "One Health & Veterinary Sciences",
+              "score": 0.7,
+              "overlap_terms": [
+                "veterinary"
+              ],
+              "source": "University of Bern"
+            }
+          ],
+          "bern_records_loaded": 180,
+          "why_not_higher": [
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
+          ]
+        },
+        "reasoning": {
+          "summary": "34.9% collaboration potential — Possible — gather more needs / capability detail. Top capability: One Health & Veterinary Sciences via veterinary.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'pharma' is within the life-science domain.",
+            "P3 / front relevance — strongest keyword 'veterinary medicine' (48.0% relevance). Collaboration potential 35%.",
+            "Possible — gather more needs / capability detail (34.9%).",
+            "Collaboration potential 34.9% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 8.5/10 + capability overlap 7.6/25 + focused keywords 3.8/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'pharma' maps to Bern's life-science value proposition.",
+            "Aligns with Bern capability 'One Health & Veterinary Sciences' via terms: veterinary. Source ecosystem: University of Bern.",
+            "Verified Bern match: Committee Members (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary. Source: https://www.mic.unibe.ch/about_us/committee_members",
+            "Verified Bern match: NCCS-Impacts-Health project (unit, Institute of Social and Preventive Medicine) matches on expertise: veterinary medicine, veterinary. Source: https://www.ispm.unibe.ch/research/research_groups_and_themes/climate_epidemiology_and_public_health/nccs_impacts_health_project/index_eng.html",
+            "Verified Bern match: Prof. Dr. Sabine Kässmeyer (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary; description: veterinary. Source: https://www.mic.unibe.ch/about_us/staff/kaessmeyer_sabine",
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…)."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "components": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 0.0,
+              "signal_depth": 8.5,
+              "capability_overlap": 7.6,
+              "focused_keywords": 3.8,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.11,
+              "best_capability": "one_health_vet",
+              "needs_scored": [],
+              "evidence_source": "bern_records",
+              "capability_components": {
+                "capability_fit": 3.9,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 19.0
+              },
+              "capability_points": 22.8,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 25.0,
+              "focused_keywords": [
+                "veterinary medicine",
+                "parasitology"
+              ],
+              "focused_early_keywords": [],
+              "verdict": "possible",
+              "verdict_label": "Possible — gather more needs / capability detail",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 34.9,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "one_health_vet",
+                "name": "One Health & Veterinary Sciences",
+                "score": 0.7,
+                "overlap_terms": [
+                  "veterinary"
+                ],
+                "source": "University of Bern"
+              }
+            ],
+            "bern_records_loaded": 180,
+            "why_not_higher": [
+              "HQ outside Switzerland — lower proximity score.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+          ],
+          "bern_units": [
+            "Vetsuisse Faculty",
+            "Committee Members",
+            "NCCS-Impacts-Health project",
+            "Prof. Dr. Sabine Kässmeyer"
+          ],
+          "bern_matches": [
+            {
+              "record_id": "mic-0101",
+              "name": "Committee Members",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Microscopy Imaging Center",
+              "expertise": [
+                "biomedical engineering",
+                "immunology",
+                "infectious diseases",
+                "drug discovery",
+                "cell biology",
+                "microscopy",
+                "veterinary medicine",
+                "infectious",
+                "pharmacology",
+                "veterinary"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.mic.unibe.ch/about_us/committee_members",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "veterinary",
+                "veterinary medicine"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "veterinary medicine",
+                  "veterinary"
+                ]
+              },
+              "reason": "Committee Members (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary."
+            },
+            {
+              "record_id": "ispm-0090",
+              "name": "NCCS-Impacts-Health project",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Social and Preventive Medicine",
+              "expertise": [
+                "epidemiology",
+                "veterinary medicine",
+                "veterinary"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/climate_epidemiology_and_public_health/nccs_impacts_health_project/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "veterinary",
+                "veterinary medicine"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "veterinary medicine",
+                  "veterinary"
+                ]
+              },
+              "reason": "NCCS-Impacts-Health project (unit, Institute of Social and Preventive Medicine) matches on expertise: veterinary medicine, veterinary."
+            },
+            {
+              "record_id": "mic-0102",
+              "name": "Prof. Dr. Sabine Kässmeyer",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Microscopy Imaging Center",
+              "expertise": [
+                "epidemiology",
+                "veterinary medicine",
+                "veterinary"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.mic.unibe.ch/about_us/staff/kaessmeyer_sabine",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "veterinary",
+                "veterinary medicine"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "veterinary medicine",
+                  "veterinary"
+                ],
+                "description": [
+                  "veterinary"
+                ]
+              },
+              "reason": "Prof. Dr. Sabine Kässmeyer (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary; description: veterinary."
+            },
+            {
+              "record_id": "focused-ispm-reported-research-finding-at-university-of-bern",
+              "name": "Reported research finding at University of Bern",
+              "type": "project",
+              "role": null,
+              "unit": "",
+              "institution": "University of Bern",
+              "expertise": [
+                "veterinary medicine",
+                "climate research",
+                "Reported research finding",
+                "Research project or activity",
+                "Research technology or method"
+              ],
+              "projects": [
+                "Reported research finding at University of Bern"
+              ],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/about_us/news/new_forecasting_tool_helps_hospitals_prepare_for_heat_related_demand/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "veterinary",
+                "veterinary medicine"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "veterinary medicine",
+                  "veterinary"
+                ]
+              },
+              "reason": "Reported research finding at University of Bern (project, University of Bern) matches on expertise: veterinary medicine, veterinary."
+            },
+            {
+              "record_id": "ita-vetsuisse-0122",
+              "name": "Services",
+              "type": "service",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Animal Pathology, Vetsuisse",
+              "expertise": [
+                "microscopy",
+                "veterinary medicine",
+                "microscopes",
+                "microscope",
+                "veterinary"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ita.vetsuisse.unibe.ch/services/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "veterinary",
+                "veterinary medicine"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "veterinary medicine",
+                  "veterinary"
+                ],
+                "description": [
+                  "veterinary"
+                ]
+              },
+              "reason": "Services (service, Institute of Animal Pathology, Vetsuisse) matches on expertise: veterinary medicine, veterinary; description: veterinary."
+            }
+          ],
+          "backend_hints": {
+            "priority_rating": "P3",
+            "priority_stage": "mid",
+            "run_first": [
+              "veterinary medicine",
+              "parasitology",
+              "veterinary"
+            ],
+            "run_later": [],
+            "capability_ids": [
+              "one_health_vet"
+            ]
+          }
+        },
+        "early_keywords": [
+          "veterinary medicine",
+          "parasitology",
+          "veterinary"
+        ],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [
+          {
+            "term": "veterinary medicine",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "parasitology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "veterinary",
+            "stage": "early",
+            "count": 1,
+            "relevance": 42.0,
+            "cluster_label": "capability overlap"
+          }
+        ],
+        "focus_clusters": [],
+        "bern_units": [
+          "Vetsuisse Faculty",
+          "Committee Members",
+          "NCCS-Impacts-Health project",
+          "Prof. Dr. Sabine Kässmeyer"
+        ],
+        "bern_matches": [
+          {
+            "record_id": "mic-0101",
+            "name": "Committee Members",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Microscopy Imaging Center",
+            "expertise": [
+              "biomedical engineering",
+              "immunology",
+              "infectious diseases",
+              "drug discovery",
+              "cell biology",
+              "microscopy",
+              "veterinary medicine",
+              "infectious",
+              "pharmacology",
+              "veterinary"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.mic.unibe.ch/about_us/committee_members",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "veterinary",
+              "veterinary medicine"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "veterinary medicine",
+                "veterinary"
+              ]
+            },
+            "reason": "Committee Members (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary."
+          },
+          {
+            "record_id": "ispm-0090",
+            "name": "NCCS-Impacts-Health project",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "epidemiology",
+              "veterinary medicine",
+              "veterinary"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/climate_epidemiology_and_public_health/nccs_impacts_health_project/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "veterinary",
+              "veterinary medicine"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "veterinary medicine",
+                "veterinary"
+              ]
+            },
+            "reason": "NCCS-Impacts-Health project (unit, Institute of Social and Preventive Medicine) matches on expertise: veterinary medicine, veterinary."
+          },
+          {
+            "record_id": "mic-0102",
+            "name": "Prof. Dr. Sabine Kässmeyer",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Microscopy Imaging Center",
+            "expertise": [
+              "epidemiology",
+              "veterinary medicine",
+              "veterinary"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.mic.unibe.ch/about_us/staff/kaessmeyer_sabine",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "veterinary",
+              "veterinary medicine"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "veterinary medicine",
+                "veterinary"
+              ],
+              "description": [
+                "veterinary"
+              ]
+            },
+            "reason": "Prof. Dr. Sabine Kässmeyer (unit, Microscopy Imaging Center) matches on expertise: veterinary medicine, veterinary; description: veterinary."
+          },
+          {
+            "record_id": "focused-ispm-reported-research-finding-at-university-of-bern",
+            "name": "Reported research finding at University of Bern",
+            "type": "project",
+            "role": null,
+            "unit": "",
+            "institution": "University of Bern",
+            "expertise": [
+              "veterinary medicine",
+              "climate research",
+              "Reported research finding",
+              "Research project or activity",
+              "Research technology or method"
+            ],
+            "projects": [
+              "Reported research finding at University of Bern"
+            ],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/about_us/news/new_forecasting_tool_helps_hospitals_prepare_for_heat_related_demand/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "veterinary",
+              "veterinary medicine"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "veterinary medicine",
+                "veterinary"
+              ]
+            },
+            "reason": "Reported research finding at University of Bern (project, University of Bern) matches on expertise: veterinary medicine, veterinary."
+          },
+          {
+            "record_id": "ita-vetsuisse-0122",
+            "name": "Services",
+            "type": "service",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Animal Pathology, Vetsuisse",
+            "expertise": [
+              "microscopy",
+              "veterinary medicine",
+              "microscopes",
+              "microscope",
+              "veterinary"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ita.vetsuisse.unibe.ch/services/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "veterinary",
+              "veterinary medicine"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "veterinary medicine",
+                "veterinary"
+              ],
+              "description": [
+                "veterinary"
+              ]
+            },
+            "reason": "Services (service, Institute of Animal Pathology, Vetsuisse) matches on expertise: veterinary medicine, veterinary; description: veterinary."
+          }
+        ],
+        "economic_hooks": [
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+        ],
+        "capability_matches": [
+          {
+            "id": "one_health_vet",
+            "name": "One Health & Veterinary Sciences",
+            "score": 0.7,
+            "overlap_terms": [
+              "veterinary"
+            ],
+            "source": "University of Bern",
+            "units": [
+              "Vetsuisse Faculty"
+            ],
+            "reason": "Aligns with Bern capability 'One Health & Veterinary Sciences' via terms: veterinary. Source ecosystem: University of Bern."
+          }
+        ],
+        "teammate_queries_early": [
+          "veterinary medicine",
+          "parasitology",
+          "veterinary"
+        ],
+        "teammate_queries_later": [],
+        "suggested_queries": [
+          "veterinary",
+          "veterinary medicine",
+          "parasitology"
+        ],
+        "handoff_note": "P3 / front relevance — strongest keyword 'veterinary medicine' (48.0% relevance). Collaboration potential 35%."
+      },
+      "extraction": {
+        "confidence": 0.88,
+        "method": "rules",
+        "warnings": [
+          "LLM translation unavailable (start Ollama or set LLM_* for Apertus).",
+          "Source language 'zh' normalized to English via deep_translator.",
+          "Web enrich disabled (set WEB_ENRICH=1). Name-only seeds force a search.",
+          "LLM skipped: an earlier call in this request timed out.",
+          "LLM profile: no valid JSON returned; using rule-based fields."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P3",
+        "priority_stage": "mid",
+        "priority_score": 35.3
+      },
+      "source_text_excerpt": "The company independently mastered the synthesis technology of the main products in the sulfonamide API and intermediate industry chain made of basic chemical raw materials, and produced veterinary APIs with antimicrobial and parasite as the core and pharmaceutical APIs with antipyretic, analgesic and antibacterial as the core. It has the advantages of synchronous development of veterinary APIs, pharmaceutical APIs and pharmaceutical intermediates.\n\nZhejiang Haisheng Pharmaceutical Co., Ltd. - Trusted API Manufacturer"
+    }
+  ]
+}

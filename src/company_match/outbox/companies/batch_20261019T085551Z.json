@@ -1,0 +1,121 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T08:55:51.092043+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T08:55:51.092016+00:00",
+      "id": "mabwell",
+      "name": "Mabwell",
+      "domain": "life_science",
+      "in_scope": false,
+      "website_info": {
+        "url": "https://mabwell.com/en/#section-2",
+        "source_type": "url",
+        "source_ref": "https://mabwell.com/en/#section-2",
+        "meta_title": "",
+        "meta_description": "",
+        "fetched_language": "zh",
+        "translated_to_english": true,
+        "translation_method": "deep_translator",
+        "web_enrich_method": "none",
+        "web_sources": [],
+        "summary_method": "rules"
+      },
+      "profile": {
+        "sector": null,
+        "subsector": null,
+        "description": "Mabwell: limited public detail in the source.",
+        "what_they_do": "Life-science company.",
+        "keywords": [],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "none",
+          "evidence": null,
+          "url": null,
+          "verified": false
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 0.0,
+        "tier": "Out of scope — not life science",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Insufficient life-science evidence in the source — not matched in this domain layer.",
+          "No Bern life-science match computed for out-of-domain companies."
+        ],
+        "score_breakdown": {
+          "match_rate": 0.0,
+          "why_not_higher": [
+            "Out of life-science scope."
+          ]
+        },
+        "reasoning": {
+          "summary": "Out of life-science scope — match rate 0.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Insufficient life-science evidence in the source — not matched in this domain layer."
+          ],
+          "score_breakdown": {
+            "match_rate": 0.0
+          },
+          "backend_hints": {
+            "priority_rating": "P4",
+            "priority_stage": "none"
+          }
+        },
+        "early_keywords": [],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [],
+        "focus_clusters": [],
+        "bern_units": [],
+        "bern_matches": [],
+        "economic_hooks": [],
+        "capability_matches": [],
+        "teammate_queries_early": [],
+        "teammate_queries_later": [],
+        "suggested_queries": [],
+        "handoff_note": "Out of life-science scope — do not queue for navigator matching."
+      },
+      "extraction": {
+        "confidence": 0.35,
+        "method": "rules",
+        "warnings": [
+          "LLM translation unavailable (start Ollama or set LLM_* for Apertus).",
+          "Source language 'zh' normalized to English via deep_translator.",
+          "LLM skipped: an earlier call in this request timed out.",
+          "Web enrich found no public results for 'Mabwell'.",
+          "Name-only seed 'Mabwell' — web search found no usable public results.",
+          "LLM skipped: an earlier call in this request timed out.",
+          "LLM profile: no valid JSON returned; using rule-based fields.",
+          "Insufficient life-science evidence in the source — not matched in this domain layer."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P4",
+        "priority_stage": "none",
+        "priority_score": 0.0
+      },
+      "source_text_excerpt": "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS"
+    }
+  ]
+}

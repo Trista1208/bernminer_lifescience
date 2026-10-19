@@ -1,0 +1,375 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T09:33:44.795863+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T09:33:44.795842+00:00",
+      "id": "mabwell",
+      "name": "Mabwell",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "https://mabwell.com/en/",
+        "source_type": "url",
+        "source_ref": "https://mabwell.com/en/",
+        "meta_title": "",
+        "meta_description": "Mabwell is a biopharmaceutical company that focuses on developing innovative therapies for cancer treatment. Headquartered in Cambridge, Massachusetts, USA, Mabwell operates within the biotech sector. Their main products include monoclonal antibodies designed to target specific cancer cells, and they are currently developing a pipeline of immunotherapies.",
+        "fetched_language": "zh",
+        "translated_to_english": true,
+        "translation_method": "deep_translator",
+        "web_enrich_method": "llm-knowledge:ollama:qwen2.5:3b+snippet",
+        "web_sources": [],
+        "summary_method": "ollama:qwen2.5:3b"
+      },
+      "profile": {
+        "sector": "pharma",
+        "subsector": null,
+        "description": "Headquartered in Cambridge, Massachusetts, USA, Mabwell operates within the biotech sector. Their main products include monoclonal antibodies designed to target specific cancer cells, and they are currently developing a pipeline of immunotherapies.",
+        "what_they_do": "Mabwell is a biopharmaceutical company that focuses on developing innovative therapies for cancer treatment.",
+        "keywords": [
+          "pharmaceutical",
+          "pharma",
+          "biotech",
+          "biopharma"
+        ],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "none",
+          "evidence": null,
+          "url": null,
+          "verified": false
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 35.0,
+        "tier": "Possible — need more signal",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 / front relevance — strongest keyword 'immunotherapy' (48.0% relevance). Collaboration potential 35%.",
+          "Possible — gather more needs / capability detail (35.0%).",
+          "Collaboration potential 35.0% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 10.0/10 + capability overlap 5.5/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: immunology, biotech, immunotherapy, biopharma. Source ecosystem: University of Bern.",
+          "HQ outside Switzerland — lower proximity score.",
+          "No stated partnership needs (clinical validation, university, talent…)."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "components": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 0.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 5.5,
+            "focused_keywords": 4.5,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.383,
+            "best_capability": "biologics_immuno",
+            "needs_scored": [],
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 13.4,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 3.2
+            },
+            "capability_points": 16.6,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 30.0,
+            "focused_keywords": [
+              "immunology",
+              "immunotherapy",
+              "oncology"
+            ],
+            "focused_early_keywords": [],
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 35.0,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "biologics_immuno",
+              "name": "Biologics, Immunology & Biomanufacturing Talent",
+              "score": 3.2,
+              "overlap_terms": [
+                "immunology",
+                "biotech",
+                "immunotherapy",
+                "biopharma"
+              ],
+              "source": "University of Bern"
+            }
+          ],
+          "bern_records_loaded": 0,
+          "why_not_higher": [
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ]
+        },
+        "reasoning": {
+          "summary": "35.0% collaboration potential — Possible — gather more needs / capability detail. Top capability: Biologics, Immunology & Biomanufacturing Talent via immunology, biotech, immunotherapy, biopharma.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'pharma' is within the life-science domain.",
+            "P3 / front relevance — strongest keyword 'immunotherapy' (48.0% relevance). Collaboration potential 35%.",
+            "Possible — gather more needs / capability detail (35.0%).",
+            "Collaboration potential 35.0% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 10.0/10 + capability overlap 5.5/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'pharma' maps to Bern's life-science value proposition.",
+            "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: immunology, biotech, immunotherapy, biopharma. Source ecosystem: University of Bern.",
+            "HQ outside Switzerland — lower proximity score.",
+            "No stated partnership needs (clinical validation, university, talent…)."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "components": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 0.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 5.5,
+              "focused_keywords": 4.5,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.383,
+              "best_capability": "biologics_immuno",
+              "needs_scored": [],
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 13.4,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 3.2
+              },
+              "capability_points": 16.6,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 30.0,
+              "focused_keywords": [
+                "immunology",
+                "immunotherapy",
+                "oncology"
+              ],
+              "focused_early_keywords": [],
+              "verdict": "possible",
+              "verdict_label": "Possible — gather more needs / capability detail",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 35.0,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "biologics_immuno",
+                "name": "Biologics, Immunology & Biomanufacturing Talent",
+                "score": 3.2,
+                "overlap_terms": [
+                  "immunology",
+                  "biotech",
+                  "immunotherapy",
+                  "biopharma"
+                ],
+                "source": "University of Bern"
+              }
+            ],
+            "bern_records_loaded": 0,
+            "why_not_higher": [
+              "HQ outside Switzerland — lower proximity score.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+          ],
+          "bern_units": [
+            "Faculty of Medicine",
+            "Institute of Immunology"
+          ],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P3",
+            "priority_stage": "mid",
+            "run_first": [
+              "immunotherapy",
+              "oncology",
+              "biotech",
+              "immunology",
+              "pharmaceutical",
+              "pharma",
+              "biopharma"
+            ],
+            "run_later": [
+              "biopharma",
+              "immunology"
+            ],
+            "capability_ids": [
+              "biologics_immuno"
+            ]
+          }
+        },
+        "early_keywords": [
+          "immunotherapy",
+          "oncology",
+          "biotech"
+        ],
+        "mid_keywords": [
+          "biopharma",
+          "immunology"
+        ],
+        "late_keywords": [],
+        "early_relevance": [
+          {
+            "term": "immunotherapy",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "oncology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "biotech",
+            "stage": "early",
+            "count": 1,
+            "relevance": 42.0,
+            "cluster_label": "capability overlap"
+          }
+        ],
+        "focus_clusters": [
+          {
+            "id": "biologics",
+            "label": "Biologics / biomanufacturing",
+            "stage": "late",
+            "canonical": "biologics",
+            "count": 1,
+            "lead_count": 0,
+            "relevance": 25.2,
+            "top_term": "immunology"
+          }
+        ],
+        "bern_units": [
+          "Faculty of Medicine",
+          "Institute of Immunology"
+        ],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+        ],
+        "capability_matches": [
+          {
+            "id": "biologics_immuno",
+            "name": "Biologics, Immunology & Biomanufacturing Talent",
+            "score": 3.2,
+            "overlap_terms": [
+              "immunology",
+              "biotech",
+              "immunotherapy",
+              "biopharma"
+            ],
+            "source": "University of Bern",
+            "units": [
+              "Faculty of Medicine",
+              "Institute of Immunology"
+            ],
+            "reason": "Aligns with Bern capability 'Biologics, Immunology & Biomanufacturing Talent' via terms: immunology, biotech, immunotherapy, biopharma. Source ecosystem: University of Bern."
+          }
+        ],
+        "teammate_queries_early": [
+          "immunotherapy",
+          "oncology",
+          "biotech",
+          "immunology",
+          "pharmaceutical",
+          "pharma",
+          "biopharma"
+        ],
+        "teammate_queries_later": [
+          "biopharma",
+          "immunology"
+        ],
+        "suggested_queries": [
+          "immunology",
+          "oncology",
+          "biotech",
+          "immunotherapy",
+          "pharmaceutical",
+          "pharma",
+          "biopharma"
+        ],
+        "handoff_note": "P3 / front relevance — strongest keyword 'immunotherapy' (48.0% relevance). Collaboration potential 35%."
+      },
+      "extraction": {
+        "confidence": 0.95,
+        "method": "llm-summary",
+        "warnings": [
+          "LLM translation unavailable (start Ollama or set LLM_* for Apertus).",
+          "Source language 'zh' normalized to English via deep_translator."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P3",
+        "priority_stage": "mid",
+        "priority_score": 38.1
+      },
+      "source_text_excerpt": "QUERY LENGTH LIMIT EXCEEDED. MAX ALLOWED QUERY : 500 CHARS\n\nCompany name: Mabwell\n\nWebsite: https://mabwell.com/en/\n\n[1] Mabwell (LLM knowledge)\nMabwell is a biopharmaceutical company that focuses on developing innovative therapies for cancer treatment. Headquartered in Cambridge, Massachusetts, USA, Mabwell operates within the biotech sector. Their main products include monoclonal antibodies designed to target specific cancer cells, and they are currently developing a pipeline of immunotherapies.\nSource:"
+    }
+  ]
+}

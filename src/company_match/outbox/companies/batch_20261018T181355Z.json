@@ -1,0 +1,647 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-18T18:13:55.057555+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-18T18:13:55.057446+00:00",
+      "id": "ypsomed",
+      "name": "Ypsomed",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": null,
+        "source_type": "text",
+        "source_ref": "inline",
+        "meta_title": "",
+        "meta_description": "Ypsomed is a medical technology company that specializes in the development and production of precision injection devices. Their headquarters are located in Littau, Switzerland. Ypsomed offers a range of products including insulin pens and other injection systems designed to improve patient care in diabetes management.",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "llm-knowledge:ollama:qwen2.5:7b+snippet",
+        "web_sources": [],
+        "summary_method": "ollama:qwen2.5:7b"
+      },
+      "profile": {
+        "sector": "medtech",
+        "subsector": "diabetes / metabolic",
+        "description": "Their headquarters are located in Littau, Switzerland. Ypsomed offers a range of products including insulin pens and other injection systems designed to improve patient care in diabetes management.",
+        "what_they_do": "Ypsomed is a medical technology company that specializes in the development and production of precision injection devices.",
+        "keywords": [
+          "diabetes",
+          "insulin",
+          "medical devices",
+          "injection"
+        ],
+        "needs": [],
+        "hq_city": null,
+        "hq_country": null,
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "none",
+          "evidence": null,
+          "url": null,
+          "verified": false
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "Primary focus signals: Diabetes care & insulin delivery (69.4% relevance, n=4); Medical devices / medtech (69.4% relevance, n=4).",
+          "focus_clusters": [
+            {
+              "id": "diabetes_care",
+              "label": "Diabetes care & insulin delivery",
+              "stage": "early",
+              "canonical": "diabetes",
+              "count": 4,
+              "lead_count": 4,
+              "relevance": 69.4,
+              "top_term": "diabetes"
+            },
+            {
+              "id": "medtech_devices",
+              "label": "Medical devices / medtech",
+              "stage": "mid",
+              "canonical": "medical device",
+              "count": 4,
+              "lead_count": 4,
+              "relevance": 69.4,
+              "top_term": "injection"
+            }
+          ],
+          "early_ranked": [
+            {
+              "term": "injection",
+              "stage": "mid",
+              "cluster_id": "medtech_devices",
+              "cluster_label": "Medical devices / medtech",
+              "count": 4,
+              "lead_count": 4,
+              "relevance": 62.0,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "diabetes",
+              "stage": "mid",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 2,
+              "lead_count": 2,
+              "relevance": 43.8,
+              "semantic_boost": 8.0
+            },
+            {
+              "term": "insulin",
+              "stage": "mid",
+              "cluster_id": "diabetes_care",
+              "cluster_label": "Diabetes care & insulin delivery",
+              "count": 2,
+              "lead_count": 2,
+              "relevance": 43.8,
+              "semantic_boost": 8.0
+            }
+          ],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 87.0,
+        "tier": "Strong collaboration potential",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'medtech' is within the life-science domain.",
+          "P1 — collaboration potential 87%. Queue for navigator; lead with 'continuous glucose monitoring'.",
+          "Strong potential — prioritize outreach (87.0%).",
+          "Collaboration potential 87.0% = domain fit 14.2/15 + swiss proximity 15.0/15 + signal depth 10.0/10 + capability overlap 14.3/25 + focused keywords 13.5/15 + partnership readiness 20.0/20.",
+          "Ypsomed already has presence in Canton of Bern (Burgdorf), raising strategic priority.",
+          "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+          "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+6.9).",
+          "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, pump, continuous glucose monitoring. Source ecosystem: Diabetes Center Berne.",
+          "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, medical technology. Source ecosystem: ARTORG Center.",
+          "Aligns with Bern capability 'Translational & Clinical Research' via terms: clinical validation (linked to stated needs: clinical validation). Source ecosystem: University of Bern / Inselspital.",
+          "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+          "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "strong",
+          "verdict_label": "Strong potential — prioritize outreach",
+          "components": {
+            "domain_fit": 14.2,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 14.3,
+            "focused_keywords": 13.5,
+            "partnership_readiness": 20.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.667,
+            "best_capability": "diabetes_cgm",
+            "needs_scored": [
+              "clinical validation",
+              "closed-loop algorithms",
+              "university collaboration",
+              "talent"
+            ],
+            "focus_cluster": "diabetes_care",
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 23.3,
+              "breadth": 4.7,
+              "needs_alignment": 15.0,
+              "bern_presence": 10.0,
+              "focus_synergy": 6.9,
+              "evidence": 8.0
+            },
+            "capability_points": 43.0,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 90.0,
+            "focused_keywords": [
+              "continuous glucose monitoring",
+              "clinical validation",
+              "glucose monitoring",
+              "insulin delivery",
+              "medical devices",
+              "diabetes",
+              "glucose",
+              "insulin"
+            ],
+            "focused_early_keywords": [
+              "continuous glucose monitoring",
+              "clinical validation",
+              "glucose monitoring",
+              "insulin delivery",
+              "diabetes",
+              "glucose",
+              "insulin"
+            ],
+            "verdict": "strong",
+            "verdict_label": "Strong potential — prioritize outreach",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 87.0,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [
+            {
+              "id": "diabetes_cgm",
+              "name": "Diabetes & Continuous Glucose Monitoring",
+              "score": 8.28,
+              "overlap_terms": [
+                "diabetes",
+                "cgm",
+                "glucose",
+                "insulin",
+                "pump",
+                "continuous glucose monitoring"
+              ],
+              "source": "Diabetes Center Berne"
+            },
+            {
+              "id": "biomed_eng",
+              "name": "Biomedical Engineering & Medical Devices",
+              "score": 5.4,
+              "overlap_terms": [
+                "medical device",
+                "medtech",
+                "medical technology"
+              ],
+              "source": "ARTORG Center"
+            },
+            {
+              "id": "translational_medicine",
+              "name": "Translational & Clinical Research",
+              "score": 3.37,
+              "overlap_terms": [
+                "clinical validation"
+              ],
+              "source": "University of Bern / Inselspital"
+            },
+            {
+              "id": "metabolic_nutrition",
+              "name": "Metabolic Health & Nutrition Science",
+              "score": 0.8,
+              "overlap_terms": [
+                "metabolic"
+              ],
+              "source": "University of Bern / Diabetes Center Berne"
+            }
+          ],
+          "bern_records_loaded": 0,
+          "why_not_higher": [
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ]
+        },
+        "reasoning": {
+          "summary": "87.0% collaboration potential — Strong potential — prioritize outreach. Top capability: Diabetes & Continuous Glucose Monitoring via diabetes, cgm, glucose, insulin.",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'medtech' is within the life-science domain.",
+            "P1 — collaboration potential 87%. Queue for navigator; lead with 'continuous glucose monitoring'.",
+            "Strong potential — prioritize outreach (87.0%).",
+            "Collaboration potential 87.0% = domain fit 14.2/15 + swiss proximity 15.0/15 + signal depth 10.0/10 + capability overlap 14.3/25 + focused keywords 13.5/15 + partnership readiness 20.0/20.",
+            "Ypsomed already has presence in Canton of Bern (Burgdorf), raising strategic priority.",
+            "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+            "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+6.9).",
+            "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, pump, continuous glucose monitoring. Source ecosystem: Diabetes Center Berne.",
+            "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, medical technology. Source ecosystem: ARTORG Center.",
+            "Aligns with Bern capability 'Translational & Clinical Research' via terms: clinical validation (linked to stated needs: clinical validation). Source ecosystem: University of Bern / Inselspital.",
+            "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "strong",
+            "verdict_label": "Strong potential — prioritize outreach",
+            "components": {
+              "domain_fit": 14.2,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 14.3,
+              "focused_keywords": 13.5,
+              "partnership_readiness": 20.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.667,
+              "best_capability": "diabetes_cgm",
+              "needs_scored": [
+                "clinical validation",
+                "closed-loop algorithms",
+                "university collaboration",
+                "talent"
+              ],
+              "focus_cluster": "diabetes_care",
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 23.3,
+                "breadth": 4.7,
+                "needs_alignment": 15.0,
+                "bern_presence": 10.0,
+                "focus_synergy": 6.9,
+                "evidence": 8.0
+              },
+              "capability_points": 43.0,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 90.0,
+              "focused_keywords": [
+                "continuous glucose monitoring",
+                "clinical validation",
+                "glucose monitoring",
+                "insulin delivery",
+                "medical devices",
+                "diabetes",
+                "glucose",
+                "insulin"
+              ],
+              "focused_early_keywords": [
+                "continuous glucose monitoring",
+                "clinical validation",
+                "glucose monitoring",
+                "insulin delivery",
+                "diabetes",
+                "glucose",
+                "insulin"
+              ],
+              "verdict": "strong",
+              "verdict_label": "Strong potential — prioritize outreach",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 87.0,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [
+              {
+                "id": "diabetes_cgm",
+                "name": "Diabetes & Continuous Glucose Monitoring",
+                "score": 8.28,
+                "overlap_terms": [
+                  "diabetes",
+                  "cgm",
+                  "glucose",
+                  "insulin",
+                  "pump",
+                  "continuous glucose monitoring"
+                ],
+                "source": "Diabetes Center Berne"
+              },
+              {
+                "id": "biomed_eng",
+                "name": "Biomedical Engineering & Medical Devices",
+                "score": 5.4,
+                "overlap_terms": [
+                  "medical device",
+                  "medtech",
+                  "medical technology"
+                ],
+                "source": "ARTORG Center"
+              },
+              {
+                "id": "translational_medicine",
+                "name": "Translational & Clinical Research",
+                "score": 3.37,
+                "overlap_terms": [
+                  "clinical validation"
+                ],
+                "source": "University of Bern / Inselspital"
+              },
+              {
+                "id": "metabolic_nutrition",
+                "name": "Metabolic Health & Nutrition Science",
+                "score": 0.8,
+                "overlap_terms": [
+                  "metabolic"
+                ],
+                "source": "University of Bern / Diabetes Center Berne"
+              }
+            ],
+            "bern_records_loaded": 0,
+            "why_not_higher": [
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+            ]
+          },
+          "focus_synergy": [
+            "Main theme 'diabetes_care' maps to Bern capability 'diabetes_cgm' (+6.9)."
+          ],
+          "economic_hooks": [
+            "Already present in Canton of Bern — deepen academia / talent links.",
+            "Clinical / KOL need → Inselspital + UniBE investigator matching.",
+            "Talent / university need → UniBE graduate & partnership pipeline.",
+            "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
+            "Medtech / AI fit → ARTORG co-development and validation pathway."
+          ],
+          "bern_units": [
+            "Diabetes Center Berne",
+            "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+            "ARTORG Center for Biomedical Engineering Research",
+            "Inselspital",
+            "sitem-insel",
+            "Faculty of Medicine UniBE"
+          ],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P1",
+            "priority_stage": "early",
+            "run_first": [
+              "continuous glucose monitoring",
+              "clinical validation",
+              "glucose monitoring",
+              "insulin delivery",
+              "glucose",
+              "glucose sensors",
+              "biosensing",
+              "cgm"
+            ],
+            "run_later": [
+              "injection",
+              "medical devices",
+              "diabetes",
+              "insulin",
+              "cgm",
+              "pump",
+              "medical device",
+              "medtech",
+              "medical technology",
+              "metabolic"
+            ],
+            "capability_ids": [
+              "diabetes_cgm",
+              "biomed_eng",
+              "translational_medicine",
+              "metabolic_nutrition"
+            ]
+          }
+        },
+        "early_keywords": [
+          "continuous glucose monitoring",
+          "clinical validation",
+          "glucose monitoring",
+          "insulin delivery",
+          "glucose"
+        ],
+        "mid_keywords": [
+          "injection",
+          "medical devices",
+          "diabetes",
+          "insulin",
+          "cgm"
+        ],
+        "late_keywords": [
+          "pump",
+          "medical device",
+          "medtech",
+          "medical technology",
+          "metabolic"
+        ],
+        "early_relevance": [
+          {
+            "term": "continuous glucose monitoring",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "clinical validation",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "glucose monitoring",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "insulin delivery",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "glucose",
+            "stage": "early",
+            "count": 2,
+            "relevance": 72.0,
+            "cluster_label": "focused-crawler"
+          }
+        ],
+        "focus_clusters": [
+          {
+            "id": "diabetes_care",
+            "label": "Diabetes care & insulin delivery",
+            "stage": "early",
+            "canonical": "diabetes",
+            "count": 4,
+            "lead_count": 4,
+            "relevance": 69.4,
+            "top_term": "diabetes"
+          },
+          {
+            "id": "medtech_devices",
+            "label": "Medical devices / medtech",
+            "stage": "mid",
+            "canonical": "medical device",
+            "count": 4,
+            "lead_count": 4,
+            "relevance": 69.4,
+            "top_term": "injection"
+          }
+        ],
+        "bern_units": [
+          "Diabetes Center Berne",
+          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+          "ARTORG Center for Biomedical Engineering Research",
+          "Inselspital",
+          "sitem-insel",
+          "Faculty of Medicine UniBE"
+        ],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Already present in Canton of Bern — deepen academia / talent links.",
+          "Clinical / KOL need → Inselspital + UniBE investigator matching.",
+          "Talent / university need → UniBE graduate & partnership pipeline.",
+          "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
+          "Medtech / AI fit → ARTORG co-development and validation pathway."
+        ],
+        "capability_matches": [
+          {
+            "id": "diabetes_cgm",
+            "name": "Diabetes & Continuous Glucose Monitoring",
+            "score": 8.28,
+            "overlap_terms": [
+              "diabetes",
+              "cgm",
+              "glucose",
+              "insulin",
+              "pump",
+              "continuous glucose monitoring"
+            ],
+            "source": "Diabetes Center Berne",
+            "units": [
+              "Diabetes Center Berne",
+              "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+            ],
+            "reason": "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, cgm, glucose, insulin, pump, continuous glucose monitoring. Source ecosystem: Diabetes Center Berne."
+          },
+          {
+            "id": "biomed_eng",
+            "name": "Biomedical Engineering & Medical Devices",
+            "score": 5.4,
+            "overlap_terms": [
+              "medical device",
+              "medtech",
+              "medical technology"
+            ],
+            "source": "ARTORG Center",
+            "units": [
+              "ARTORG Center for Biomedical Engineering Research"
+            ],
+            "reason": "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech, medical technology. Source ecosystem: ARTORG Center."
+          },
+          {
+            "id": "translational_medicine",
+            "name": "Translational & Clinical Research",
+            "score": 3.37,
+            "overlap_terms": [
+              "clinical validation"
+            ],
+            "source": "University of Bern / Inselspital",
+            "units": [
+              "Inselspital",
+              "sitem-insel",
+              "Faculty of Medicine UniBE"
+            ],
+            "reason": "Aligns with Bern capability 'Translational & Clinical Research' via terms: clinical validation (linked to stated needs: clinical validation). Source ecosystem: University of Bern / Inselspital."
+          },
+          {
+            "id": "metabolic_nutrition",
+            "name": "Metabolic Health & Nutrition Science",
+            "score": 0.8,
+            "overlap_terms": [
+              "metabolic"
+            ],
+            "source": "University of Bern / Diabetes Center Berne",
+            "units": [
+              "Diabetes Center Berne",
+              "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+            ],
+            "reason": "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne."
+          }
+        ],
+        "teammate_queries_early": [
+          "continuous glucose monitoring",
+          "clinical validation",
+          "glucose monitoring",
+          "insulin delivery",
+          "glucose",
+          "glucose sensors",
+          "biosensing",
+          "cgm"
+        ],
+        "teammate_queries_later": [
+          "injection",
+          "medical devices",
+          "diabetes",
+          "insulin",
+          "cgm",
+          "pump",
+          "medical device",
+          "medtech",
+          "medical technology",
+          "metabolic"
+        ],
+        "suggested_queries": [
+          "glucose sensors",
+          "continuous glucose monitoring",
+          "biosensing",
+          "cgm",
+          "diabetes",
+          "glucose",
+          "clinical validation",
+          "metabolic",
+          "glucose monitoring",
+          "insulin delivery"
+        ],
+        "handoff_note": "P1 — collaboration potential 87%. Queue for navigator; lead with 'continuous glucose monitoring'."
+      },
+      "extraction": {
+        "confidence": 0.95,
+        "method": "llm-summary",
+        "warnings": []
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P1",
+        "priority_stage": "early",
+        "priority_score": 100.0
+      },
+      "source_text_excerpt": "Ypsomed\n\nCompany name: Ypsomed\n\n[1] Ypsomed\nYpsomed is a medical technology company that specializes in the development and production of precision injection devices. Their headquarters are located in Littau, Switzerland. Ypsomed offers a range of products including insulin pens and other injection systems designed to improve patient care in diabetes management.\nSource:"
+    }
+  ]
+}
