@@ -124,6 +124,17 @@ python -m navigator focused-crawl --max-fetches 150 --export data/highlights.jso
 python -m company_match import-focused data/highlights.json   # → Bern records for matching
 ```
 
+Sorted crawl HTML from the team corpus lives under `data/raw/`. To merge it into
+the company-match engine without a live crawl:
+
+```bash
+export PYTHONPATH=src
+python -m company_match import-raw \
+  --only artorg dcberne medizin dbmr ispm img neuroscience mic ikim ifik irm ibmm iml dcbp
+# writes src/company_match/data/bern_records/focused_from_raw.json
+python -m company_match bern-records --query 'diabetes,cgm' --limit 8
+```
+
 ## License
 
 All Hack Apertus projects are open-sourced. Please check our Terms & Conditions for specific licensing details (6. What you build is open source): https://hackapertus.ch/terms-and-conditions

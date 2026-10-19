@@ -43,7 +43,9 @@ def _finding_to_record(finding: dict[str, Any]) -> dict[str, Any] | None:
 
     fid = str(finding.get("id") or "").strip()
     if not fid:
-        fid = re.sub(r"[^a-z0-9]+", "-", (finding.get("title") or "finding").lower())[:48]
+        slug = re.sub(r"[^a-z0-9]+", "-", (finding.get("title") or "finding").lower())[:40].strip("-")
+        digest = re.sub(r"[^a-z0-9]", "", (urls[0] if urls else slug).lower())[-12:] or "x"
+        fid = f"{slug}-{digest}"
     name = (finding.get("title") or finding.get("original_name") or "").strip()
     if len(name) < 3:
         return None
@@ -56,7 +58,7 @@ def _finding_to_record(finding: dict[str, Any]) -> dict[str, Any] | None:
     institution = orgs[0] if orgs else (finding.get("unit") or "")
 
     return {
-        "id": f"focused-{fid}",
+        "id": fid if fid.startswith("focused-") else f"focused-{fid}",
         "name": name[:200],
         "type": _TYPE_MAP.get(str(finding.get("type") or ""), "project"),
         "unit": finding.get("unit") or "",
@@ -88,6 +90,7 @@ def import_focused_export(
         raise ValueError("focused export must be {findings:[...]} or a JSON array")
 
     records: list[dict[str, Any]] = []
+    seen_ids: set[str] = set()
     for f in findings:
         if not isinstance(f, dict):
             continue
@@ -99,8 +102,14 @@ def import_focused_export(
         if top < min_score:
             continue
         rec = _finding_to_record(f)
-        if rec:
-            records.append(rec)
+        if not rec:
+            continue
+        rid = rec["id"]
+        if rid in seen_ids:
+            # Same title/url can appear twice; keep first (higher score after sort)
+            continue
+        seen_ids.add(rid)
+        records.append(rec)
 
     dest = Path(out) if out else DEFAULT_OUT
     dest.parent.mkdir(parents=True, exist_ok=True)

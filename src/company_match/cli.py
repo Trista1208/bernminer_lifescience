@@ -350,6 +350,23 @@ def cmd_import_focused(args: argparse.Namespace) -> int:
     return 0
 
 
+def cmd_import_raw(args: argparse.Namespace) -> int:
+    """Run focused rules offline on data/raw and import into Bern records."""
+    from company_match.raw_focused_import import import_raw_corpus
+
+    result = import_raw_corpus(
+        only=args.only or None,
+        max_pages=args.max_pages,
+        min_score=args.min_score,
+        highlights_out=args.highlights_out,
+        bern_out=args.out,
+    )
+    print(json.dumps({k: v for k, v in result.items() if k != "stats"}, indent=2))
+    print("stats:", json.dumps(result.get("stats") or {}, indent=2)[:2000])
+    print("Company match will load Bern records on the next run / API restart.")
+    return 0
+
+
 def cmd_focused_keywords(args: argparse.Namespace) -> int:
     """Show teammate focused-crawler vocabulary, or tag a text blob."""
     from company_match.focused_keywords import tag_text, vocabulary_summary
@@ -520,6 +537,17 @@ def build_parser() -> argparse.ArgumentParser:
     fi.add_argument("--min-score", type=int, default=2, choices=(2, 3, 4),
                     help="Minimum focused priority score to import")
     fi.set_defaults(func=cmd_import_focused)
+
+    ir = sub.add_parser(
+        "import-raw",
+        help="Offline: run focused selection on data/raw crawl corpus → data/bern_records/",
+    )
+    ir.add_argument("--only", nargs="+", help="Limit to source ids (e.g. artorg dcberne medizin)")
+    ir.add_argument("--max-pages", type=int, default=None, help="Cap pages processed (smoke tests)")
+    ir.add_argument("--min-score", type=int, default=2, choices=(2, 3, 4))
+    ir.add_argument("--out", help="Bern records JSON path")
+    ir.add_argument("--highlights-out", help="Intermediate highlights JSON path")
+    ir.set_defaults(func=cmd_import_raw)
 
     fk = sub.add_parser(
         "focused-keywords",
