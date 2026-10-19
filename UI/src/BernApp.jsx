@@ -659,7 +659,7 @@ export default function BernApp() {
       <main className="main" key={step}>{view}</main>
       <footer className="foot no-print">
         <span>BearMiner · Dig Bern gold from life-science partners · built with Apertus</span>
-        {!window.claude && <a href="?classic">Classic analyst view</a>}
+        <a href="?classic">Classic analyst view</a>
       </footer>
     </div>
   );

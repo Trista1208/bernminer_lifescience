@@ -295,17 +295,6 @@ export async function downloadLetter(payload, filename) {
     throw new Error("PDF export needs letter data (card/choice), not a DOM screenshot.");
   }
   const pdf = await letterToPdf(payload);
-  const downloads = window.claude?.use ? await window.claude.use("downloads") : null;
-  if (downloads) {
-    try {
-      await downloads.save({ filename, data: pdf.output("blob") });
-      return "saved";
-    } catch (e) {
-      if (e?.code === "declined") return "declined";
-      throw new Error(e?.message || "The download was not allowed in this view.");
-    }
-  }
-  if (window.claude) throw new Error("Downloads aren't available in this view.");
   pdf.save(filename);
   return "saved";
 }
