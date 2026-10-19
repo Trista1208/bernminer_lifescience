@@ -1,0 +1,935 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T13:05:27.123123+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T13:05:27.123108+00:00",
+      "id": "novartis",
+      "name": "novartis",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "http://www.novartis.com",
+        "source_type": "text",
+        "source_ref": "inline",
+        "meta_title": "",
+        "meta_description": "Novartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland. Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "wikipedia+snippet",
+        "web_sources": [
+          "http://www.novartis.com/about-novartis/company-history/index.shtml",
+          "https://en.wikipedia.org/wiki/Novartis"
+        ],
+        "summary_method": "ollama:qwen2.5:3b"
+      },
+      "profile": {
+        "sector": "pharma",
+        "subsector": null,
+        "description": "It is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024. Novartis focuses on developing and manufacturing drugs for various diseases including cancer, cardiovascular disorders, and infectious diseases.",
+        "what_they_do": "Novartis is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland.",
+        "keywords": [
+          "pharmaceutical",
+          "pharma"
+        ],
+        "needs": [],
+        "hq_city": "Basel",
+        "hq_country": "Switzerland",
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "wikidata",
+          "evidence": "Wikidata Q507154 (matched by exact name + company description)",
+          "url": "https://www.wikidata.org/wiki/Q507154",
+          "verified": true
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 49.3,
+        "tier": "Possible — need more signal",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
+          "Possible — gather more needs / capability detail (49.3%).",
+          "Collaboration potential 49.3% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 10.0/10 + capability overlap 6.3/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "Verified Bern match: Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology. Source: https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+          "Verified Bern match: MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology. Source: https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+          "Verified Bern match: National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology. Source: https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+          "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+          "Swiss company but no Canton of Bern site yet.",
+          "No stated partnership needs (clinical validation, university, talent…)."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "components": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 13.5,
+            "signal_depth": 10.0,
+            "capability_overlap": 6.3,
+            "focused_keywords": 4.5,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.0,
+            "best_capability": null,
+            "needs_scored": [],
+            "evidence_source": "bern_records",
+            "capability_components": {
+              "capability_fit": 0.0,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 19.0
+            },
+            "capability_points": 19.0,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 30.0,
+            "focused_keywords": [
+              "infectious disease",
+              "cardiology",
+              "oncology"
+            ],
+            "focused_early_keywords": [],
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 49.3,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [],
+          "bern_records_loaded": 287,
+          "why_not_higher": [
+            "Swiss company but no Canton of Bern site yet.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
+          ]
+        },
+        "reasoning": {
+          "summary": "49.3% collaboration potential — Possible — gather more needs / capability detail. Top capability: none yet (domain/Swiss proximity still score).",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'pharma' is within the life-science domain.",
+            "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
+            "Possible — gather more needs / capability detail (49.3%).",
+            "Collaboration potential 49.3% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 10.0/10 + capability overlap 6.3/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'pharma' maps to Bern's life-science value proposition.",
+            "Verified Bern match: Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology. Source: https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+            "Verified Bern match: MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology. Source: https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+            "Verified Bern match: National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology. Source: https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+            "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+            "Swiss company but no Canton of Bern site yet.",
+            "No stated partnership needs (clinical validation, university, talent…)."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "components": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 13.5,
+              "signal_depth": 10.0,
+              "capability_overlap": 6.3,
+              "focused_keywords": 4.5,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.0,
+              "best_capability": null,
+              "needs_scored": [],
+              "evidence_source": "bern_records",
+              "capability_components": {
+                "capability_fit": 0.0,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 19.0
+              },
+              "capability_points": 19.0,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 30.0,
+              "focused_keywords": [
+                "infectious disease",
+                "cardiology",
+                "oncology"
+              ],
+              "focused_early_keywords": [],
+              "verdict": "possible",
+              "verdict_label": "Possible — gather more needs / capability detail",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 49.3,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [],
+            "bern_records_loaded": 287,
+            "why_not_higher": [
+              "Swiss company but no Canton of Bern site yet.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+          ],
+          "bern_units": [
+            "MSc theses carried out at the ICB",
+            "Partners",
+            "Research Group: Cancer",
+            "Research Group: Environmental and Spatial Epidemiology",
+            "Research Group: HIV, Hepatitis and Tuberculosis"
+          ],
+          "bern_matches": [
+            {
+              "record_id": "focused-dbmr-research-project-or-activity-at-universi-866cda799cce",
+              "name": "Heller Lab",
+              "type": "project",
+              "role": null,
+              "unit": "",
+              "institution": "University of Bern",
+              "expertise": [
+                "laboratory services",
+                "mass spectrometry",
+                "respiratory medicine",
+                "cardiology",
+                "diagnostics",
+                "hematology",
+                "oncology",
+                "proteomics",
+                "Research project or activity",
+                "Available research capability"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "cardiology",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "cardiology",
+                  "oncology"
+                ]
+              },
+              "reason": "Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology."
+            },
+            {
+              "record_id": "izb-0117",
+              "name": "MSc theses carried out at the ICB",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Cell Biology",
+              "expertise": [
+                "oncology",
+                "infectious diseases",
+                "genomics",
+                "lab automation",
+                "tumor",
+                "infected",
+                "falciparum-infected",
+                "genome",
+                "genetic",
+                "optogenetic",
+                "high-throughput"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "focused-ispm-research-project-or-activity-at-universi-65cd29414d5a",
+              "name": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups",
+              "type": "project",
+              "role": null,
+              "unit": "",
+              "institution": "University of Bern",
+              "expertise": [
+                "infectious disease",
+                "oncology",
+                "public health",
+                "epidemiology",
+                "genomics",
+                "Research project or activity"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "tki-0127",
+              "name": "Partners",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Theodor Kocher Institute",
+              "expertise": [
+                "metabolism",
+                "neuroscience",
+                "oncology",
+                "immunology",
+                "infectious diseases",
+                "drug discovery",
+                "cell biology",
+                "microscopy",
+                "obesity",
+                "brain",
+                "neurolisteriosis",
+                "blood-brain",
+                "cancer",
+                "tumor",
+                "anticancer",
+                "immune",
+                "immunosurveillance",
+                "viruses"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.tki.unibe.ch/continuing_education/phd_program_cell_migration/partners/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "Partners (unit, Theodor Kocher Institute) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "ispm-0082",
+              "name": "Research Group: Cancer",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Social and Preventive Medicine",
+              "expertise": [
+                "oncology",
+                "immunology",
+                "infectious diseases",
+                "epidemiology",
+                "cancer",
+                "pre-cancer",
+                "immunodeficiency",
+                "virus",
+                "cohort",
+                "multicohort"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/cancer/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "Research Group: Cancer (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "ispm-0084",
+              "name": "Research Group: Environmental and Spatial Epidemiology",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Social and Preventive Medicine",
+              "expertise": [
+                "oncology",
+                "infectious diseases",
+                "epidemiology",
+                "cancer",
+                "cancers",
+                "infections",
+                "cohort"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/environmental_and_spatial_epidemiology/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "Research Group: Environmental and Spatial Epidemiology (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "ispm-0085",
+              "name": "Research Group: HIV, Hepatitis and Tuberculosis",
+              "type": "unit",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Social and Preventive Medicine",
+              "expertise": [
+                "oncology",
+                "immunology",
+                "infectious diseases",
+                "genomics",
+                "epidemiology",
+                "cancer",
+                "cancers",
+                "immunodeficiency",
+                "antiretroviral",
+                "hiv-infected",
+                "infection",
+                "genome",
+                "sequencing",
+                "cohort",
+                "epidemiological"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/hiv_hepatitis_and_tuberculosis/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "Research Group: HIV, Hepatitis and Tuberculosis (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+            },
+            {
+              "record_id": "ispm-0080",
+              "name": "Research Group: Patient Safety in Health Services",
+              "type": "service",
+              "role": null,
+              "unit": null,
+              "institution": "Institute of Social and Preventive Medicine",
+              "expertise": [
+                "oncology",
+                "infectious diseases",
+                "drug discovery",
+                "epidemiology",
+                "cancer",
+                "oncology-pathology",
+                "antibiotic",
+                "infectious",
+                "pharmacology",
+                "pharmacological"
+              ],
+              "projects": [],
+              "infrastructure": [],
+              "services": [],
+              "contact": null,
+              "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/patient_safety_in_health_services/index_eng.html",
+              "extra_source_urls": [],
+              "score": 0.632,
+              "matched_terms": [
+                "infectious disease",
+                "oncology"
+              ],
+              "matched_fields": {
+                "expertise": [
+                  "infectious disease",
+                  "oncology"
+                ]
+              },
+              "reason": "Research Group: Patient Safety in Health Services (service, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+            }
+          ],
+          "backend_hints": {
+            "priority_rating": "P3",
+            "priority_stage": "mid",
+            "run_first": [
+              "infectious disease",
+              "cardiology",
+              "oncology",
+              "pharmaceutical",
+              "pharma"
+            ],
+            "run_later": [],
+            "capability_ids": []
+          }
+        },
+        "early_keywords": [
+          "infectious disease",
+          "cardiology",
+          "oncology"
+        ],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [
+          {
+            "term": "infectious disease",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "cardiology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          },
+          {
+            "term": "oncology",
+            "stage": "early",
+            "count": 1,
+            "relevance": 48.0,
+            "cluster_label": "focused-crawler"
+          }
+        ],
+        "focus_clusters": [],
+        "bern_units": [
+          "MSc theses carried out at the ICB",
+          "Partners",
+          "Research Group: Cancer",
+          "Research Group: Environmental and Spatial Epidemiology",
+          "Research Group: HIV, Hepatitis and Tuberculosis"
+        ],
+        "bern_matches": [
+          {
+            "record_id": "focused-dbmr-research-project-or-activity-at-universi-866cda799cce",
+            "name": "Heller Lab",
+            "type": "project",
+            "role": null,
+            "unit": "",
+            "institution": "University of Bern",
+            "expertise": [
+              "laboratory services",
+              "mass spectrometry",
+              "respiratory medicine",
+              "cardiology",
+              "diagnostics",
+              "hematology",
+              "oncology",
+              "proteomics",
+              "Research project or activity",
+              "Available research capability"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "cardiology",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "cardiology",
+                "oncology"
+              ]
+            },
+            "reason": "Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology."
+          },
+          {
+            "record_id": "izb-0117",
+            "name": "MSc theses carried out at the ICB",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Cell Biology",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "genomics",
+              "lab automation",
+              "tumor",
+              "infected",
+              "falciparum-infected",
+              "genome",
+              "genetic",
+              "optogenetic",
+              "high-throughput"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "focused-ispm-research-project-or-activity-at-universi-65cd29414d5a",
+            "name": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups",
+            "type": "project",
+            "role": null,
+            "unit": "",
+            "institution": "University of Bern",
+            "expertise": [
+              "infectious disease",
+              "oncology",
+              "public health",
+              "epidemiology",
+              "genomics",
+              "Research project or activity"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "tki-0127",
+            "name": "Partners",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Theodor Kocher Institute",
+            "expertise": [
+              "metabolism",
+              "neuroscience",
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "drug discovery",
+              "cell biology",
+              "microscopy",
+              "obesity",
+              "brain",
+              "neurolisteriosis",
+              "blood-brain",
+              "cancer",
+              "tumor",
+              "anticancer",
+              "immune",
+              "immunosurveillance",
+              "viruses"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.tki.unibe.ch/continuing_education/phd_program_cell_migration/partners/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Partners (unit, Theodor Kocher Institute) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0082",
+            "name": "Research Group: Cancer",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "epidemiology",
+              "cancer",
+              "pre-cancer",
+              "immunodeficiency",
+              "virus",
+              "cohort",
+              "multicohort"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/cancer/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Cancer (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0084",
+            "name": "Research Group: Environmental and Spatial Epidemiology",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "epidemiology",
+              "cancer",
+              "cancers",
+              "infections",
+              "cohort"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/environmental_and_spatial_epidemiology/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Environmental and Spatial Epidemiology (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0085",
+            "name": "Research Group: HIV, Hepatitis and Tuberculosis",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "genomics",
+              "epidemiology",
+              "cancer",
+              "cancers",
+              "immunodeficiency",
+              "antiretroviral",
+              "hiv-infected",
+              "infection",
+              "genome",
+              "sequencing",
+              "cohort",
+              "epidemiological"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/hiv_hepatitis_and_tuberculosis/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: HIV, Hepatitis and Tuberculosis (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0080",
+            "name": "Research Group: Patient Safety in Health Services",
+            "type": "service",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "drug discovery",
+              "epidemiology",
+              "cancer",
+              "oncology-pathology",
+              "antibiotic",
+              "infectious",
+              "pharmacology",
+              "pharmacological"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/patient_safety_in_health_services/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Patient Safety in Health Services (service, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          }
+        ],
+        "economic_hooks": [
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+        ],
+        "capability_matches": [],
+        "teammate_queries_early": [
+          "infectious disease",
+          "cardiology",
+          "oncology",
+          "pharmaceutical",
+          "pharma"
+        ],
+        "teammate_queries_later": [],
+        "suggested_queries": [
+          "cardiology",
+          "oncology",
+          "infectious disease",
+          "pharmaceutical",
+          "pharma"
+        ],
+        "handoff_note": "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%."
+      },
+      "extraction": {
+        "confidence": 0.93,
+        "method": "llm-summary",
+        "warnings": []
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P3",
+        "priority_stage": "mid",
+        "priority_score": 48.2
+      },
+      "source_text_excerpt": "novartis\n\nCompany name: Novartis\n\n[1] Novartis official site\nOfficial website: http://www.novartis.com/about-novartis/company-history/index.shtml\nSource: http://www.novartis.com/about-novartis/company-history/index.shtml\n\n[2] Novartis\nNovartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland. Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.\nSource: https://en.wikipedia.org/wiki/Novartis"
+    }
+  ]
+}

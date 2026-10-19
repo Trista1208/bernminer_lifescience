@@ -303,5 +303,12 @@ export function partnersFrom(card) {
     source: c.source,
     verified: false,
   }));
-  return [...fromRecords, ...fromCaps];
+  // Several crawled records can describe the same lab or page; show each name once.
+  const seen = new Set();
+  return [...fromRecords, ...fromCaps].filter((p) => {
+    const key = String(p.name || "").toLowerCase().replace(/\s+\d+$/, "").trim();
+    if (!key || seen.has(key)) return false;
+    seen.add(key);
+    return true;
+  });
 }

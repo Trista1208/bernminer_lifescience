@@ -1,129 +1,85 @@
 {
   "schema_version": "1.1",
-  "generated_at": "2026-10-19T10:05:56.569777+00:00",
+  "generated_at": "2026-10-19T13:05:27.070561+00:00",
   "domain": "life_science",
   "domain_label": "Life Science",
   "owner_layer": "company_match",
   "how_to_use": "Teammate does NOT need to run company_match. Read teammate_queue in order. For each company, run navigator search with run_first queries, then run_later. Keep source_ref for traceability.",
-  "source_count": 2,
-  "company_count": 2,
+  "source_count": 1,
+  "company_count": 1,
   "teammate_queue": [
     {
       "queue_position": 1,
-      "company_name": "Medtronic",
-      "priority_rating": "P2",
-      "priority_stage": "early",
-      "priority_score": 63.1,
-      "match_rate": 44.3,
+      "company_name": "novartis",
+      "priority_rating": "P3",
+      "priority_stage": "mid",
+      "priority_score": 48.2,
+      "match_rate": 49.3,
       "run_first": [
-        "patient monitoring",
-        "medical devices",
-        "musculoskeletal health",
-        "respiratory medicine",
+        "infectious disease",
         "cardiology",
-        "diagnostics",
-        "glucose sensors",
-        "continuous glucose monitoring"
+        "oncology",
+        "pharmaceutical",
+        "pharma"
       ],
-      "run_later": [
-        "neurology",
-        "surgery",
-        "navigation",
-        "insulin",
-        "medical device",
-        "medtech",
-        "metabolic",
-        "surgical navigation",
-        "surgical robotics",
-        "diabetes"
-      ],
+      "run_later": [],
       "bern_units": [
-        "ARTORG Center",
-        "Inselspital surgical research groups",
-        "Diabetes Center Berne",
-        "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
-        "ARTORG Center for Biomedical Engineering Research"
+        "MSc theses carried out at the ICB",
+        "Partners",
+        "Research Group: Cancer",
+        "Research Group: Environmental and Spatial Epidemiology",
+        "Research Group: HIV, Hepatitis and Tuberculosis"
       ],
-      "handoff_note": "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
+      "handoff_note": "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
       "source_ref": "inline"
     }
   ],
   "companies": [
     {
       "queue_position": 1,
-      "company_name": "Medtronic",
+      "company_name": "novartis",
       "in_scope": true,
       "domain": "life_science",
-      "priority_rating": "P2",
-      "priority_stage": "early",
-      "priority_score": 63.1,
-      "match_rate": 44.3,
+      "priority_rating": "P3",
+      "priority_stage": "mid",
+      "priority_score": 48.2,
+      "match_rate": 49.3,
       "tier": "Possible — need more signal",
       "run_first": [
-        "patient monitoring",
-        "medical devices",
-        "musculoskeletal health",
-        "respiratory medicine",
+        "infectious disease",
         "cardiology",
-        "diagnostics",
-        "glucose sensors",
-        "continuous glucose monitoring"
+        "oncology",
+        "pharmaceutical",
+        "pharma"
       ],
-      "run_later": [
-        "neurology",
-        "surgery",
-        "navigation",
-        "insulin",
-        "medical device",
-        "medtech",
-        "metabolic",
-        "surgical navigation",
-        "surgical robotics",
-        "diabetes"
-      ],
+      "run_later": [],
       "early_keywords": [
-        "patient monitoring",
-        "medical devices",
-        "musculoskeletal health",
-        "respiratory medicine",
+        "infectious disease",
         "cardiology",
-        "diagnostics"
+        "oncology"
       ],
-      "mid_keywords": [
-        "neurology",
-        "surgery",
-        "navigation",
-        "insulin",
-        "medical device",
-        "medtech"
-      ],
-      "late_keywords": [
-        "metabolic",
-        "surgical navigation",
-        "surgical robotics",
-        "diabetes"
-      ],
+      "mid_keywords": [],
+      "late_keywords": [],
       "bern_units": [
-        "ARTORG Center",
-        "Inselspital surgical research groups",
-        "Diabetes Center Berne",
-        "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
-        "ARTORG Center for Biomedical Engineering Research"
+        "MSc theses carried out at the ICB",
+        "Partners",
+        "Research Group: Cancer",
+        "Research Group: Environmental and Spatial Epidemiology",
+        "Research Group: HIV, Hepatitis and Tuberculosis"
       ],
       "reasons": [
         "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
-        "Sector 'medtech' is within the life-science domain.",
-        "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
-        "Possible — gather more needs / capability detail (44.3%).",
-        "Collaboration potential 44.3% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 10.2/25 + focused keywords 11.9/15 + partnership readiness 0.0/20.",
+        "Sector 'pharma' is within the life-science domain.",
+        "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
+        "Possible — gather more needs / capability detail (49.3%).",
+        "Collaboration potential 49.3% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 10.0/10 + capability overlap 6.3/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
         "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
-        "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
-        "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6).",
-        "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics, navigation, surgical navigation. Source ecosystem: ARTORG Center.",
-        "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, insulin, diagnostics. Source ecosystem: Diabetes Center Berne.",
-        "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech. Source ecosystem: ARTORG Center.",
-        "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
-        "HQ outside Switzerland — lower proximity score.",
+        "Sector 'pharma' maps to Bern's life-science value proposition.",
+        "Verified Bern match: Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology. Source: https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+        "Verified Bern match: MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology. Source: https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+        "Verified Bern match: National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology. Source: https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+        "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+        "Swiss company but no Canton of Bern site yet.",
         "No stated partnership needs (clinical validation, university, talent…)."
       ],
       "score_breakdown": {
@@ -132,11 +88,11 @@
         "verdict": "possible",
         "verdict_label": "Possible — gather more needs / capability detail",
         "components": {
-          "domain_fit": 14.2,
-          "swiss_proximity": 0.0,
-          "signal_depth": 8.0,
-          "capability_overlap": 10.2,
-          "focused_keywords": 11.9,
+          "domain_fit": 15.0,
+          "swiss_proximity": 13.5,
+          "signal_depth": 10.0,
+          "capability_overlap": 6.3,
+          "focused_keywords": 4.5,
           "partnership_readiness": 0.0
         },
         "component_max": {
@@ -148,113 +104,56 @@
           "partnership_readiness": 20.0
         },
         "details": {
-          "capability_fit_ratio": 0.419,
-          "best_capability": "surgical_robotics",
+          "capability_fit_ratio": 0.0,
+          "best_capability": null,
           "needs_scored": [],
-          "focus_cluster": "surgical_robotics",
-          "evidence_source": "term_proxy",
+          "evidence_source": "bern_records",
           "capability_components": {
-            "capability_fit": 14.7,
-            "breadth": 4.1,
+            "capability_fit": 0.0,
+            "breadth": 0.0,
             "needs_alignment": 0.0,
             "bern_presence": 0.0,
-            "focus_synergy": 4.6,
-            "evidence": 7.2
+            "focus_synergy": 0.0,
+            "evidence": 19.0
           },
-          "capability_points": 30.5,
+          "capability_points": 19.0,
           "capability_points_max": 75.0,
-          "focused_keyword_score": 79.0,
+          "focused_keyword_score": 30.0,
           "focused_keywords": [
-            "medical devices",
-            "musculoskeletal health",
-            "patient monitoring",
-            "respiratory medicine",
-            "surgical robotics",
+            "infectious disease",
             "cardiology",
-            "diabetes",
-            "diagnostics",
-            "neurology",
-            "surgery",
-            "biodiversity",
-            "robotics"
+            "oncology"
           ],
-          "focused_early_keywords": [
-            "patient monitoring",
-            "diabetes"
-          ],
+          "focused_early_keywords": [],
           "verdict": "possible",
           "verdict_label": "Possible — gather more needs / capability detail",
           "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
         },
-        "match_rate": 44.3,
+        "match_rate": 49.3,
         "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
-        "capability_hits": [
-          {
-            "id": "surgical_robotics",
-            "name": "Surgical Robotics & Computer-Assisted Intervention",
-            "score": 4.86,
-            "overlap_terms": [
-              "surgical robotics",
-              "navigation",
-              "surgical navigation"
-            ],
-            "source": "ARTORG Center"
-          },
-          {
-            "id": "diabetes_cgm",
-            "name": "Diabetes & Continuous Glucose Monitoring",
-            "score": 3.45,
-            "overlap_terms": [
-              "diabetes",
-              "insulin",
-              "diagnostics"
-            ],
-            "source": "Diabetes Center Berne"
-          },
-          {
-            "id": "biomed_eng",
-            "name": "Biomedical Engineering & Medical Devices",
-            "score": 3.2,
-            "overlap_terms": [
-              "medical device",
-              "medtech"
-            ],
-            "source": "ARTORG Center"
-          },
-          {
-            "id": "metabolic_nutrition",
-            "name": "Metabolic Health & Nutrition Science",
-            "score": 0.8,
-            "overlap_terms": [
-              "metabolic"
-            ],
-            "source": "University of Bern / Diabetes Center Berne"
-          }
-        ],
-        "bern_records_loaded": 0,
+        "capability_hits": [],
+        "bern_records_loaded": 287,
         "why_not_higher": [
-          "HQ outside Switzerland — lower proximity score.",
+          "Swiss company but no Canton of Bern site yet.",
           "No stated partnership needs (clinical validation, university, talent…).",
-          "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
-          "No company website on file."
+          "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
         ]
       },
       "reasoning": {
-        "summary": "44.3% collaboration potential — Possible — gather more needs / capability detail. Top capability: Surgical Robotics & Computer-Assisted Intervention via surgical robotics, navigation, surgical navigation.",
+        "summary": "49.3% collaboration potential — Possible — gather more needs / capability detail. Top capability: none yet (domain/Swiss proximity still score).",
         "reasons": [
           "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
-          "Sector 'medtech' is within the life-science domain.",
-          "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
-          "Possible — gather more needs / capability detail (44.3%).",
-          "Collaboration potential 44.3% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 10.2/25 + focused keywords 11.9/15 + partnership readiness 0.0/20.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
+          "Possible — gather more needs / capability detail (49.3%).",
+          "Collaboration potential 49.3% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 10.0/10 + capability overlap 6.3/25 + focused keywords 4.5/15 + partnership readiness 0.0/20.",
           "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
-          "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
-          "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6).",
-          "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics, navigation, surgical navigation. Source ecosystem: ARTORG Center.",
-          "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, insulin, diagnostics. Source ecosystem: Diabetes Center Berne.",
-          "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech. Source ecosystem: ARTORG Center.",
-          "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
-          "HQ outside Switzerland — lower proximity score.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "Verified Bern match: Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology. Source: https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+          "Verified Bern match: MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology. Source: https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+          "Verified Bern match: National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology. Source: https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+          "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+          "Swiss company but no Canton of Bern site yet.",
           "No stated partnership needs (clinical validation, university, talent…)."
         ],
         "score_breakdown": {
@@ -263,11 +162,11 @@
           "verdict": "possible",
           "verdict_label": "Possible — gather more needs / capability detail",
           "components": {
-            "domain_fit": 14.2,
-            "swiss_proximity": 0.0,
-            "signal_depth": 8.0,
-            "capability_overlap": 10.2,
-            "focused_keywords": 11.9,
+            "domain_fit": 15.0,
+            "swiss_proximity": 13.5,
+            "signal_depth": 10.0,
+            "capability_overlap": 6.3,
+            "focused_keywords": 4.5,
             "partnership_readiness": 0.0
           },
           "component_max": {
@@ -279,232 +178,405 @@
             "partnership_readiness": 20.0
           },
           "details": {
-            "capability_fit_ratio": 0.419,
-            "best_capability": "surgical_robotics",
+            "capability_fit_ratio": 0.0,
+            "best_capability": null,
             "needs_scored": [],
-            "focus_cluster": "surgical_robotics",
-            "evidence_source": "term_proxy",
+            "evidence_source": "bern_records",
             "capability_components": {
-              "capability_fit": 14.7,
-              "breadth": 4.1,
+              "capability_fit": 0.0,
+              "breadth": 0.0,
               "needs_alignment": 0.0,
               "bern_presence": 0.0,
-              "focus_synergy": 4.6,
-              "evidence": 7.2
+              "focus_synergy": 0.0,
+              "evidence": 19.0
             },
-            "capability_points": 30.5,
+            "capability_points": 19.0,
             "capability_points_max": 75.0,
-            "focused_keyword_score": 79.0,
+            "focused_keyword_score": 30.0,
             "focused_keywords": [
-              "medical devices",
-              "musculoskeletal health",
-              "patient monitoring",
-              "respiratory medicine",
-              "surgical robotics",
+              "infectious disease",
               "cardiology",
-              "diabetes",
-              "diagnostics",
-              "neurology",
-              "surgery",
-              "biodiversity",
-              "robotics"
+              "oncology"
             ],
-            "focused_early_keywords": [
-              "patient monitoring",
-              "diabetes"
-            ],
+            "focused_early_keywords": [],
             "verdict": "possible",
             "verdict_label": "Possible — gather more needs / capability detail",
             "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
           },
-          "match_rate": 44.3,
+          "match_rate": 49.3,
           "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
-          "capability_hits": [
-            {
-              "id": "surgical_robotics",
-              "name": "Surgical Robotics & Computer-Assisted Intervention",
-              "score": 4.86,
-              "overlap_terms": [
-                "surgical robotics",
-                "navigation",
-                "surgical navigation"
-              ],
-              "source": "ARTORG Center"
-            },
-            {
-              "id": "diabetes_cgm",
-              "name": "Diabetes & Continuous Glucose Monitoring",
-              "score": 3.45,
-              "overlap_terms": [
-                "diabetes",
-                "insulin",
-                "diagnostics"
-              ],
-              "source": "Diabetes Center Berne"
-            },
-            {
-              "id": "biomed_eng",
-              "name": "Biomedical Engineering & Medical Devices",
-              "score": 3.2,
-              "overlap_terms": [
-                "medical device",
-                "medtech"
-              ],
-              "source": "ARTORG Center"
-            },
-            {
-              "id": "metabolic_nutrition",
-              "name": "Metabolic Health & Nutrition Science",
-              "score": 0.8,
-              "overlap_terms": [
-                "metabolic"
-              ],
-              "source": "University of Bern / Diabetes Center Berne"
-            }
-          ],
-          "bern_records_loaded": 0,
+          "capability_hits": [],
+          "bern_records_loaded": 287,
           "why_not_higher": [
-            "HQ outside Switzerland — lower proximity score.",
+            "Swiss company but no Canton of Bern site yet.",
             "No stated partnership needs (clinical validation, university, talent…).",
-            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
-            "No company website on file."
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail."
           ]
         },
-        "focus_synergy": [
-          "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6)."
-        ],
+        "focus_synergy": [],
         "economic_hooks": [
-          "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
-          "Medtech / AI fit → ARTORG co-development and validation pathway."
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
         ],
         "bern_units": [
-          "ARTORG Center",
-          "Inselspital surgical research groups",
-          "Diabetes Center Berne",
-          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
-          "ARTORG Center for Biomedical Engineering Research"
+          "MSc theses carried out at the ICB",
+          "Partners",
+          "Research Group: Cancer",
+          "Research Group: Environmental and Spatial Epidemiology",
+          "Research Group: HIV, Hepatitis and Tuberculosis"
         ],
-        "bern_matches": [],
+        "bern_matches": [
+          {
+            "record_id": "focused-dbmr-research-project-or-activity-at-universi-866cda799cce",
+            "name": "Heller Lab",
+            "type": "project",
+            "role": null,
+            "unit": "",
+            "institution": "University of Bern",
+            "expertise": [
+              "laboratory services",
+              "mass spectrometry",
+              "respiratory medicine",
+              "cardiology",
+              "diagnostics",
+              "hematology",
+              "oncology",
+              "proteomics",
+              "Research project or activity",
+              "Available research capability"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.dbmr.unibe.ch/research/research_programs/heller_lab/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "cardiology",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "cardiology",
+                "oncology"
+              ]
+            },
+            "reason": "Heller Lab (project, University of Bern) matches on expertise: cardiology, oncology."
+          },
+          {
+            "record_id": "izb-0117",
+            "name": "MSc theses carried out at the ICB",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Cell Biology",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "genomics",
+              "lab automation",
+              "tumor",
+              "infected",
+              "falciparum-infected",
+              "genome",
+              "genetic",
+              "optogenetic",
+              "high-throughput"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.izb.unibe.ch/research/graduations/msc_theses/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "MSc theses carried out at the ICB (unit, Institute of Cell Biology) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "focused-ispm-research-project-or-activity-at-universi-65cd29414d5a",
+            "name": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups",
+            "type": "project",
+            "role": null,
+            "unit": "",
+            "institution": "University of Bern",
+            "expertise": [
+              "infectious disease",
+              "oncology",
+              "public health",
+              "epidemiology",
+              "genomics",
+              "Research project or activity"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/about_us/news/national_institutes_of_health_supplement_grants_for_hiv_hepatitis_and_tuberculosis_and_cancer_research_groups/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "National Institutes of Health supplement grants for HIV, Hepatitis and Tuberculosis and Cancer research groups (project, University of Bern) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "tki-0127",
+            "name": "Partners",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Theodor Kocher Institute",
+            "expertise": [
+              "metabolism",
+              "neuroscience",
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "drug discovery",
+              "cell biology",
+              "microscopy",
+              "obesity",
+              "brain",
+              "neurolisteriosis",
+              "blood-brain",
+              "cancer",
+              "tumor",
+              "anticancer",
+              "immune",
+              "immunosurveillance",
+              "viruses"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.tki.unibe.ch/continuing_education/phd_program_cell_migration/partners/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Partners (unit, Theodor Kocher Institute) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0082",
+            "name": "Research Group: Cancer",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "epidemiology",
+              "cancer",
+              "pre-cancer",
+              "immunodeficiency",
+              "virus",
+              "cohort",
+              "multicohort"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/cancer/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Cancer (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0084",
+            "name": "Research Group: Environmental and Spatial Epidemiology",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "epidemiology",
+              "cancer",
+              "cancers",
+              "infections",
+              "cohort"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/environmental_and_spatial_epidemiology/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Environmental and Spatial Epidemiology (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0085",
+            "name": "Research Group: HIV, Hepatitis and Tuberculosis",
+            "type": "unit",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "immunology",
+              "infectious diseases",
+              "genomics",
+              "epidemiology",
+              "cancer",
+              "cancers",
+              "immunodeficiency",
+              "antiretroviral",
+              "hiv-infected",
+              "infection",
+              "genome",
+              "sequencing",
+              "cohort",
+              "epidemiological"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/hiv_hepatitis_and_tuberculosis/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: HIV, Hepatitis and Tuberculosis (unit, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          },
+          {
+            "record_id": "ispm-0080",
+            "name": "Research Group: Patient Safety in Health Services",
+            "type": "service",
+            "role": null,
+            "unit": null,
+            "institution": "Institute of Social and Preventive Medicine",
+            "expertise": [
+              "oncology",
+              "infectious diseases",
+              "drug discovery",
+              "epidemiology",
+              "cancer",
+              "oncology-pathology",
+              "antibiotic",
+              "infectious",
+              "pharmacology",
+              "pharmacological"
+            ],
+            "projects": [],
+            "infrastructure": [],
+            "services": [],
+            "contact": null,
+            "source_url": "https://www.ispm.unibe.ch/research/research_groups_and_themes/patient_safety_in_health_services/index_eng.html",
+            "extra_source_urls": [],
+            "score": 0.632,
+            "matched_terms": [
+              "infectious disease",
+              "oncology"
+            ],
+            "matched_fields": {
+              "expertise": [
+                "infectious disease",
+                "oncology"
+              ]
+            },
+            "reason": "Research Group: Patient Safety in Health Services (service, Institute of Social and Preventive Medicine) matches on expertise: infectious disease, oncology."
+          }
+        ],
         "backend_hints": {
-          "priority_rating": "P2",
-          "priority_stage": "early",
+          "priority_rating": "P3",
+          "priority_stage": "mid",
           "run_first": [
-            "patient monitoring",
-            "medical devices",
-            "musculoskeletal health",
-            "respiratory medicine",
+            "infectious disease",
             "cardiology",
-            "diagnostics",
-            "glucose sensors",
-            "continuous glucose monitoring"
+            "oncology",
+            "pharmaceutical",
+            "pharma"
           ],
-          "run_later": [
-            "neurology",
-            "surgery",
-            "navigation",
-            "insulin",
-            "medical device",
-            "medtech",
-            "metabolic",
-            "surgical navigation",
-            "surgical robotics",
-            "diabetes"
-          ],
-          "capability_ids": [
-            "surgical_robotics",
-            "diabetes_cgm",
-            "biomed_eng",
-            "metabolic_nutrition"
-          ]
+          "run_later": [],
+          "capability_ids": []
         }
       },
-      "handoff_note": "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
+      "handoff_note": "P3 / front relevance — strongest keyword 'infectious disease' (48.0% relevance). Collaboration potential 49%.",
       "source_type": "text",
       "source_ref": "inline",
       "website_info": {
-        "url": null,
+        "url": "http://www.novartis.com",
         "meta_title": "",
-        "meta_description": "",
-        "web_enrich_method": "disabled",
-        "web_sources": [],
-        "summary_method": "rules"
+        "meta_description": "Novartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland. Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.",
+        "web_enrich_method": "wikipedia+snippet",
+        "web_sources": [
+          "http://www.novartis.com/about-novartis/company-history/index.shtml",
+          "https://en.wikipedia.org/wiki/Novartis"
+        ],
+        "summary_method": "ollama:qwen2.5:3b"
       },
       "extracted": {
-        "sector": "medtech",
-        "subsector": "diabetes / metabolic",
-        "keywords": [
-          "surgical navigation",
-          "surgical robotics",
-          "diabetes"
-        ],
-        "needs": [],
-        "website": null,
-        "hq_city": "Minneapolis",
-        "hq_country": "United States",
-        "description": "Medtronic describes itself as \"where health meets high tech\": \"From the world's smallest pacemaker to robotic-assisted surgery, Medtronic transforms the lives of millions worldwide.\" Businesses listed on its website include Cardiac Rhythm & Diagnostics, Cardiovascular, Diabetes, Neurological, Patient Monitoring, Respiratory, Spinal & Orthopedic, Surgical Navigation & Imaging and Surgical Robotics. Products named on the website include the Hugo robotic-assisted surgery system, the AiBLE smart sur"
-      }
-    },
-    {
-      "queue_position": 2,
-      "company_name": "Incorrect Browser",
-      "in_scope": false,
-      "domain": "life_science",
-      "priority_rating": "P4",
-      "priority_stage": "none",
-      "priority_score": 0.0,
-      "match_rate": 0.0,
-      "tier": "Out of scope — not life science",
-      "run_first": [],
-      "run_later": [],
-      "early_keywords": [],
-      "mid_keywords": [],
-      "late_keywords": [],
-      "bern_units": [],
-      "reasons": [
-        "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
-        "Insufficient life-science evidence in the source — not matched in this domain layer.",
-        "No Bern life-science match computed for out-of-domain companies."
-      ],
-      "score_breakdown": {
-        "match_rate": 0.0,
-        "why_not_higher": [
-          "Out of life-science scope."
-        ]
-      },
-      "reasoning": {
-        "summary": "Out of life-science scope — match rate 0.",
-        "reasons": [
-          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
-          "Insufficient life-science evidence in the source — not matched in this domain layer."
-        ],
-        "score_breakdown": {
-          "match_rate": 0.0
-        },
-        "backend_hints": {
-          "priority_rating": "P4",
-          "priority_stage": "none"
-        }
-      },
-      "handoff_note": "Out of life-science scope — do not queue for navigator matching.",
-      "source_type": "url",
-      "source_ref": "https://www.medtronic.com/en-us/index.html",
-      "website_info": {
-        "url": "https://www.medtronic.com/en-us/index.html",
-        "meta_title": "Incorrect Browser",
-        "meta_description": "",
-        "web_enrich_method": "none",
-        "web_sources": [],
-        "summary_method": "rules"
-      },
-      "extracted": {
-        "sector": null,
+        "sector": "pharma",
         "subsector": null,
-        "keywords": [],
+        "keywords": [
+          "pharmaceutical",
+          "pharma"
+        ],
         "needs": [],
-        "website": "https://www.medtronic.com/en-us/index.html",
-        "hq_city": null,
-        "hq_country": null,
-        "description": "Incorrect Browser Oops! It looks like there's an error. Please switch to a different browser and try again."
+        "website": "http://www.novartis.com",
+        "hq_city": "Basel",
+        "hq_country": "Switzerland",
+        "description": "It is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024. Novartis focuses on developing and manufacturing drugs for various diseases including cancer, cardiovascular disorders, and infectious diseases."
       }
     }
   ]

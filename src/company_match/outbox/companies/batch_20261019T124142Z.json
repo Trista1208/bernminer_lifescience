@@ -1,0 +1,257 @@
+{
+  "schema_version": "2.0",
+  "generated_at": "2026-10-19T12:41:42.558721+00:00",
+  "domain": "life_science",
+  "owner_layer": "company_match",
+  "how_to_use": "Backend / teammate: load companies[]. Use match.score_breakdown.components (sums to match_rate) and match.bern_matches (records from data/bern_records with source_url). See src/company_match/BACKEND_CONTRACT.md. website_info holds the ingested site metadata. Push each company object (or this batch) to your API.",
+  "source_count": 1,
+  "company_count": 1,
+  "companies": [
+    {
+      "schema_version": "2.0",
+      "generated_at": "2026-10-19T12:41:42.558708+00:00",
+      "id": "novartis",
+      "name": "Novartis",
+      "domain": "life_science",
+      "in_scope": true,
+      "website_info": {
+        "url": "http://www.novartis.com",
+        "source_type": "text",
+        "source_ref": "inline",
+        "meta_title": "",
+        "meta_description": "Novartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland. Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.",
+        "fetched_language": "en",
+        "translated_to_english": false,
+        "translation_method": "identity",
+        "web_enrich_method": "wikipedia+snippet",
+        "web_sources": [
+          "http://www.novartis.com/about-novartis/company-history/index.shtml",
+          "https://en.wikipedia.org/wiki/Novartis"
+        ],
+        "summary_method": "web:wikipedia+snippet"
+      },
+      "profile": {
+        "sector": "pharma",
+        "subsector": null,
+        "description": "Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.",
+        "what_they_do": "Novartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland.",
+        "keywords": [
+          "pharmaceutical",
+          "pharma"
+        ],
+        "needs": [],
+        "hq_city": "Basel",
+        "hq_country": "Switzerland",
+        "canton_bern_presence": false,
+        "hq_source": {
+          "method": "wikidata",
+          "evidence": "Wikidata Q507154 (matched by exact name + company description)",
+          "url": "https://www.wikidata.org/wiki/Q507154",
+          "verified": true
+        },
+        "bern_sites": [],
+        "medical_profile": null,
+        "semantic_profile": {
+          "activity_summary": "No strong life-science semantic focus detected in source text.",
+          "focus_clusters": [],
+          "early_ranked": [],
+          "mid_ranked": [],
+          "late_ranked": []
+        }
+      },
+      "match": {
+        "match_rate": 37.0,
+        "tier": "Possible — need more signal",
+        "reasons": [
+          "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+          "Sector 'pharma' is within the life-science domain.",
+          "P3 — collaboration potential 37% (add needs / product detail to raise score).",
+          "Possible — gather more needs / capability detail (37.0%).",
+          "Collaboration potential 37.0% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 8.5/10 + capability overlap 0.0/25 + focused keywords 0.0/15 + partnership readiness 0.0/20.",
+          "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+          "Sector 'pharma' maps to Bern's life-science value proposition.",
+          "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+          "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+          "Swiss company but no Canton of Bern site yet."
+        ],
+        "score_breakdown": {
+          "model": "collaboration-v1",
+          "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "components": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 13.5,
+            "signal_depth": 8.5,
+            "capability_overlap": 0.0,
+            "focused_keywords": 0.0,
+            "partnership_readiness": 0.0
+          },
+          "component_max": {
+            "domain_fit": 15.0,
+            "swiss_proximity": 15.0,
+            "signal_depth": 10.0,
+            "capability_overlap": 25.0,
+            "focused_keywords": 15.0,
+            "partnership_readiness": 20.0
+          },
+          "details": {
+            "capability_fit_ratio": 0.0,
+            "best_capability": null,
+            "needs_scored": [],
+            "evidence_source": "term_proxy",
+            "capability_components": {
+              "capability_fit": 0.0,
+              "breadth": 0.0,
+              "needs_alignment": 0.0,
+              "bern_presence": 0.0,
+              "focus_synergy": 0.0,
+              "evidence": 0.0
+            },
+            "capability_points": 0.0,
+            "capability_points_max": 75.0,
+            "focused_keyword_score": 0.0,
+            "focused_keywords": [],
+            "focused_early_keywords": [],
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+          },
+          "match_rate": 37.0,
+          "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+          "capability_hits": [],
+          "bern_records_loaded": 489,
+          "why_not_higher": [
+            "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+            "Swiss company but no Canton of Bern site yet.",
+            "No stated partnership needs (clinical validation, university, talent…).",
+            "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+            "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+          ]
+        },
+        "reasoning": {
+          "summary": "37.0% collaboration potential — Possible — gather more needs / capability detail. Top capability: none yet (domain/Swiss proximity still score).",
+          "reasons": [
+            "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
+            "Sector 'pharma' is within the life-science domain.",
+            "P3 — collaboration potential 37% (add needs / product detail to raise score).",
+            "Possible — gather more needs / capability detail (37.0%).",
+            "Collaboration potential 37.0% = domain fit 15.0/15 + swiss proximity 13.5/15 + signal depth 8.5/10 + capability overlap 0.0/25 + focused keywords 0.0/15 + partnership readiness 0.0/20.",
+            "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+            "Sector 'pharma' maps to Bern's life-science value proposition.",
+            "In life-science domain, but no reliable overlap with indexed Bern capabilities yet — collect more keywords/needs or mark as insufficient source signal.",
+            "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+            "Swiss company but no Canton of Bern site yet."
+          ],
+          "score_breakdown": {
+            "model": "collaboration-v1",
+            "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+            "verdict": "possible",
+            "verdict_label": "Possible — gather more needs / capability detail",
+            "components": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 13.5,
+              "signal_depth": 8.5,
+              "capability_overlap": 0.0,
+              "focused_keywords": 0.0,
+              "partnership_readiness": 0.0
+            },
+            "component_max": {
+              "domain_fit": 15.0,
+              "swiss_proximity": 15.0,
+              "signal_depth": 10.0,
+              "capability_overlap": 25.0,
+              "focused_keywords": 15.0,
+              "partnership_readiness": 20.0
+            },
+            "details": {
+              "capability_fit_ratio": 0.0,
+              "best_capability": null,
+              "needs_scored": [],
+              "evidence_source": "term_proxy",
+              "capability_components": {
+                "capability_fit": 0.0,
+                "breadth": 0.0,
+                "needs_alignment": 0.0,
+                "bern_presence": 0.0,
+                "focus_synergy": 0.0,
+                "evidence": 0.0
+              },
+              "capability_points": 0.0,
+              "capability_points_max": 75.0,
+              "focused_keyword_score": 0.0,
+              "focused_keywords": [],
+              "focused_early_keywords": [],
+              "verdict": "possible",
+              "verdict_label": "Possible — gather more needs / capability detail",
+              "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
+            },
+            "match_rate": 37.0,
+            "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
+            "capability_hits": [],
+            "bern_records_loaded": 489,
+            "why_not_higher": [
+              "Few teammate focused-crawler medical keywords matched — add diabetes/CGM/device detail to raise focused_keywords score.",
+              "Swiss company but no Canton of Bern site yet.",
+              "No stated partnership needs (clinical validation, university, talent…).",
+              "Few specific overlaps with indexed Bern capabilities — add product/tech detail.",
+              "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded."
+            ]
+          },
+          "focus_synergy": [],
+          "economic_hooks": [
+            "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+          ],
+          "bern_units": [],
+          "bern_matches": [],
+          "backend_hints": {
+            "priority_rating": "P3",
+            "priority_stage": "late",
+            "run_first": [
+              "pharmaceutical",
+              "pharma"
+            ],
+            "run_later": [],
+            "capability_ids": []
+          }
+        },
+        "early_keywords": [],
+        "mid_keywords": [],
+        "late_keywords": [],
+        "early_relevance": [],
+        "focus_clusters": [],
+        "bern_units": [],
+        "bern_matches": [],
+        "economic_hooks": [
+          "Pharma/biotech profile → soft-landing / Swiss hub narrative for WFB."
+        ],
+        "capability_matches": [],
+        "teammate_queries_early": [
+          "pharmaceutical",
+          "pharma"
+        ],
+        "teammate_queries_later": [],
+        "suggested_queries": [
+          "pharmaceutical",
+          "pharma"
+        ],
+        "handoff_note": "P3 — collaboration potential 37% (add needs / product detail to raise score)."
+      },
+      "extraction": {
+        "confidence": 0.83,
+        "method": "web-enrich",
+        "warnings": [
+          "Corrected 'norvatis' → 'Novartis' (alias).",
+          "LLM skipped: time budget nearly used (7s left)."
+        ]
+      },
+      "queue": {
+        "position": 1,
+        "priority_rating": "P3",
+        "priority_stage": "late",
+        "priority_score": 23.5
+      },
+      "source_text_excerpt": "norvatis\n\nUser typed: norvatis\nCanonical name: Novartis\n\nCompany name: Novartis\n\n[1] Novartis official site\nOfficial website: http://www.novartis.com/about-novartis/company-history/index.shtml\nSource: http://www.novartis.com/about-novartis/company-history/index.shtml\n\n[2] Novartis\nNovartis AG is a Swiss multinational pharmaceutical corporation based in Basel, Switzerland. Novartis is one of the largest pharmaceutical companies in the world and was the eighth largest by revenue in 2024.\nSource: https://en.wikipedia.org/wiki/Novartis"
+    }
+  ]
+}
