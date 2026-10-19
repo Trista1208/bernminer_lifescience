@@ -1,4 +1,6 @@
-# BernMatch UI (React)
+# BearMiner UI (React)
+
+*Dig Bern gold from life-science partners.*
 
 Four steps: **Company → Match → Choose → Proposal PDF**, with Berni the Bern bear.
 

@@ -1,7 +1,7 @@
 import React from "react";
 import { createRoot } from "react-dom/client";
 
-// Default: the BernMatch flow (company → score → choices → proposal PDF).
+// Default: the BearMiner flow (company → score → choices → proposal PDF).
 // Add ?classic to the URL for the original analyst view.
 const classic = new URLSearchParams(window.location.search).has("classic");
 

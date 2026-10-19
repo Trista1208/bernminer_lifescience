@@ -1,5 +1,6 @@
 // "Berni", the Bern bear mascot: an original flat, outlined SVG drawing.
-// mood: "wave" | "happy" | "think" | "cheer" | "letter" | "sleep"
+// mood: "wave" | "happy" | "think" | "cheer" | "gold" | "dig" | "shrug" | "letter" | "sleep"
+import Coin from "./Coin.jsx";
 
 const INK = "#2E2F36";
 const FUR = "#FBFAF7";
@@ -15,11 +16,16 @@ function Arm({ cx, cy, rot }) {
 }
 
 export default function Bear({ mood = "happy", size = 120, className = "", title = "Berni the Bern bear" }) {
-  const closedEyes = mood === "cheer" || mood === "sleep";
-  const leftArm = mood === "cheer" ? <Arm cx={44} cy={112} rot={-60} />
+  const up = mood === "cheer" || mood === "gold";
+  const closedEyes = up || mood === "sleep";
+  const leftArm = up ? <Arm cx={44} cy={112} rot={-60} />
     : mood === "think" ? <Arm cx={76} cy={128} rot={-55} />
+    : mood === "shrug" ? <Arm cx={38} cy={124} rot={-12} />
+    : mood === "dig" ? <Arm cx={120} cy={146} rot={-20} />
     : <Arm cx={52} cy={152} rot={-25} />;
-  const rightArm = mood === "cheer" || mood === "wave" ? <Arm cx={156} cy={112} rot={60} />
+  const rightArm = up || mood === "wave" ? <Arm cx={156} cy={112} rot={60} />
+    : mood === "shrug" ? <Arm cx={162} cy={124} rot={12} />
+    : mood === "dig" ? <Arm cx={146} cy={136} rot={-30} />
     : <Arm cx={148} cy={152} rot={25} />;
 
   return (
@@ -47,6 +53,14 @@ export default function Bear({ mood = "happy", size = 120, className = "", title
       </g>
       <ellipse cx="62" cy="192" rx="13" ry="10" fill={SHADE} />
       <ellipse cx="138" cy="192" rx="13" ry="10" fill={SHADE} />
+
+      {mood === "dig" && (
+        <g className="bear__pick">
+          <path d="M112 158 L176 70" stroke={INK} strokeWidth="11" strokeLinecap="round" />
+          <path d="M112 158 L176 70" stroke="#B9783A" strokeWidth="5" strokeLinecap="round" />
+          <path d="M146 52 Q178 56 198 84 Q176 70 152 66 Z" fill="#C9CED6" stroke={INK} strokeWidth="4.5" strokeLinejoin="round" />
+        </g>
+      )}
 
       {mood !== "letter" && leftArm}
       {mood !== "letter" && <g className="bear__right-arm">{rightArm}</g>}
@@ -95,6 +109,8 @@ export default function Bear({ mood = "happy", size = 120, className = "", title
       {mood === "cheer" ? (
         <path d="M92 101 Q100 112 108 101 Z" fill="#E86B74" stroke={INK} strokeWidth="3"
           strokeLinejoin="round" />
+      ) : mood === "shrug" ? (
+        <path d="M92 106 q4 -3 8 0 q4 3 8 0" stroke={INK} strokeWidth="3" fill="none" strokeLinecap="round" />
       ) : mood === "think" ? (
         <path d="M94 105 q6 -3 12 0" stroke={INK} strokeWidth="3" fill="none" strokeLinecap="round" />
       ) : (
@@ -119,10 +135,22 @@ export default function Bear({ mood = "happy", size = 120, className = "", title
           <circle cx="180" cy="14" r="8" />
         </g>
       )}
+      {mood === "shrug" && (
+        <g stroke={INK} strokeWidth="3.5" strokeLinecap="round">
+          <path d="M70 58 l12 -4 M118 54 l12 4" />
+        </g>
+      )}
+      {mood === "gold" && <Coin size={56} x={144} y={42} />}
+      {mood === "dig" && (
+        <g className="bear__dirt">
+          <path d="M150 210 Q172 186 196 210 Z" fill="#B9783A" stroke={INK} strokeWidth="4" strokeLinejoin="round" />
+          <Coin size={22} x={163} y={170} className="bear__nugget" />
+        </g>
+      )}
       {mood === "sleep" && (
         <text x="160" y="28" fontFamily="inherit" fontWeight="700" fontSize="22" fill={INK}>z</text>
       )}
-      {mood === "cheer" && (
+      {up && (
         <g stroke="#F2B705" strokeWidth="4" strokeLinecap="round">
           <path d="M22 70 l-10 -6 M24 54 l-8 -12 M178 70 l10 -6 M176 54 l8 -12" />
         </g>

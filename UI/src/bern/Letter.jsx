@@ -1,5 +1,6 @@
 import { BearMark } from "./Bear.jsx";
 import { COMPONENTS, DEFAULT_MAX } from "./data.js";
+import Coin, { COIN_LABELS, coinsFor } from "./Coin.jsx";
 
 export const OFFERS = [
   { id: "clinical", icon: "🩺", title: "Clinical validation",
@@ -67,6 +68,12 @@ export default function Letter({ card, choice, partners }) {
         <div className="letter__score">
           <div className="letter__score-num">{rate}<span>/100</span></div>
           <div>
+            {coinsFor(rate) > 0 && (
+              <div className="letter__coins">
+                {Array.from({ length: coinsFor(rate) }, (_, i) => <Coin key={i} size={26} />)}
+                <span>{COIN_LABELS[coinsFor(rate)].replace(/^\d+ gold coins? · /, "")}</span>
+              </div>
+            )}
             <strong>{m.verdict_label || m.tier}</strong>
             <p>Collaboration-potential score from our Bern life-science matching model.</p>
           </div>
@@ -155,7 +162,7 @@ export default function Letter({ card, choice, partners }) {
       </div>
 
       <footer className="letter__foot">
-        Prepared with the Apertus Bern matching tool. Scores are indicative and based on public information.
+        Prepared with BearMiner, the Apertus-powered Bern life-science matching tool. Scores are indicative and based on public information.
         {card._demo ? " Generated in demo mode." : ""}
       </footer>
     </article>

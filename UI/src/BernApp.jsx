@@ -1,6 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Bear, { BearMark } from "./bern/Bear.jsx";
 import Letter, { OFFERS } from "./bern/Letter.jsx";
+import Coin, { COIN_LABELS, CoinRating, CoinShower, coinsFor, reducedMotion } from "./bern/Coin.jsx";
 import { downloadLetter } from "./bern/pdf.js";
 import {
   COMPONENTS, DEFAULT_MAX, SAMPLES, analyzeLive, checkHealth, mockAnalyze, partnersFrom,
@@ -24,14 +25,27 @@ function Stepper({ step, maxStep, onGo }) {
   );
 }
 
-function Speech({ mood, children, size = 130 }) {
+function Speech({ mood, children, size = 130, onPoke }) {
+  const [hop, setHop] = useState(0);
+  const poke = () => { setHop((h) => h + 1); onPoke?.(); };
   return (
     <div className="speech">
-      <Bear mood={mood} size={size} className="speech__bear" />
-      <div className="speech__bubble">{children}</div>
+      <button type="button" className={`speech__poke ${hop ? "is-hop" : ""}`} key={hop}
+        onClick={poke} aria-label="Poke Berni" title="Poke Berni">
+        <Bear mood={mood} size={size} className="speech__bear" />
+      </button>
+      <div className="speech__bubble" key={typeof children === "string" ? children : undefined}>{children}</div>
     </div>
   );
 }
+
+const POKE_LINES = [
+  "Hey, that tickles! Give me a company and I'll go dig.",
+  "One coin is a match, two coins is a gold match, three coins means drop everything.",
+  "Paste a website or drop a pitch deck. The more I read, the deeper I can dig.",
+  "Try the Medtronic sample if you want to see me get really excited.",
+  "I only dig for life-science gold. Bananas are someone else's job.",
+];
 
 /* ---------- 1. Company entry ---------- */
 
@@ -53,6 +67,7 @@ function EntryStep({ live, onResult }) {
   const [error, setError] = useState("");
   const [drag, setDrag] = useState(false);
   const fileRef = useRef(null);
+  const [poke, setPoke] = useState(-1);
 
   useEffect(() => {
     if (!busy) return undefined;
@@ -95,8 +110,8 @@ function EntryStep({ live, onResult }) {
   if (busy) {
     return (
       <div className="loading card">
-        <Bear mood="think" size={150} className="bob" />
-        <h2>Berni is sniffing out your Bern match</h2>
+        <Bear mood="dig" size={170} />
+        <h2>Berni is digging for Bern gold</h2>
         <p className="loading__line" key={line}>{LOADING_LINES[line]}</p>
         <div className="loading__bar"><i /></div>
       </div>
@@ -106,15 +121,24 @@ function EntryStep({ live, onResult }) {
   return (
     <div className="entry">
       <section className="entry__hero">
-        <p className="eyebrow">Canton of Bern · Life science</p>
-        <h1>Find out how well your company fits <em>Bern</em>.</h1>
+        <p className="eyebrow">BearMiner · Canton of Bern life science</p>
+        <h1>Dig Bern <em className="gold-word">gold<span className="gold-word__coins" aria-hidden="true">
+          <Coin size={30} /><Coin size={24} /></span></em> from life-science partners.</h1>
+        <p className="slogan">Find out how well a company fits Bern, then send it a proposal.</p>
         <p className="lede">
           Tell us about a company. We match it against Bern's hospitals, research groups and
           programmes, then turn the result into a ready-to-send investment proposal.
         </p>
-        <Speech mood="wave" size={150}>
-          Grüessech! I'm <b>Berni</b>. Give me a name, a website or a pitch deck and I'll do the sniffing.
+        <Speech mood={poke < 0 ? "wave" : "happy"} size={150} onPoke={() => setPoke((n) => (n + 1) % POKE_LINES.length)}>
+          {poke < 0
+            ? <>Grüessech! I'm <b>Berni</b>, the BearMiner. Give me a name, a website or a pitch deck and I'll start digging.</>
+            : POKE_LINES[poke]}
         </Speech>
+        <div className="legend" aria-label="How the coins work">
+          <span><Coin size={22} /> match <small>50+</small></span>
+          <span><Coin size={22} /><Coin size={22} /> gold match <small>70+</small></span>
+          <span><Coin size={22} /><Coin size={22} /><Coin size={22} /> very strong <small>85+</small></span>
+        </div>
       </section>
 
       <form className="card entry__form" onSubmit={submit}>
@@ -186,6 +210,7 @@ function EntryStep({ live, onResult }) {
 function useCountUp(target, ms = 1100) {
   const [v, setV] = useState(0);
   useEffect(() => {
+    if (reducedMotion()) { setV(target); return undefined; }
     let raf; const start = performance.now();
     const tick = (now) => {
       const p = Math.min(1, (now - start) / ms);
@@ -223,7 +248,14 @@ function ScoreRing({ rate }) {
   );
 }
 
-function ScoreStep({ card, onNext, onBack }) {
+function CountNum({ value, delay = 0 }) {
+  const [go, setGo] = useState(false);
+  useEffect(() => { const t = setTimeout(() => setGo(true), delay); return () => clearTimeout(t); }, [delay]);
+  const v = useCountUp(go ? value : 0, 900);
+  return <>{v.toFixed(1)}</>;
+}
+
+function ScoreStep({ card, onNext, onBack, onMined }) {
   const m = card.match || {};
   const sb = m.score_breakdown || {};
   const comps = sb.components || {};
@@ -239,21 +271,26 @@ function ScoreStep({ card, onNext, onBack }) {
   const notes = (card.warnings || []).filter((w) => !/LLM profile skipped|Web enrich disabled/i.test(w));
   const thin = out && notes.some((w) => /no usable public results|found no public results|Could not read source/i.test(w));
   const recordsLoaded = sb.bern_records_loaded;
+  const coins = coinsFor(rate, !out);
 
   const bearSays = thin
     ? "I couldn't find enough about this company to judge it. Add its website, a short description or a PDF and try again."
     : out
     ? "Hmm, this one isn't a life-science company, so Bern's health ecosystem isn't the right fit. Try another?"
-    : tone === "strong" ? "Wow, that's a strong match! Bern has real partners waiting for this one."
-    : tone === "promising" ? "Promising! A few Bern teams line up well. Let's pick who to introduce."
-    : tone === "possible" ? "There's something here. A focused proposal can still win them over."
-    : "A long shot for now, but we can still send a friendly hello.";
+    : coins === 3 ? "Three gold coins! A very strong match. Bern has real partners waiting for this one."
+    : coins === 2 ? "Two gold coins, that's a gold match! A few Bern teams line up well. Let's pick who to introduce."
+    : coins === 1 ? "One gold coin. There's something here, and a focused proposal can still win them over."
+    : "No gold in this patch yet. It's a long shot, but we can still send a friendly hello.";
+  const mood = thin ? "think" : out ? "shrug" : coins === 3 ? "gold" : coins === 2 ? "cheer" : coins === 1 ? "happy" : "shrug";
 
   return (
     <div className="score">
-      <section className="card score__hero">
+      <section className={`card score__hero score__hero--c${coins}`}>
+        {coins >= 2 && <CoinShower n={coins === 3 ? 30 : 12} />}
         <div className="score__left">
           <ScoreRing rate={rate} />
+          <CoinRating count={coins} delay={1000} onLanded={() => onMined?.(coins)} />
+          <div className="coins__label">{COIN_LABELS[coins]}</div>
           <div className={`verdict verdict--${tone}`}>{m.verdict_label || m.tier || "Scored"}</div>
         </div>
         <div className="score__right">
@@ -275,7 +312,7 @@ function ScoreStep({ card, onNext, onBack }) {
             )}
           </div>
           {(info.what_they_do || info.description) && <p className="score__about">{info.what_they_do || info.description}</p>}
-          <Speech mood={thin ? "think" : out ? "sleep" : tone === "strong" ? "cheer" : "happy"} size={110}>{bearSays}</Speech>
+          <Speech mood={mood} size={110}>{bearSays}</Speech>
         </div>
       </section>
 
@@ -289,7 +326,7 @@ function ScoreStep({ card, onNext, onBack }) {
                 <li key={c.key}>
                   <div className="bars__top">
                     <span className="bars__label">{c.label}</span>
-                    <span className="bars__val">{val.toFixed(1)}<small> / {max}</small></span>
+                    <span className="bars__val"><CountNum value={val} delay={i * 80} /><small> / {max}</small></span>
                   </div>
                   <div className="bars__track">
                     <i style={{ width: `${Math.min(100, (val / max) * 100)}%`, animationDelay: `${i * 80}ms` }} />
@@ -491,7 +528,7 @@ function ProposalStep({ card, choice, onBack, onRestart }) {
     setSaving(true); setNote("");
     const safe = (card.company_name || "proposal").replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "-");
     try {
-      const r = await downloadLetter(document.getElementById("bern-letter"), `Invest-in-Bern-${safe}.pdf`);
+      const r = await downloadLetter(document.getElementById("bern-letter"), `BearMiner-proposal-${safe}.pdf`);
       setNote(r === "saved" ? "PDF saved." : "Download cancelled.");
     } catch (e) {
       setNote(e.message);
@@ -537,6 +574,13 @@ export default function BernApp() {
   const [choice, setChoice] = useState(null);
   const [apiUp, setApiUp] = useState(false);
   const [live, setLive] = useState(false);
+  // Coins mined, kept in this browser between visits when storage is allowed.
+  const [mined, setMined] = useState(() => {
+    try { return Number(localStorage.getItem("bearminer.mined")) || 0; } catch { return 0; }
+  });
+  useEffect(() => { try { localStorage.setItem("bearminer.mined", String(mined)); } catch { /* private mode */ } }, [mined]);
+  const counted = useRef(null);
+  const addMined = (n) => { if (counted.current !== card && n) { counted.current = card; setMined((x) => x + n); } };
 
   useEffect(() => { checkHealth().then((ok) => { setApiUp(ok); setLive(ok); }); }, []);
   useEffect(() => { window.scrollTo({ top: 0, behavior: "smooth" }); }, [step]);
@@ -548,28 +592,33 @@ export default function BernApp() {
     if (step === 0 || !card) {
       return <EntryStep live={live} onResult={(c) => { setCard(c); setChoice(defaultChoice(c)); setMaxStep(1); setStep(1); }} />;
     }
-    if (step === 1) return <ScoreStep card={card} onBack={restart} onNext={() => go(2)} />;
+    if (step === 1) return <ScoreStep card={card} onBack={restart} onNext={() => go(2)} onMined={addMined} />;
     if (step === 2) return <ChoiceStep card={card} choice={choice} setChoice={setChoice} onBack={() => go(1)} onNext={() => go(3)} />;
     return <ProposalStep card={card} choice={choice} onBack={() => go(2)} onRestart={restart} />;
-  }, [step, card, choice, live]);
+  }, [step, card, choice, live]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (
     <div className="app">
       <header className="topbar no-print">
         <button className="brand" onClick={restart} aria-label="Start over">
           <BearMark size={38} />
-          <span>Bern<b>Match</b></span>
+          <span className="brand__text"><span>Bear<b>Miner</b></span><span className="brand__slogan">Dig Bern gold from life-science partners</span></span>
         </button>
         <Stepper step={step} maxStep={card ? maxStep : 0} onGo={(i) => card && setStep(i)} />
+        <div className="topbar__right">
+        <span className="purse" key={mined} title="Gold coins mined so far" aria-label={`${mined} gold coins mined so far`}>
+          <Coin size={24} /><b className={mined ? "is-bump" : ""}>{mined}</b>
+        </span>
         <label className={`mode ${live ? "is-live" : ""}`} title={apiUp ? "Matching API reachable" : "API not reachable; using demo data"}>
           <input type="checkbox" checked={live} disabled={!apiUp} onChange={(e) => setLive(e.target.checked)} />
           <span className="mode__dot" />
-          {live ? "Live API" : "Demo data"}
+          <span className="mode__text">{live ? "Live API" : "Demo data"}</span>
         </label>
+        </div>
       </header>
       <main className="main" key={step}>{view}</main>
       <footer className="foot no-print">
-        <span>Made in Bern with Apertus · Canton of Bern life-science matching</span>
+        <span>BearMiner · Dig Bern gold from life-science partners · built with Apertus</span>
         {!window.claude && <a href="?classic">Classic analyst view</a>}
       </footer>
     </div>
