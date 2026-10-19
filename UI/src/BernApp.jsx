@@ -1,7 +1,7 @@
 import { useEffect, useMemo, useRef, useState } from "react";
 import Bear, { BearMark } from "./bern/Bear.jsx";
 import Letter, { OFFERS } from "./bern/Letter.jsx";
-import Coin, { COIN_LABELS, CoinRating, CoinShower, coinsFor, reducedMotion } from "./bern/Coin.jsx";
+import Coin, { COIN_LABELS, CoinRating, CoinShower, coinsFor, zeroCoinLabel, reducedMotion } from "./bern/Coin.jsx";
 import { downloadLetter } from "./bern/pdf.js";
 import {
   COMPONENTS, DEFAULT_MAX, SAMPLES, analyzeLive, checkHealth, mockAnalyze, partnersFrom,
@@ -41,7 +41,7 @@ function Speech({ mood, children, size = 130, onPoke }) {
 
 const POKE_LINES = [
   "Hey, that tickles! Give me a company and I'll go dig.",
-  "One coin is a match, two coins is a gold match, three coins means drop everything.",
+  "One coin is possible potential, two is promising, three means strong — dig in.",
   "Paste a website or drop a pitch deck. The more I read, the deeper I can dig.",
   "Try the Medtronic sample if you want to see me get really excited.",
   "I only dig for life-science gold. Bananas are someone else's job.",
@@ -135,9 +135,9 @@ function EntryStep({ live, onResult }) {
             : POKE_LINES[poke]}
         </Speech>
         <div className="legend" aria-label="How the coins work">
-          <span><Coin size={22} /> match <small>50+</small></span>
-          <span><Coin size={22} /><Coin size={22} /> gold match <small>70+</small></span>
-          <span><Coin size={22} /><Coin size={22} /><Coin size={22} /> very strong <small>85+</small></span>
+          <span><Coin size={22} /> possible <small>25+</small></span>
+          <span><Coin size={22} /><Coin size={22} /> promising <small>50+</small></span>
+          <span><Coin size={22} /><Coin size={22} /><Coin size={22} /> strong <small>70+</small></span>
         </div>
       </section>
 
@@ -145,17 +145,17 @@ function EntryStep({ live, onResult }) {
         <div className="field-row">
           <label className="field">
             <span>Company name</span>
-            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="e.g. Helix Glucose AG" />
+            <input value={name} onChange={(e) => setName(e.target.value)} placeholder="Name alone works — e.g. Mabwell" />
           </label>
           <label className="field">
             <span>Website</span>
-            <input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="https://…" inputMode="url" />
+            <input value={website} onChange={(e) => setWebsite(e.target.value)} placeholder="URL alone works — https://…" inputMode="url" />
           </label>
         </div>
         <label className="field">
-          <span>What does the company do?</span>
+          <span>What does the company do? <em style={{fontWeight:400,color:"var(--ink-3)"}}>(optional if you gave a name or URL)</em></span>
           <textarea rows={6} value={text} onChange={(e) => setText(e.target.value)}
-            placeholder="Paste a description, a press release or pitch text. Any language works." />
+            placeholder="Optional: paste a description, press release or pitch. Any language. Name, URL, or text alone is enough." />
         </label>
 
         <div
@@ -197,7 +197,9 @@ function EntryStep({ live, onResult }) {
         )}
 
         <div className="actions">
-          <span className="muted">{live ? "Using the live matching API" : "Demo mode: scored in your browser"}</span>
+          <span className="muted">{live
+            ? "Live API — name, URL, or text (any one is enough)"
+            : "Demo mode: scored in your browser"}</span>
           <button className="btn btn--primary" disabled={!ready}>Find my Bern match →</button>
         </div>
       </form>
@@ -277,11 +279,12 @@ function ScoreStep({ card, onNext, onBack, onMined }) {
     ? "I couldn't find enough about this company to judge it. Add its website, a short description or a PDF and try again."
     : out
     ? "Hmm, this one isn't a life-science company, so Bern's health ecosystem isn't the right fit. Try another?"
-    : coins === 3 ? "Three gold coins! A very strong match. Bern has real partners waiting for this one."
-    : coins === 2 ? "Two gold coins, that's a gold match! A few Bern teams line up well. Let's pick who to introduce."
-    : coins === 1 ? "One gold coin. There's something here, and a focused proposal can still win them over."
-    : "No gold in this patch yet. It's a long shot, but we can still send a friendly hello.";
+    : coins === 3 ? "Three gold coins! Strong collaboration potential — Bern has real partners waiting for this one."
+    : coins === 2 ? "Two gold coins — promising potential. A few Bern teams line up well. Let's pick who to introduce."
+    : coins === 1 ? "One gold coin — there's possible potential here, and a focused proposal can still win them over."
+    : "No gold this time — the fit with Bern is very weak. You can still send a short hello, or try another company.";
   const mood = thin ? "think" : out ? "shrug" : coins === 3 ? "gold" : coins === 2 ? "cheer" : coins === 1 ? "happy" : "shrug";
+  const coinLabel = coins === 0 ? zeroCoinLabel(!out) : COIN_LABELS[coins];
 
   return (
     <div className="score">
@@ -290,7 +293,7 @@ function ScoreStep({ card, onNext, onBack, onMined }) {
         <div className="score__left">
           <ScoreRing rate={rate} />
           <CoinRating count={coins} delay={1000} onLanded={() => onMined?.(coins)} />
-          <div className="coins__label">{COIN_LABELS[coins]}</div>
+          <div className="coins__label">{coinLabel}</div>
           <div className={`verdict verdict--${tone}`}>{m.verdict_label || m.tier || "Scored"}</div>
         </div>
         <div className="score__right">
@@ -408,7 +411,8 @@ export function defaultChoice(card) {
     senderOrg: "Invest in Bern",
     senderEmail: "",
     message: "",
-    includeScore: true,
+    // Opt-in: score stays off unless the user explicitly enables it for the letter/PDF
+    includeScore: false,
   };
 }
 
@@ -483,11 +487,22 @@ function ChoiceStep({ card, choice, setChoice, onNext, onBack }) {
               {label}
             </label>
           ))}
-          <label className="switch">
-            <input type="checkbox" checked={choice.includeScore} onChange={set("includeScore")} />
-            <span>Include score breakdown</span>
-          </label>
         </div>
+        <label className={`score-toggle ${choice.includeScore ? "is-on" : ""}`}>
+          <input
+            type="checkbox"
+            checked={choice.includeScore === true}
+            onChange={(e) => setChoice({ ...choice, includeScore: e.target.checked })}
+          />
+          <span>
+            <strong>Show collaboration score on the letter / PDF</strong>
+            <small>
+              {choice.includeScore
+                ? `On — ${Math.round(card.match?.match_rate ?? 0)}/100 appears in the hero and breakdown.`
+                : "Off — score stays in BearMiner only (good when the number is not strong yet)."}
+            </small>
+          </span>
+        </label>
         <div className="field-row">
           <label className="field"><span>Addressed to</span>
             <input value={choice.recipient} onChange={set("recipient")} placeholder={`e.g. Dr. Anna Muster, CEO of ${card.company_name}`} /></label>
@@ -516,20 +531,34 @@ function ChoiceStep({ card, choice, setChoice, onNext, onBack }) {
 
 /* ---------- 4. Proposal PDF ---------- */
 
-function ProposalStep({ card, choice, onBack, onRestart }) {
+function ProposalStep({ card, choice, onBack, onRestart, setChoice }) {
   const partners = partnersFrom(card);
   const [writing, setWriting] = useState(true);
   useEffect(() => { const t = setTimeout(() => setWriting(false), 1300); return () => clearTimeout(t); }, []);
 
   const [saving, setSaving] = useState(false);
   const [note, setNote] = useState("");
+  const showScore = choice?.includeScore === true;
 
   async function download() {
     setSaving(true); setNote("");
     const safe = (card.company_name || "proposal").replace(/[^\w\- ]+/g, "").trim().replace(/\s+/g, "-");
     try {
-      const r = await downloadLetter(document.getElementById("bern-letter"), `BearMiner-proposal-${safe}.pdf`);
-      setNote(r === "saved" ? "PDF saved." : "Download cancelled.");
+      // Pass data (not a DOM screenshot) so includeScore is authoritative
+      const r = await downloadLetter(
+        {
+          card,
+          choice: { ...choice, includeScore: showScore },
+          partners,
+          offers: OFFERS,
+        },
+        `BearMiner-proposal-${safe}.pdf`
+      );
+      setNote(
+        r === "saved"
+          ? (showScore ? "PDF saved (with score)." : "PDF saved (score hidden).")
+          : "Download cancelled."
+      );
     } catch (e) {
       setNote(e.message);
     } finally {
@@ -551,6 +580,17 @@ function ProposalStep({ card, choice, onBack, onRestart }) {
     <div className="proposal">
       <aside className="proposal__side no-print">
         <Speech mood="cheer" size={120}>Your proposal is ready! Save it as a PDF and send it off.</Speech>
+        <label className={`score-toggle ${showScore ? "is-on" : ""}`}>
+          <input
+            type="checkbox"
+            checked={showScore}
+            onChange={(e) => setChoice({ ...choice, includeScore: e.target.checked })}
+          />
+          <span>
+            <strong>Include score in PDF</strong>
+            <small>{showScore ? "Score is visible on the letter" : "Score hidden from the letter & PDF"}</small>
+          </span>
+        </label>
         <button className="btn btn--primary btn--block" onClick={download} disabled={saving}>
           {saving ? "Making your PDF…" : "⬇ Download PDF"}
         </button>
@@ -594,7 +634,7 @@ export default function BernApp() {
     }
     if (step === 1) return <ScoreStep card={card} onBack={restart} onNext={() => go(2)} onMined={addMined} />;
     if (step === 2) return <ChoiceStep card={card} choice={choice} setChoice={setChoice} onBack={() => go(1)} onNext={() => go(3)} />;
-    return <ProposalStep card={card} choice={choice} onBack={() => go(2)} onRestart={restart} />;
+    return <ProposalStep card={card} choice={choice} setChoice={setChoice} onBack={() => go(2)} onRestart={restart} />;
   }, [step, card, choice, live]); // eslint-disable-line react-hooks/exhaustive-deps
 
   return (

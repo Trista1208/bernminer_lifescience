@@ -296,7 +296,9 @@ def chat(
             f"LLM timed out after {t:.0f}s — skipped further LLM calls in this request "
             "(a busy Ollama model would only queue them). Try a smaller model or OLLAMA_THINK=0."
         )
-    if content and use_cache:
+    # Never cache empty / UNKNOWN stubs — they poison name-only company lookups
+    cacheable = bool(content) and "UNKNOWN" not in str(content).upper()[:40] and len(str(content).strip()) > 40
+    if cacheable and use_cache:
         try:
             _CACHE_DIR.mkdir(parents=True, exist_ok=True)
             cache.write_text(json.dumps({"content": content, "label": label}, ensure_ascii=False),

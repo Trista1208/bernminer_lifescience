@@ -209,39 +209,57 @@ Pipeline and products named on its website: 9MW2821, a Nectin-4-targeting antibo
   },
 ];
 
-export async function checkHealth() {
-  try {
-    const ctrl = new AbortController();
-    const t = setTimeout(() => ctrl.abort(), 2500);
-    const res = await fetch(`${API}/health`, { signal: ctrl.signal });
-    clearTimeout(t);
-    return res.ok;
-  } catch {
-    return false;
+// /health also asks the local LLM for its status, which can take several seconds,
+// so wait generously and retry a few times before falling back to demo data.
+export async function checkHealth(tries = 3) {
+  for (let i = 0; i < tries; i++) {
+    try {
+      const ctrl = new AbortController();
+      const t = setTimeout(() => ctrl.abort(), 10000);
+      const res = await fetch(`${API}/health`, { signal: ctrl.signal });
+      clearTimeout(t);
+      if (res.ok) return true;
+    } catch {
+      /* not up yet */
+    }
+    await new Promise((r) => setTimeout(r, 1500));
   }
+  return false;
 }
 
 export async function analyzeLive({ name, website, text, files }) {
   const form = new FormData();
-  // A bare name is sent as-is: the backend treats a short name as a "name-only seed" and
-  // searches the web for it. With a description, the name goes in a "Company Name:" header.
-  const fullText = text?.trim() ? [name ? `Company Name: ${name}` : "", text].filter(Boolean).join("\n") : (name || "").trim();
-  if (fullText.trim()) form.append("text", fullText);
-  if (website) form.append("urls", website);
+  // Any combination works:
+  // - name only → backend web-searches + LLM knowledge
+  // - website only → fetch page (or domain fallback) + enrich
+  // - text only → extract + score
+  // - any mix → merged into one company card
+  const n = (name || "").trim();
+  const w = (website || "").trim();
+  const t0 = (text || "").trim();
+  let fullText = "";
+  if (t0 && n) fullText = `Company Name: ${n}\n${t0}`;
+  else if (t0) fullText = t0;
+  else if (n) fullText = n; // name-only seed → backend web search + LLM
+  if (fullText) form.append("text", fullText);
+  if (w) form.append("urls", w);
   for (const f of files || []) form.append("files", f);
   form.append("llm_mode", "lite");
   form.append("translate", "true");
   form.append("write_handoff", "true");
   form.append("index_qdrant", "false");
+  if (!fullText && !w && !(files || []).length) {
+    throw new Error("Add a company name, website, text, or PDF.");
+  }
   const ctrl = new AbortController();
-  const t = setTimeout(() => ctrl.abort(), 90_000);
+  const t = setTimeout(() => ctrl.abort(), 180_000);
   try {
     const res = await fetch(`${API}/ui/analyze`, { method: "POST", body: form, signal: ctrl.signal });
     if (!res.ok) throw new Error(`API ${res.status}: ${(await res.text()).slice(0, 200)}`);
     const view = await res.json();
     const cards = view.cards || [];
     if (!cards.length) throw new Error("The API returned no company.");
-    const wanted = (name || "").toLowerCase();
+    const wanted = n.toLowerCase();
     return normalizeCard(cards.find((c) => wanted && (c.company_name || "").toLowerCase().includes(wanted)) || cards[0]);
   } finally {
     clearTimeout(t);

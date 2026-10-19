@@ -1135,9 +1135,45 @@ def extract_company_from_text(
         elif enrich_text:
             text = f"{text}\n\n{enrich_text}".strip()
         if short_seed and not enrich_text:
-            warnings.append(
-                f"Name-only seed '{name}' — web search found no usable public results."
-            )
+            # Last resort: ask the LLM directly about the brand (Ollama / Apertus / Kimi)
+            from .kimi_summary import llm_configured as _llm_ok
+            from .llm_client import chat as _chat
+
+            if use_llm and _llm_ok():
+                knowledge, kn_label, kn_warn = _chat(
+                    [
+                        {
+                            "role": "system",
+                            "content": (
+                                "You are a life-science company researcher. Given only a company "
+                                "name, write 5–8 factual English sentences: sector, what they make "
+                                "or develop, HQ country/city, key products or pipeline, and whether "
+                                "they are pharma, biotech, medtech or digital health. If unknown, "
+                                "reply UNKNOWN."
+                            ),
+                        },
+                        {"role": "user", "content": f"Company: {name}"},
+                    ],
+                    max_tokens=320,
+                    json_mode=False,
+                    timeout=90,
+                )
+                warnings.extend(kn_warn or [])
+                if knowledge and "UNKNOWN" not in knowledge.upper()[:40] and len(knowledge.strip()) > 80:
+                    enrich_text = knowledge.strip()
+                    text = f"{text}\n\n{enrich_text}".strip() if text else enrich_text
+                    meta["web_enrich_used"] = True
+                    meta["web_enrich_method"] = f"llm-knowledge:{kn_label}"
+                    meta_description = meta_description or enrich_text[:400]
+                    warnings.append(f"Used {kn_label} knowledge for name-only seed '{name}'.")
+                else:
+                    warnings.append(
+                        f"Name-only seed '{name}' — web search and LLM found no usable results."
+                    )
+            else:
+                warnings.append(
+                    f"Name-only seed '{name}' — web search found no usable public results."
+                )
 
     # Semantic frequency: page + web-enrichment corpus
     semantics = score_source_semantics(

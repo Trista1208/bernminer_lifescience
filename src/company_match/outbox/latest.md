@@ -1,30 +1,32 @@
 # Company match handoff (Life Science)
 
-- Generated: `2026-10-18T23:11:11.291144+00:00`
+- Generated: `2026-10-19T10:05:56.569777+00:00`
 - Schema: `1.1`
-- Companies: **1**
+- Companies: **2**
 
 > Your navigator teammate can use this file alone — no need to import `company_match`.
 
 ## Queue (run in this order)
 
-### #1 — Novartis [P4/mid]
+### #1 — Medtronic [P2/early]
 
-- Match rate: **26.8%**
-- Priority score: 29.8
-- Note: P4 / front relevance — strongest keyword 'cardiology' (48.0% relevance). Collaboration potential 27%.
-- **Run first (navigator queries):** cardiology, oncology, pharmaceutical, pharma
+- Match rate: **44.3%**
+- Priority score: 63.1
+- Note: P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.
+- **Run first (navigator queries):** patient monitoring, medical devices, musculoskeletal health, respiratory medicine, cardiology, diagnostics, glucose sensors, continuous glucose monitoring
+- **Run later:** neurology, surgery, navigation, insulin, medical device, medtech, metabolic, surgical navigation
+- Bern units: ARTORG Center, Inselspital surgical research groups, Diabetes Center Berne, Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism, ARTORG Center for Biomedical Engineering Research
 - Source: `inline`
 
 ## Full company cards
 
-### Novartis
+### Medtronic
 
-- Sector: pharma / -
-- Keywords: cardiology, oncology, pharmaceutical, pharma
+- Sector: medtech / diabetes / metabolic
+- Keywords: surgical navigation, surgical robotics, diabetes
 - Why matched:
   - Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.
-  - Sector 'pharma' is within the life-science domain.
-  - P4 / front relevance — strongest keyword 'cardiology' (48.0% relevance). Collaboration potential 27%.
-  - Weak — low collaboration priority for now (26.8%).
-  - Collaboration potential 26.8% = domain fit 15.0/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 0.0/25 + focused keywords 3.8/15 + partnership readiness 0.0/20.
+  - Sector 'medtech' is within the life-science domain.
+  - P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.
+  - Possible — gather more needs / capability detail (44.3%).
+  - Collaboration potential 44.3% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 10.2/25 + focused keywords 11.9/15 + partnership readiness 0.0/20.

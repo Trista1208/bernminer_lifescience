@@ -226,6 +226,16 @@ em { font-style: italic; color: var(--red); }
 .tone__opt.is-on { border-color: var(--ink); background: var(--gold-soft); }
 .switch { display: flex; align-items: center; gap: 8px; margin-left: auto; font-size: 14px; cursor: pointer; }
 .switch input { accent-color: var(--red); width: 18px; height: 18px; }
+.score-toggle {
+  display: flex; align-items: flex-start; gap: 10px;
+  padding: 12px 14px; border: 1.5px solid var(--line); border-radius: 12px;
+  background: #fff; cursor: pointer; text-align: left;
+}
+.score-toggle.is-on { border-color: rgba(180, 35, 24, 0.45); background: #fff8f7; }
+.score-toggle input { accent-color: var(--red); width: 18px; height: 18px; margin-top: 2px; flex: 0 0 auto; }
+.score-toggle strong { display: block; font-size: 14px; }
+.score-toggle small { display: block; color: var(--ink-3, #666); font-size: 12px; margin-top: 2px; line-height: 1.35; }
+.letter__close { break-inside: avoid; page-break-inside: avoid; }
 
 /* proposal */
 .proposal { display: grid; grid-template-columns: 280px 1fr; gap: 28px; align-items: start; }
@@ -258,9 +268,25 @@ em { font-style: italic; color: var(--red); }
 .letter__partners li { margin-bottom: 8px; }
 .letter__terms { font-size: 12px; color: #666; word-break: break-word; }
 .letter__offer { margin-bottom: 12px; padding-left: 14px; border-left: 3px solid #f0c9c4; }
-.letter__steps { list-style: none; padding: 0; margin: 0; counter-reset: s; }
-.letter__steps li { display: flex; gap: 14px; padding: 8px 0; border-bottom: 1px dashed #e5e5e5; }
-.letter__steps span { flex: 0 0 84px; font-weight: 600; color: var(--red); font-size: 13px; }
+.letter__hero-sub { margin: 0.65rem 0 0; color: #555; font-size: 0.95rem; }
+.letter__steps { list-style: none; padding: 0; margin: 0; }
+.letter__steps li {
+  display: grid;
+  grid-template-columns: 88px 1fr;
+  gap: 12px;
+  align-items: start;
+  padding: 10px 0;
+  border-bottom: 1px dashed #e5e5e5;
+  break-inside: avoid;
+  page-break-inside: avoid;
+  line-height: 1.45;
+}
+.letter__steps span {
+  font-weight: 700;
+  color: var(--red);
+  font-size: 13px;
+  line-height: 1.4;
+}
 .letter__table { width: 100%; border-collapse: collapse; font-size: 13px; }
 .letter__table td { padding: 6px 4px; border-bottom: 1px solid #eee; }
 .letter__table .num { text-align: right; white-space: nowrap; font-variant-numeric: tabular-nums; }

@@ -4,19 +4,32 @@ import coinUrl from "../assets/coin.png";
 
 // BearMiner gold coins, drawn with the team's coin picture (src/assets/coin.png).
 
-// Coin count for a match score: 85+ → 3 coins, 70–84 → 2, 50–69 → 1, under 50 → none.
-export const COIN_THRESHOLDS = [50, 70, 85];
+// Coins track collaboration potential for life-science companies.
+// Out of scope or a very weak fit (<25) → no gold.
+// 25+ → 1 coin (possible), 50+ → 2 (promising), 70+ → 3 (strong).
+export const COIN_THRESHOLDS = [25, 50, 70];
+export const WEAK_MATCH_FLOOR = 25;
+
 export function coinsFor(rate, inScope = true) {
   if (!inScope) return 0;
-  return COIN_THRESHOLDS.filter((t) => rate >= t).length;
+  const n = Number(rate) || 0;
+  if (n < WEAK_MATCH_FLOOR) return 0;
+  return COIN_THRESHOLDS.filter((t) => n >= t).length;
 }
 
 export const COIN_LABELS = [
-  "No gold yet",
-  "1 gold coin · a match",
-  "2 gold coins · a gold match",
-  "3 gold coins · a very strong match",
+  "No gold — not life science, or a very weak Bern fit",
+  "1 gold coin · possible potential",
+  "2 gold coins · promising potential",
+  "3 gold coins · strong potential",
 ];
+
+/** Label for zero coins: distinguish out-of-scope vs tiny score. */
+export function zeroCoinLabel(inScope = true) {
+  return inScope
+    ? "No gold — very weak Bern fit"
+    : "No gold — not a life-science company";
+}
 
 // A short "ching" made with Web Audio, so no sound file is needed. Only played after a click.
 let audioCtx;

@@ -1,6 +1,6 @@
 {
   "schema_version": "2.0",
-  "generated_at": "2026-10-18T15:31:40.815996+00:00",
+  "generated_at": "2026-10-19T10:05:56.595593+00:00",
   "id": "medtronic",
   "name": "Medtronic",
   "domain": "life_science",
@@ -10,165 +10,88 @@
     "source_type": "text",
     "source_ref": "inline",
     "meta_title": "",
-    "meta_description": "Medtronic is an international medical device company that develops and manufactures healthcare technologies and therapies. Its core products include advanced cardiac and neurovascular care, as well as robotic-assisted surgery. Medtronic focuses on solving global health challenges through innovative technology, with a particular emphasis on expanding access to healthcare for underserved communities.",
+    "meta_description": "",
     "fetched_language": "en",
     "translated_to_english": false,
     "translation_method": "identity",
-    "web_enrich_method": "wikipedia+duckduckgo+ollama:qwen2.5:7b",
-    "web_sources": [
-      "https://en.wikipedia.org/wiki/Medtronic",
-      "https://www.medtronic.com/",
-      "https://www.medtronic.com/en-us/our-company.html",
-      "https://www.medtroniclabs.org/",
-      "https://www.medtroniclabs.org/technology-platform/"
-    ],
-    "summary_method": "profile:ollama:qwen2.5:7b"
+    "web_enrich_method": "disabled",
+    "web_sources": [],
+    "summary_method": "rules"
   },
   "profile": {
     "sector": "medtech",
-    "subsector": "surgical robotics",
-    "description": "Medtronic is a global leader in medical devices, focusing on advanced cardiac and neurovascular care, robotic-assisted surgery, and digital health solutions. The company aims to address global health challenges by providing innovative technologies and expanding access to healthcare in underserved communities.",
-    "what_they_do": "Medical device manufacturer developing and manufacturing advanced cardiac and neurovascular care, as well as robotic-assisted surgery, with a focus on expanding access to healthcare.",
+    "subsector": "diabetes / metabolic",
+    "description": "Medtronic describes itself as \"where health meets high tech\": \"From the world's smallest pacemaker to robotic-assisted surgery, Medtronic transforms the lives of millions worldwide.\" Businesses listed on its website include Cardiac Rhythm & Diagnostics, Cardiovascular, Diabetes, Neurological, Patient Monitoring, Respiratory, Spinal & Orthopedic, Surgical Navigation & Imaging and Surgical Robotics. Products named on the website include the Hugo robotic-assisted surgery system, the AiBLE smart surgical ecosystem, the Touch Surgery Ecosystem and the Reveal LINQ insertable cardiac monitor (ICM).",
+    "what_they_do": "Medical device company focused on surgical robotics & navigation (source terms: surgical navigation, surgical robotics, diabetes).",
     "keywords": [
-      "cardiovascular",
-      "neurovascular",
-      "robotic-assisted surgery",
-      "digital health",
-      "healthcare technologies",
-      "therapies",
-      "medical device"
+      "surgical navigation",
+      "surgical robotics",
+      "diabetes"
     ],
     "needs": [],
     "hq_city": "Minneapolis",
     "hq_country": "United States",
     "canton_bern_presence": false,
     "hq_source": {
-      "method": "llm_quote",
-      "evidence": "operational headquarters are in Minneapolis, Minnesota",
+      "method": "source",
+      "evidence": "labelled HQ / location line in the source",
       "url": null,
       "verified": true
     },
     "bern_sites": [],
-    "medical_profile": {
-      "therapeutic_areas": [
-        {
-          "term": "cardiovascular",
-          "evidence": "advanced cardiac and neurovascular care"
-        },
-        {
-          "term": "neurovascular",
-          "evidence": "advanced cardiac and neurovascular care"
-        }
-      ],
-      "indications": [],
-      "modalities_technologies": [
-        {
-          "term": "advanced cardiac and neurovascular care",
-          "evidence": "advanced cardiac and neurovascular care"
-        },
-        {
-          "term": "robotic-assisted surgery",
-          "evidence": "robotic-assisted surgery"
-        },
-        {
-          "term": "digital health platform",
-          "evidence": "Our patented SPICE technology supports healthcare delivery models with communities that pair digital and product technologies across the care continuum."
-        }
-      ],
-      "products_platforms": [
-        {
-          "term": "advanced cardiac and neurovascular care products",
-          "evidence": "advanced cardiac and neurovascular care"
-        },
-        {
-          "term": "robotic-assisted surgery systems",
-          "evidence": "robotic-assisted surgery"
-        },
-        {
-          "term": "digital health platform",
-          "evidence": "Our patented SPICE technology supports healthcare delivery models with communities that pair digital and product technologies across the care continuum."
-        }
-      ],
-      "patient_populations": [],
-      "development_activities": [],
-      "business_model": {
-        "value": "medical device manufacturer",
-        "evidence": "develops and manufactures healthcare technologies and therapies"
-      },
-      "partnership_needs": [],
-      "headquarters": {
-        "city": "Minneapolis",
-        "country": "United States",
-        "evidence": "operational headquarters are in Minneapolis, Minnesota"
-      },
-      "sites": [
-        {
-          "place": "Ireland",
-          "type": "legal and executive headquarters",
-          "evidence": "legal and executive headquarters are in Ireland"
-        }
-      ],
-      "medical_keywords": [
-        "cardiovascular",
-        "neurovascular",
-        "robotic-assisted surgery",
-        "digital health",
-        "healthcare technologies",
-        "therapies"
-      ],
-      "what_they_do": "Medical device manufacturer developing and manufacturing advanced cardiac and neurovascular care, as well as robotic-assisted surgery, with a focus on expanding access to healthcare.",
-      "summary": "Medtronic is a global leader in medical devices, focusing on advanced cardiac and neurovascular care, robotic-assisted surgery, and digital health solutions. The company aims to address global health challenges by providing innovative technologies and expanding access to healthcare in underserved communities.",
-      "information_sufficiency": "limited",
-      "missing_information": [
-        "specific indications, therapeutic areas, and products"
-      ],
-      "company_name": "Medtronic",
-      "dropped_unsupported": [],
-      "model": "ollama:qwen2.5:7b",
-      "prompt_version": "medical-profile-v2"
-    },
+    "medical_profile": null,
     "semantic_profile": {
-      "activity_summary": "Primary focus signals: Medical devices / medtech (58.5% relevance, n=3); Digital health (25.2% relevance, n=1).",
+      "activity_summary": "Primary focus signals: Surgical robotics & navigation (46.2% relevance, n=2); Diabetes care & insulin delivery (31.2% relevance, n=1).",
       "focus_clusters": [
         {
-          "id": "medtech_devices",
-          "label": "Medical devices / medtech",
+          "id": "surgical_robotics",
+          "label": "Surgical robotics & navigation",
           "stage": "mid",
-          "canonical": "medical device",
-          "count": 3,
-          "lead_count": 3,
-          "relevance": 58.5,
-          "top_term": "medical device"
+          "canonical": "surgical robotics",
+          "count": 2,
+          "lead_count": 2,
+          "relevance": 46.2,
+          "top_term": "surgical robotics"
         },
         {
-          "id": "digital_health",
-          "label": "Digital health",
-          "stage": "mid",
-          "canonical": "digital health",
+          "id": "diabetes_care",
+          "label": "Diabetes care & insulin delivery",
+          "stage": "early",
+          "canonical": "diabetes",
           "count": 1,
-          "lead_count": 0,
-          "relevance": 25.2,
-          "top_term": "digital health"
+          "lead_count": 1,
+          "relevance": 31.2,
+          "top_term": "diabetes"
         }
       ],
       "early_ranked": [
         {
-          "term": "medical device",
-          "stage": "early",
-          "cluster_id": "medtech_devices",
-          "cluster_label": "Medical devices / medtech",
-          "count": 3,
-          "lead_count": 3,
-          "relevance": 65.0,
+          "term": "surgical navigation",
+          "stage": "late",
+          "cluster_id": "surgical_robotics",
+          "cluster_label": "Surgical robotics & navigation",
+          "count": 1,
+          "lead_count": 1,
+          "relevance": 36.5,
           "semantic_boost": 8.0
         },
         {
-          "term": "digital health",
-          "stage": "mid",
-          "cluster_id": "digital_health",
-          "cluster_label": "Digital health",
+          "term": "surgical robotics",
+          "stage": "late",
+          "cluster_id": "surgical_robotics",
+          "cluster_label": "Surgical robotics & navigation",
           "count": 1,
-          "lead_count": 0,
+          "lead_count": 1,
+          "relevance": 36.5,
+          "semantic_boost": 8.0
+        },
+        {
+          "term": "diabetes",
+          "stage": "late",
+          "cluster_id": "diabetes_care",
+          "cluster_label": "Diabetes care & insulin delivery",
+          "count": 1,
+          "lead_count": 1,
           "relevance": 28.5,
           "semantic_boost": 8.0
         }
@@ -178,50 +101,109 @@
     }
   },
   "match": {
-    "match_rate": 17.0,
-    "tier": "D — Weak / monitor",
+    "match_rate": 44.3,
+    "tier": "Possible — need more signal",
     "reasons": [
       "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
       "Sector 'medtech' is within the life-science domain.",
-      "P2 / front relevance — strongest keyword 'medical device' (65.0% relevance, n=3). Run navigator on highest-relevance terms first.",
-      "Match rate 17.0% = capability fit 7.8/35 + breadth 3.1/10 + needs alignment 0.0/15 + bern presence 0.0/10 + focus synergy 2.9/10 + evidence 3.2/20.",
-      "No Canton of Bern presence detected — presence would add +10.",
-      "Sector 'medtech' / surgical robotics maps to Bern's life-science value proposition.",
-      "Main theme 'medtech_devices' maps to Bern capability 'surgical_robotics' (+2.9).",
+      "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
+      "Possible — gather more needs / capability detail (44.3%).",
+      "Collaboration potential 44.3% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 10.2/25 + focused keywords 11.9/15 + partnership readiness 0.0/20.",
+      "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+      "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+      "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6).",
+      "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics, navigation, surgical navigation. Source ecosystem: ARTORG Center.",
+      "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, insulin, diagnostics. Source ecosystem: Diabetes Center Berne.",
       "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech. Source ecosystem: ARTORG Center.",
-      "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics. Source ecosystem: ARTORG Center.",
-      "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: digital health. Source ecosystem: ARTORG / Diabetes Center Berne.",
-      "Few specific overlapping terms with the best Bern capability — add product/technology detail.",
+      "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+      "HQ outside Switzerland — lower proximity score.",
       "No stated partnership needs (clinical validation, university, talent…)."
     ],
     "score_breakdown": {
-      "model": "bounded-v2",
+      "model": "collaboration-v1",
+      "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+      "verdict": "possible",
+      "verdict_label": "Possible — gather more needs / capability detail",
       "components": {
-        "capability_fit": 7.8,
-        "breadth": 3.1,
-        "needs_alignment": 0.0,
-        "bern_presence": 0.0,
-        "focus_synergy": 2.9,
-        "evidence": 3.2
+        "domain_fit": 14.2,
+        "swiss_proximity": 0.0,
+        "signal_depth": 8.0,
+        "capability_overlap": 10.2,
+        "focused_keywords": 11.9,
+        "partnership_readiness": 0.0
       },
       "component_max": {
-        "capability_fit": 35.0,
-        "breadth": 10.0,
-        "needs_alignment": 15.0,
-        "bern_presence": 10.0,
-        "focus_synergy": 10.0,
-        "evidence": 20.0
+        "domain_fit": 15.0,
+        "swiss_proximity": 15.0,
+        "signal_depth": 10.0,
+        "capability_overlap": 25.0,
+        "focused_keywords": 15.0,
+        "partnership_readiness": 20.0
       },
       "details": {
-        "capability_fit_ratio": 0.222,
+        "capability_fit_ratio": 0.419,
         "best_capability": "surgical_robotics",
         "needs_scored": [],
-        "focus_cluster": "medtech_devices",
-        "evidence_source": "term_proxy"
+        "focus_cluster": "surgical_robotics",
+        "evidence_source": "term_proxy",
+        "capability_components": {
+          "capability_fit": 14.7,
+          "breadth": 4.1,
+          "needs_alignment": 0.0,
+          "bern_presence": 0.0,
+          "focus_synergy": 4.6,
+          "evidence": 7.2
+        },
+        "capability_points": 30.5,
+        "capability_points_max": 75.0,
+        "focused_keyword_score": 79.0,
+        "focused_keywords": [
+          "medical devices",
+          "musculoskeletal health",
+          "patient monitoring",
+          "respiratory medicine",
+          "surgical robotics",
+          "cardiology",
+          "diabetes",
+          "diagnostics",
+          "neurology",
+          "surgery",
+          "biodiversity",
+          "robotics"
+        ],
+        "focused_early_keywords": [
+          "patient monitoring",
+          "diabetes"
+        ],
+        "verdict": "possible",
+        "verdict_label": "Possible — gather more needs / capability detail",
+        "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
       },
-      "match_rate": 17.0,
-      "formula": "match_rate = capability_fit(≤35) + breadth(≤10) + needs_alignment(≤15) + bern_presence(≤10) + focus_synergy(≤10) + evidence(≤20; ≤8 without Bern records). Fits use 1-exp(-raw/3.0) saturation.",
+      "match_rate": 44.3,
+      "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
       "capability_hits": [
+        {
+          "id": "surgical_robotics",
+          "name": "Surgical Robotics & Computer-Assisted Intervention",
+          "score": 4.86,
+          "overlap_terms": [
+            "surgical robotics",
+            "navigation",
+            "surgical navigation"
+          ],
+          "source": "ARTORG Center"
+        },
+        {
+          "id": "diabetes_cgm",
+          "name": "Diabetes & Continuous Glucose Monitoring",
+          "score": 3.45,
+          "overlap_terms": [
+            "diabetes",
+            "insulin",
+            "diagnostics"
+          ],
+          "source": "Diabetes Center Berne"
+        },
         {
           "id": "biomed_eng",
           "name": "Biomedical Engineering & Medical Devices",
@@ -233,76 +215,126 @@
           "source": "ARTORG Center"
         },
         {
-          "id": "surgical_robotics",
-          "name": "Surgical Robotics & Computer-Assisted Intervention",
-          "score": 1.98,
+          "id": "metabolic_nutrition",
+          "name": "Metabolic Health & Nutrition Science",
+          "score": 0.8,
           "overlap_terms": [
-            "surgical robotics"
+            "metabolic"
           ],
-          "source": "ARTORG Center"
-        },
-        {
-          "id": "digital_health",
-          "name": "Digital Health & Remote Monitoring",
-          "score": 1.87,
-          "overlap_terms": [
-            "digital health"
-          ],
-          "source": "ARTORG / Diabetes Center Berne"
+          "source": "University of Bern / Diabetes Center Berne"
         }
       ],
       "bern_records_loaded": 0,
       "why_not_higher": [
-        "Few specific overlapping terms with the best Bern capability — add product/technology detail.",
+        "HQ outside Switzerland — lower proximity score.",
         "No stated partnership needs (clinical validation, university, talent…).",
-        "No Canton of Bern site/HQ detected (+10 if present).",
-        "No verified Bern expert/unit records matched yet (load teammate data in data/bern_records/) — evidence capped at 8/20."
+        "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
+        "No company website on file."
       ]
     },
     "reasoning": {
-      "summary": "17.0% Bern life-science fit (D — Weak / monitor). Top capability: Biomedical Engineering & Medical Devices via medical device, medtech.",
+      "summary": "44.3% collaboration potential — Possible — gather more needs / capability detail. Top capability: Surgical Robotics & Computer-Assisted Intervention via surgical robotics, navigation, surgical navigation.",
       "reasons": [
         "Domain scope: Life Science only (sectors: biopharma, biotech, cdmo, digital_health, labtech, medtech, nutrition, pharma). Sources: University of Bern, ARTORG, Diabetes Center Berne.",
         "Sector 'medtech' is within the life-science domain.",
-        "P2 / front relevance — strongest keyword 'medical device' (65.0% relevance, n=3). Run navigator on highest-relevance terms first.",
-        "Match rate 17.0% = capability fit 7.8/35 + breadth 3.1/10 + needs alignment 0.0/15 + bern presence 0.0/10 + focus synergy 2.9/10 + evidence 3.2/20.",
-        "No Canton of Bern presence detected — presence would add +10.",
-        "Sector 'medtech' / surgical robotics maps to Bern's life-science value proposition.",
-        "Main theme 'medtech_devices' maps to Bern capability 'surgical_robotics' (+2.9).",
+        "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%.",
+        "Possible — gather more needs / capability detail (44.3%).",
+        "Collaboration potential 44.3% = domain fit 14.2/15 + swiss proximity 0.0/15 + signal depth 8.0/10 + capability overlap 10.2/25 + focused keywords 11.9/15 + partnership readiness 0.0/20.",
+        "No Canton of Bern presence detected — partnership readiness would rise with a local site.",
+        "Sector 'medtech' / diabetes / metabolic maps to Bern's life-science value proposition.",
+        "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6).",
+        "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics, navigation, surgical navigation. Source ecosystem: ARTORG Center.",
+        "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, insulin, diagnostics. Source ecosystem: Diabetes Center Berne.",
         "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech. Source ecosystem: ARTORG Center.",
-        "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics. Source ecosystem: ARTORG Center.",
-        "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: digital health. Source ecosystem: ARTORG / Diabetes Center Berne.",
-        "Few specific overlapping terms with the best Bern capability — add product/technology detail.",
+        "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne.",
+        "HQ outside Switzerland — lower proximity score.",
         "No stated partnership needs (clinical validation, university, talent…)."
       ],
       "score_breakdown": {
-        "model": "bounded-v2",
+        "model": "collaboration-v1",
+        "meaning": "Collaboration potential for Bern life-science outreach (0–100).",
+        "verdict": "possible",
+        "verdict_label": "Possible — gather more needs / capability detail",
         "components": {
-          "capability_fit": 7.8,
-          "breadth": 3.1,
-          "needs_alignment": 0.0,
-          "bern_presence": 0.0,
-          "focus_synergy": 2.9,
-          "evidence": 3.2
+          "domain_fit": 14.2,
+          "swiss_proximity": 0.0,
+          "signal_depth": 8.0,
+          "capability_overlap": 10.2,
+          "focused_keywords": 11.9,
+          "partnership_readiness": 0.0
         },
         "component_max": {
-          "capability_fit": 35.0,
-          "breadth": 10.0,
-          "needs_alignment": 15.0,
-          "bern_presence": 10.0,
-          "focus_synergy": 10.0,
-          "evidence": 20.0
+          "domain_fit": 15.0,
+          "swiss_proximity": 15.0,
+          "signal_depth": 10.0,
+          "capability_overlap": 25.0,
+          "focused_keywords": 15.0,
+          "partnership_readiness": 20.0
         },
         "details": {
-          "capability_fit_ratio": 0.222,
+          "capability_fit_ratio": 0.419,
           "best_capability": "surgical_robotics",
           "needs_scored": [],
-          "focus_cluster": "medtech_devices",
-          "evidence_source": "term_proxy"
+          "focus_cluster": "surgical_robotics",
+          "evidence_source": "term_proxy",
+          "capability_components": {
+            "capability_fit": 14.7,
+            "breadth": 4.1,
+            "needs_alignment": 0.0,
+            "bern_presence": 0.0,
+            "focus_synergy": 4.6,
+            "evidence": 7.2
+          },
+          "capability_points": 30.5,
+          "capability_points_max": 75.0,
+          "focused_keyword_score": 79.0,
+          "focused_keywords": [
+            "medical devices",
+            "musculoskeletal health",
+            "patient monitoring",
+            "respiratory medicine",
+            "surgical robotics",
+            "cardiology",
+            "diabetes",
+            "diagnostics",
+            "neurology",
+            "surgery",
+            "biodiversity",
+            "robotics"
+          ],
+          "focused_early_keywords": [
+            "patient monitoring",
+            "diabetes"
+          ],
+          "verdict": "possible",
+          "verdict_label": "Possible — gather more needs / capability detail",
+          "score_meaning": "Collaboration potential for Canton of Bern life-science outreach (0–100)."
         },
-        "match_rate": 17.0,
-        "formula": "match_rate = capability_fit(≤35) + breadth(≤10) + needs_alignment(≤15) + bern_presence(≤10) + focus_synergy(≤10) + evidence(≤20; ≤8 without Bern records). Fits use 1-exp(-raw/3.0) saturation.",
+        "match_rate": 44.3,
+        "formula": "collaboration_potential = capability_overlap(≤25) + focused_keywords(≤15) + partnership_readiness(≤20) + domain_fit(≤15) + swiss_proximity(≤15) + signal_depth(≤10).",
         "capability_hits": [
+          {
+            "id": "surgical_robotics",
+            "name": "Surgical Robotics & Computer-Assisted Intervention",
+            "score": 4.86,
+            "overlap_terms": [
+              "surgical robotics",
+              "navigation",
+              "surgical navigation"
+            ],
+            "source": "ARTORG Center"
+          },
+          {
+            "id": "diabetes_cgm",
+            "name": "Diabetes & Continuous Glucose Monitoring",
+            "score": 3.45,
+            "overlap_terms": [
+              "diabetes",
+              "insulin",
+              "diagnostics"
+            ],
+            "source": "Diabetes Center Berne"
+          },
           {
             "id": "biomed_eng",
             "name": "Biomedical Engineering & Medical Devices",
@@ -314,139 +346,204 @@
             "source": "ARTORG Center"
           },
           {
-            "id": "surgical_robotics",
-            "name": "Surgical Robotics & Computer-Assisted Intervention",
-            "score": 1.98,
+            "id": "metabolic_nutrition",
+            "name": "Metabolic Health & Nutrition Science",
+            "score": 0.8,
             "overlap_terms": [
-              "surgical robotics"
+              "metabolic"
             ],
-            "source": "ARTORG Center"
-          },
-          {
-            "id": "digital_health",
-            "name": "Digital Health & Remote Monitoring",
-            "score": 1.87,
-            "overlap_terms": [
-              "digital health"
-            ],
-            "source": "ARTORG / Diabetes Center Berne"
+            "source": "University of Bern / Diabetes Center Berne"
           }
         ],
         "bern_records_loaded": 0,
         "why_not_higher": [
-          "Few specific overlapping terms with the best Bern capability — add product/technology detail.",
+          "HQ outside Switzerland — lower proximity score.",
           "No stated partnership needs (clinical validation, university, talent…).",
-          "No Canton of Bern site/HQ detected (+10 if present).",
-          "No verified Bern expert/unit records matched yet (load teammate data in data/bern_records/) — evidence capped at 8/20."
+          "No verified Bern expert/unit records matched yet — capability overlap capped at 21/25 until teammate records are loaded.",
+          "No company website on file."
         ]
       },
       "focus_synergy": [
-        "Main theme 'medtech_devices' maps to Bern capability 'surgical_robotics' (+2.9)."
+        "Main theme 'surgical_robotics' maps to Bern capability 'surgical_robotics' (+4.6)."
       ],
       "economic_hooks": [
+        "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
         "Medtech / AI fit → ARTORG co-development and validation pathway."
       ],
       "bern_units": [
-        "ARTORG Center for Biomedical Engineering Research",
         "ARTORG Center",
         "Inselspital surgical research groups",
-        "ARTORG",
-        "Diabetes Center Berne"
+        "Diabetes Center Berne",
+        "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+        "ARTORG Center for Biomedical Engineering Research"
       ],
       "bern_matches": [],
       "backend_hints": {
         "priority_rating": "P2",
         "priority_stage": "early",
         "run_first": [
-          "medical device",
-          "medtech",
-          "surgical robotics",
-          "digital health",
-          "cardiovascular",
-          "neurovascular",
-          "robotic-assisted surgery",
-          "healthcare technologies"
+          "patient monitoring",
+          "medical devices",
+          "musculoskeletal health",
+          "respiratory medicine",
+          "cardiology",
+          "diagnostics",
+          "glucose sensors",
+          "continuous glucose monitoring"
         ],
         "run_later": [
-          "digital health",
-          "therapies"
+          "neurology",
+          "surgery",
+          "navigation",
+          "insulin",
+          "medical device",
+          "medtech",
+          "metabolic",
+          "surgical navigation",
+          "surgical robotics",
+          "diabetes"
         ],
         "capability_ids": [
-          "biomed_eng",
           "surgical_robotics",
-          "digital_health"
+          "diabetes_cgm",
+          "biomed_eng",
+          "metabolic_nutrition"
         ]
       }
     },
     "early_keywords": [
-      "medical device",
-      "medtech",
-      "surgical robotics"
+      "patient monitoring",
+      "medical devices",
+      "musculoskeletal health",
+      "respiratory medicine",
+      "cardiology",
+      "diagnostics"
     ],
     "mid_keywords": [
-      "digital health"
+      "neurology",
+      "surgery",
+      "navigation",
+      "insulin",
+      "medical device",
+      "medtech"
     ],
-    "late_keywords": [],
+    "late_keywords": [
+      "metabolic",
+      "surgical navigation",
+      "surgical robotics",
+      "diabetes"
+    ],
     "early_relevance": [
       {
-        "term": "medical device",
+        "term": "patient monitoring",
         "stage": "early",
-        "cluster_id": "medtech_devices",
-        "cluster_label": "Medical devices / medtech",
-        "count": 3,
-        "lead_count": 3,
-        "relevance": 65.0,
-        "semantic_boost": 8.0
+        "count": 2,
+        "relevance": 72.0,
+        "cluster_label": "focused-crawler"
       },
       {
-        "term": "medtech",
+        "term": "medical devices",
         "stage": "early",
         "count": 1,
-        "relevance": 42.0,
-        "cluster_label": "capability overlap"
+        "relevance": 48.0,
+        "cluster_label": "focused-crawler"
       },
       {
-        "term": "surgical robotics",
+        "term": "musculoskeletal health",
         "stage": "early",
         "count": 1,
-        "relevance": 42.0,
-        "cluster_label": "capability overlap"
+        "relevance": 48.0,
+        "cluster_label": "focused-crawler"
+      },
+      {
+        "term": "respiratory medicine",
+        "stage": "early",
+        "count": 1,
+        "relevance": 48.0,
+        "cluster_label": "focused-crawler"
+      },
+      {
+        "term": "cardiology",
+        "stage": "early",
+        "count": 1,
+        "relevance": 48.0,
+        "cluster_label": "focused-crawler"
+      },
+      {
+        "term": "diagnostics",
+        "stage": "early",
+        "count": 1,
+        "relevance": 48.0,
+        "cluster_label": "focused-crawler"
       }
     ],
     "focus_clusters": [
       {
-        "id": "medtech_devices",
-        "label": "Medical devices / medtech",
+        "id": "surgical_robotics",
+        "label": "Surgical robotics & navigation",
         "stage": "mid",
-        "canonical": "medical device",
-        "count": 3,
-        "lead_count": 3,
-        "relevance": 58.5,
-        "top_term": "medical device"
+        "canonical": "surgical robotics",
+        "count": 2,
+        "lead_count": 2,
+        "relevance": 46.2,
+        "top_term": "surgical robotics"
       },
       {
-        "id": "digital_health",
-        "label": "Digital health",
-        "stage": "mid",
-        "canonical": "digital health",
+        "id": "diabetes_care",
+        "label": "Diabetes care & insulin delivery",
+        "stage": "early",
+        "canonical": "diabetes",
         "count": 1,
-        "lead_count": 0,
-        "relevance": 25.2,
-        "top_term": "digital health"
+        "lead_count": 1,
+        "relevance": 31.2,
+        "top_term": "diabetes"
       }
     ],
     "bern_units": [
-      "ARTORG Center for Biomedical Engineering Research",
       "ARTORG Center",
       "Inselspital surgical research groups",
-      "ARTORG",
-      "Diabetes Center Berne"
+      "Diabetes Center Berne",
+      "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism",
+      "ARTORG Center for Biomedical Engineering Research"
     ],
     "bern_matches": [],
     "economic_hooks": [
+      "Diabetes / metabolic fit → Diabetes Center Berne + device/drug collaboration.",
       "Medtech / AI fit → ARTORG co-development and validation pathway."
     ],
     "capability_matches": [
+      {
+        "id": "surgical_robotics",
+        "name": "Surgical Robotics & Computer-Assisted Intervention",
+        "score": 4.86,
+        "overlap_terms": [
+          "surgical robotics",
+          "navigation",
+          "surgical navigation"
+        ],
+        "source": "ARTORG Center",
+        "units": [
+          "ARTORG Center",
+          "Inselspital surgical research groups"
+        ],
+        "reason": "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics, navigation, surgical navigation. Source ecosystem: ARTORG Center."
+      },
+      {
+        "id": "diabetes_cgm",
+        "name": "Diabetes & Continuous Glucose Monitoring",
+        "score": 3.45,
+        "overlap_terms": [
+          "diabetes",
+          "insulin",
+          "diagnostics"
+        ],
+        "source": "Diabetes Center Berne",
+        "units": [
+          "Diabetes Center Berne",
+          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
+        ],
+        "reason": "Aligns with Bern capability 'Diabetes & Continuous Glucose Monitoring' via terms: diabetes, insulin, diagnostics. Source ecosystem: Diabetes Center Berne."
+      },
       {
         "id": "biomed_eng",
         "name": "Biomedical Engineering & Medical Devices",
@@ -462,71 +559,69 @@
         "reason": "Aligns with Bern capability 'Biomedical Engineering & Medical Devices' via terms: medical device, medtech. Source ecosystem: ARTORG Center."
       },
       {
-        "id": "surgical_robotics",
-        "name": "Surgical Robotics & Computer-Assisted Intervention",
-        "score": 1.98,
+        "id": "metabolic_nutrition",
+        "name": "Metabolic Health & Nutrition Science",
+        "score": 0.8,
         "overlap_terms": [
-          "surgical robotics"
+          "metabolic"
         ],
-        "source": "ARTORG Center",
+        "source": "University of Bern / Diabetes Center Berne",
         "units": [
-          "ARTORG Center",
-          "Inselspital surgical research groups"
+          "Diabetes Center Berne",
+          "Department of Diabetes, Endocrinology, Nutritional Medicine & Metabolism"
         ],
-        "reason": "Aligns with Bern capability 'Surgical Robotics & Computer-Assisted Intervention' via terms: surgical robotics. Source ecosystem: ARTORG Center."
-      },
-      {
-        "id": "digital_health",
-        "name": "Digital Health & Remote Monitoring",
-        "score": 1.87,
-        "overlap_terms": [
-          "digital health"
-        ],
-        "source": "ARTORG / Diabetes Center Berne",
-        "units": [
-          "ARTORG",
-          "Diabetes Center Berne"
-        ],
-        "reason": "Aligns with Bern capability 'Digital Health & Remote Monitoring' via terms: digital health. Source ecosystem: ARTORG / Diabetes Center Berne."
+        "reason": "Aligns with Bern capability 'Metabolic Health & Nutrition Science' via terms: metabolic. Source ecosystem: University of Bern / Diabetes Center Berne."
       }
     ],
     "teammate_queries_early": [
-      "medical device",
-      "medtech",
-      "surgical robotics",
-      "digital health",
-      "cardiovascular",
-      "neurovascular",
-      "robotic-assisted surgery",
-      "healthcare technologies"
+      "patient monitoring",
+      "medical devices",
+      "musculoskeletal health",
+      "respiratory medicine",
+      "cardiology",
+      "diagnostics",
+      "glucose sensors",
+      "continuous glucose monitoring"
     ],
     "teammate_queries_later": [
-      "digital health",
-      "therapies"
-    ],
-    "suggested_queries": [
+      "neurology",
+      "surgery",
+      "navigation",
+      "insulin",
       "medical device",
       "medtech",
+      "metabolic",
+      "surgical navigation",
       "surgical robotics",
-      "digital health",
-      "cardiovascular",
-      "neurovascular",
-      "robotic-assisted surgery",
-      "healthcare technologies",
-      "therapies"
+      "diabetes"
     ],
-    "handoff_note": "P2 / front relevance — strongest keyword 'medical device' (65.0% relevance, n=3). Run navigator on highest-relevance terms first."
+    "suggested_queries": [
+      "glucose sensors",
+      "continuous glucose monitoring",
+      "biosensing",
+      "cgm",
+      "diabetes",
+      "insulin",
+      "metabolic",
+      "patient monitoring",
+      "surgical robotics",
+      "diagnostics"
+    ],
+    "handoff_note": "P2 / front relevance — strongest keyword 'patient monitoring' (72.0% relevance). Collaboration potential 44%."
   },
   "extraction": {
-    "confidence": 0.95,
-    "method": "llm-profile",
-    "warnings": []
+    "confidence": 0.8,
+    "method": "rules",
+    "warnings": [
+      "Web enrich disabled (set WEB_ENRICH=1). Name-only seeds force a search.",
+      "LLM profile: no valid JSON returned; using rule-based fields."
+    ]
   },
   "queue": {
     "position": 1,
     "priority_rating": "P2",
     "priority_stage": "early",
-    "priority_score": 53.7
+    "priority_score": 63.1
   },
-  "source_text_excerpt": "Medtronic\n\nCompany name: Medtronic\n\n[1] Medtronic\nMedtronic plc is an international medical device company. The company's legal and executive headquarters are in Ireland, while its operational headquarters are in Minneapolis, Minnesota. Medtronic rebased to Ireland following its acquisition of Irish-based Covidien in 2015. While it primarily operates in the United States, it operates in more than 150 countries and employs over 90,000 people. It develops and manufactures healthcare technologies and therapies. It is one of the biggest medical tech companies in the world and is currently the largest medical device company in the world by revenue.\nSource: https://en.wikipedia.org/wiki/Medtronic\n\n[2] Health tech for the digital age | Medtronic\nPeople-centered, data-driven, personalized. Solving our world&#x27;s biggest health challenges with advanced technology.\nSource: https://www.medtronic.com/\n\n[3] Where health meets high tech - Medtronic\nFrom the advanced cardiac and neurovascular care to robotic-assisted surgery, Medtronic transforms the lives of millions worldwide with innovative healt tech.\nSource: https://www.medtronic.com/en-us/our-company.html\n\n[4] Expanding Access to Healthcare For All | Medtronic LABS\nMedtronic LABS is the only health systems innovator that develops tech-enabled solutions for underserved communities worldwide. Explore our solutions.\nSource: https://www.medtroniclabs.org/\n\n[5] Technology | Our Digital Health Platform | Medtronic LABS\nOur patented SPICE technology supports healthcare delivery models with communities that pair digital and product technologies across the care continuum.\nSource: https://www.medtroniclabs.org/technology-platform/"
+  "source_text_excerpt": "Company Name: Medtronic\r\nHeadquarters: Minneapolis, United States\r\n\r\nMedtronic describes itself as \"where health meets high tech\": \"From the world's smallest pacemaker to robotic-assisted surgery, Medtronic transforms the lives of millions worldwide.\"\r\n\r\nBusinesses listed on its website include Cardiac Rhythm & Diagnostics, Cardiovascular, Diabetes, Neurological, Patient Monitoring, Respiratory, Spinal & Orthopedic, Surgical Navigation & Imaging and Surgical Robotics.\r\n\r\nProducts named on the website include the Hugo robotic-assisted surgery system, the AiBLE smart surgical ecosystem, the Touch Surgery Ecosystem and the Reveal LINQ insertable cardiac monitor (ICM)."
 }

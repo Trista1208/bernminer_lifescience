@@ -55,6 +55,12 @@ _NAME_ALIASES: dict[str, str] = {
     "merck kgaa": "Merck KGaA",
     "bms": "Bristol Myers Squibb",
     "amedisys": "Amedisys",
+    "mabwell": "Mabwell",
+    "mabwell shanghai": "Mabwell",
+    "mabwell bioscience": "Mabwell",
+    "ypsomed ag": "Ypsomed",
+    "dexcom g7": "Dexcom",
+    "dexcom inc": "Dexcom",
 }
 
 
@@ -143,16 +149,41 @@ def _levenshtein(a: str, b: str) -> int:
 
 
 def _fuzzy_name_match(seed: str, candidate: str) -> bool:
-    """True when candidate looks like a typo/correction of seed (norvatis→Novartis)."""
+    """True when candidate looks like a typo/correction of seed (norvatis→Novartis).
+
+    Keep this strict: Mabwell→Mabel and ARKRAY→Arkansas must not match.
+    """
     s = re.sub(r"[^a-z0-9]", "", (seed or "").lower())
     c = re.sub(r"[^a-z0-9]", "", (candidate or "").lower().split("(")[0])
-    if not s or not c:
+    if not s or not c or len(s) < 3:
         return False
-    if s == c or c.startswith(s) or s.startswith(c):
+    if s == c:
         return True
-    # Allow small edit distance for short brand names
-    max_dist = 1 if len(s) <= 5 else (2 if len(s) <= 10 else 3)
-    return _levenshtein(s, c) <= max_dist
+    # Prefix only when lengths are close (avoid ARKRAY ⊂ Arkansas)
+    if abs(len(s) - len(c)) > max(1, len(s) // 5):
+        return False
+    if c.startswith(s) or s.startswith(c):
+        return abs(len(s) - len(c)) <= 2
+    max_dist = 1 if len(s) <= 6 else 2
+    dist = _levenshtein(s, c)
+    if dist > max_dist:
+        return False
+    return dist / max(len(s), len(c)) <= 0.22
+
+
+_CORP_SIGNALS = (
+    "company", "inc", "ltd", "corporation", "co.", "株式会社", "medical",
+    "diagnostic", "device", "healthcare", "pharma", "pharmaceutical",
+    "biotech", "biopharma", "bioscience", "biologics", "medtech", "cgm",
+    "therapeutics", "oncology", "vaccine", "clinic", "hospital", "ag ", " se",
+    "gmbh", "plc", "group", "laborator",
+)
+
+_NON_COMPANY = (
+    "medal", "prize", "award", "list of", "disambiguation", "singer",
+    "footballer", "actor", "actress", "given name", "surname", "baby name",
+    "album", "song", "film", "tv series", "municipality", "village",
+)
 
 
 def _looks_like_company_hit(name: str, title: str, snippet: str) -> bool:
@@ -160,11 +191,12 @@ def _looks_like_company_hit(name: str, title: str, snippet: str) -> bool:
     name_l = name.lower().strip()
     title_l = (title or "").lower()
     snip_l = (snippet or "").lower()
+    blob = f"{title_l} {snip_l}"
     title_core = title_l.split("(")[0].strip()
+    if any(b in blob for b in _NON_COMPANY) and not any(c in blob for c in _CORP_SIGNALS):
+        return False
     if _fuzzy_name_match(name_l, title_core):
-        # Prefer corporate / life-science pages over awards/people
-        bad = ("medal", "prize", "award", "list of", "disambiguation")
-        if any(b in title_l for b in bad) and "compan" not in snip_l and "pharma" not in snip_l:
+        if any(b in title_l for b in _NON_COMPANY) and not any(c in snip_l for c in _CORP_SIGNALS):
             return False
         return True
     tokens = _name_tokens(name)
@@ -172,18 +204,13 @@ def _looks_like_company_hit(name: str, title: str, snippet: str) -> bool:
         return False
     title_tokens = set(re.findall(r"[a-z0-9]+", title_l))
     if not tokens.intersection(title_tokens):
-        if not re.search(rf"\b{re.escape(name_l)}\b", f"{title_l} {snip_l}"):
+        if not re.search(rf"\b{re.escape(name_l)}\b", blob):
             return False
-    corp = (
-        "company", "inc", "ltd", "corporation", "co.", "株式会社", "medical",
-        "diagnostic", "device", "healthcare", "pharma", "pharmaceutical",
-        "biotech", "biopharma", "ag ", " se",
-    )
-    if any(c in snip_l or c in title_l for c in corp):
+    if any(c in blob for c in _CORP_SIGNALS):
         return True
     compact_name = re.sub(r"[^a-z0-9]", "", name_l)
     compact_title = re.sub(r"[^a-z0-9]", "", title_core)
-    return compact_title.startswith(compact_name) or compact_name == compact_title
+    return compact_name == compact_title
 
 
 def _wiki_summary(title: str) -> dict[str, str] | None:
@@ -249,25 +276,35 @@ def resolve_company_name(name: str) -> tuple[str, list[str]]:
     key = re.sub(r"\s+", " ", raw.lower())
     key_compact = re.sub(r"[^a-z0-9]", "", key)
     if key in _NAME_ALIASES:
-        notes.append(f"Corrected '{raw}' → '{_NAME_ALIASES[key]}' (alias).")
-        return _NAME_ALIASES[key], notes
+        canon = _NAME_ALIASES[key]
+        if canon.lower() != raw.lower():
+            notes.append(f"Corrected '{raw}' → '{canon}' (alias).")
+        return canon, notes
     if key_compact in _NAME_ALIASES:
-        notes.append(f"Corrected '{raw}' → '{_NAME_ALIASES[key_compact]}' (alias).")
-        return _NAME_ALIASES[key_compact], notes
+        canon = _NAME_ALIASES[key_compact]
+        if canon.lower() != raw.lower():
+            notes.append(f"Corrected '{raw}' → '{canon}' (alias).")
+        return canon, notes
 
-    # Wikipedia opensearch suggestions (handles norvatis → Novartis)
+    # Wikipedia opensearch suggestions (handles norvatis → Novartis).
+    # Require corporate / life-science signal so Mabwell≠Mabel, ARKRAY≠Arkansas.
     data = _http_json(
         "https://en.wikipedia.org/w/api.php?action=opensearch"
         f"&search={urllib.parse.quote(raw)}&limit=8&namespace=0&format=json",
         timeout=8,
     )
-    if isinstance(data, list) and len(data) >= 2:
-        for title in data[1]:
+    if isinstance(data, list) and len(data) >= 3:
+        titles = data[1]
+        descs = data[2] if len(data) > 2 else [""] * len(titles)
+        for title, desc in zip(titles, descs):
             core = str(title).split("(")[0].strip()
-            if _fuzzy_name_match(raw, core) and "medal" not in core.lower() and "prize" not in core.lower():
-                if core.lower() != raw.lower():
-                    notes.append(f"Corrected '{raw}' → '{core}' (Wikipedia suggest).")
-                return core, notes
+            if not _fuzzy_name_match(raw, core):
+                continue
+            if not _looks_like_company_hit(raw, str(title), str(desc or "")):
+                continue
+            if core.lower() != raw.lower():
+                notes.append(f"Corrected '{raw}' → '{core}' (Wikipedia suggest).")
+            return core, notes
     return raw, notes
 
 
@@ -278,7 +315,10 @@ def _wikipedia_search(name: str) -> list[dict[str, str]]:
         return [direct]
 
     queries = [
+        f"{name} biopharmaceutical company",
         f"{name} pharmaceutical company",
+        f"{name} biotech company",
+        f"{name} medical device company",
         f"{name} company",
         name,
     ]
@@ -319,7 +359,9 @@ def _wikipedia_search(name: str) -> list[dict[str, str]]:
 
 def _duckduckgo_html_search(name: str) -> list[dict[str, str]]:
     """Scrape DuckDuckGo HTML results for company snippets (no API key)."""
-    q = urllib.parse.quote_plus(f"{name} company medical diagnostics")
+    q = urllib.parse.quote_plus(
+        f"{name} biopharma OR biotech OR pharmaceutical OR \"medical device\" OR medtech company"
+    )
     html = _http_text(f"https://html.duckduckgo.com/html/?q={q}", timeout=12)
     if not html:
         return []
@@ -353,7 +395,7 @@ def _duckduckgo_html_search(name: str) -> list[dict[str, str]]:
 
 def _duckduckgo_search(name: str) -> list[dict[str, str]]:
     """DuckDuckGo Instant Answer + HTML results (no API key)."""
-    q = urllib.parse.quote(f"{name} Inc company medical diagnostics Japan")
+    q = urllib.parse.quote(f"{name} biopharmaceutical OR biotech OR medtech company")
     data = _http_json(
         f"https://api.duckduckgo.com/?q={q}&format=json&no_html=1&skip_disambig=1",
         timeout=10,
@@ -452,48 +494,60 @@ def enrich_company_from_web(
 
     hits: list[dict[str, str]] = []
     method_bits: list[str] = []
-
-    # Fast path: Wikipedia company page is enough for most known brands.
-    # Avoid waiting on DuckDuckGo/Moonshot (often 5–12s) when wiki already hit.
-    wiki = _wikipedia_search(name)
     official_site: str | None = None
+
+    # Always prefer life-science biased search. Wikipedia alone is not enough —
+    # short brand names get wrong pages (Mabwell→Mabel singer / baby name).
+    wiki = _wikipedia_search(name)
     if wiki:
         hits.extend(wiki)
         method_bits.append("wikipedia")
         official_site = _wikipedia_official_website(wiki[0].get("title") or name)
-        if official_site:
-            hits.append({
-                "title": f"{name} official site",
-                "url": official_site,
-                "snippet": f"Official website: {official_site}",
-            })
-    else:
-        query = f"{name} pharmaceutical biotech medical device company"
-        with ThreadPoolExecutor(max_workers=3) as pool:
-            from . import budget as _b  # threads must inherit the request's time budget
 
-            fut_moon = pool.submit(_b.wrap(_moonshot_web_search), query, limit=5)
-            fut_ddg = pool.submit(_b.wrap(_duckduckgo_search), name)
-            fut_ddg_seed = (
-                pool.submit(_b.wrap(_duckduckgo_html_search), seed)
-                if name.lower() != seed.lower()
-                else None
-            )
-            moon = fut_moon.result() or []
-            ddg = fut_ddg.result() or []
-            if fut_ddg_seed is not None:
-                ddg = ddg + (fut_ddg_seed.result() or [])
-        if moon:
-            hits.extend(moon)
-            method_bits.append("moonshot-search")
-        if ddg:
-            hits.extend(ddg)
-            method_bits.append("duckduckgo")
+    query = f"{name} pharmaceutical biotech medical device company"
+    with ThreadPoolExecutor(max_workers=4) as pool:
+        from . import budget as _b  # threads must inherit the request's time budget
 
-    # de-dupe by URL/title
+        fut_moon = pool.submit(_b.wrap(_moonshot_web_search), query, limit=5)
+        fut_ddg = pool.submit(_b.wrap(_duckduckgo_search), name)
+        fut_html = pool.submit(_b.wrap(_duckduckgo_html_search), name)
+        fut_seed = (
+            pool.submit(_b.wrap(_duckduckgo_html_search), seed)
+            if seed.lower() != name.lower()
+            else None
+        )
+        moon = fut_moon.result() or []
+        ddg = (fut_ddg.result() or []) + (fut_html.result() or [])
+        if fut_seed is not None:
+            ddg = ddg + (fut_seed.result() or [])
+    if moon:
+        hits.extend(moon)
+        method_bits.append("moonshot-search")
+    if ddg:
+        hits.extend(ddg)
+        method_bits.append("duckduckgo")
+
+    # Optional: try Wikipedia under the original seed too
+    if seed.lower() != name.lower():
+        wiki_seed = _wikipedia_search(seed)
+        if wiki_seed:
+            hits.extend(wiki_seed)
+
+    # de-dupe by URL/title; drop non-company leftovers
     seen: set[str] = set()
     unique: list[dict[str, str]] = []
     for hit in hits:
+        title = hit.get("title") or ""
+        snip = hit.get("snippet") or ""
+        if not _looks_like_company_hit(seed, title, snip) and not _looks_like_company_hit(
+            name, title, snip
+        ):
+            # Keep official-site stubs and exact-name title hits
+            blob = f"{title} {snip}".lower()
+            if seed.lower() not in blob and name.lower() not in blob:
+                continue
+            if "official website" not in snip.lower():
+                continue
         key = (hit.get("url") or hit.get("title") or "").lower()
         if not key or key in seen:
             continue
@@ -501,38 +555,70 @@ def enrich_company_from_web(
         unique.append(hit)
     hits = unique
 
-    # Last resort: ask the local LLM what it knows about this company name
-    if not hits and use_llm and kimi_configured():
+    if official_site:
+        hits.insert(0, {
+            "title": f"{name} official site",
+            "url": official_site,
+            "snippet": f"Official website: {official_site}",
+        })
+
+    # LLM knowledge fill: when web search is empty OR only weak/non-corporate hits
+    from .kimi_summary import llm_configured
+
+    corp_hits = [
+        h for h in hits
+        if any(s in f"{h.get('title')} {h.get('snippet')}".lower() for s in _CORP_SIGNALS)
+    ]
+    need_llm = use_llm and llm_configured() and (not hits or not corp_hits)
+    if need_llm:
         from .llm_client import chat
 
-        content, label, lw = chat(
-            [
-                {
-                    "role": "system",
-                    "content": (
-                        "You identify life-science / pharma / medtech companies from a "
-                        "possibly misspelled name. If you recognize the company, write 3–5 "
-                        "factual English sentences (what they do, HQ country, main therapies "
-                        "or products). If the name is unknown, reply with exactly UNKNOWN. "
-                        "Plain text only."
-                    ),
-                },
-                {
-                    "role": "user",
-                    "content": f"Company name seed: {seed}\nResolved guess: {name}",
-                },
-            ],
-            max_tokens=220,
-            json_mode=False,
-            timeout=60,
+        def _ask(prompt: str) -> tuple[str, str, list[str]]:
+            return chat(
+                [
+                    {
+                        "role": "system",
+                        "content": (
+                            "You are a life-science company researcher. Given a company name "
+                            "(often only the brand), write 4–6 factual English sentences: what they "
+                            "do, HQ country/city, sector (pharma / biotech / medtech / digital health), "
+                            "and main products, pipeline or modalities. Prefer recalling real public "
+                            "companies (e.g. Chinese biopharma, Swiss medtech, US CGM makers). "
+                            "Only reply with exactly UNKNOWN if you truly have no idea. Plain text only."
+                        ),
+                    },
+                    {"role": "user", "content": prompt},
+                ],
+                max_tokens=320,
+                json_mode=False,
+                timeout=90,
+            )
+
+        content, label, lw = _ask(
+            f"Company name: {seed}\nAlso try: {name} biopharmaceutical / biotech / medtech company"
         )
         result.warnings.extend(lw)
+        # Retry once with a stronger life-science hint if the model punted
+        if (not content) or "UNKNOWN" in content.upper()[:40] or len(content.strip()) < 60:
+            content2, label2, lw2 = _ask(
+                f"Describe the life-science company '{seed}' "
+                f"(full guesses: '{seed} Bioscience', '{seed} AG', '{seed} Inc'). "
+                "If it is a real biopharma/medtech firm, summarize it; else UNKNOWN."
+            )
+            result.warnings.extend(lw2)
+            if content2 and "UNKNOWN" not in content2.upper()[:40] and len(content2.strip()) > 60:
+                content, label = content2, label2
+
         if content and "UNKNOWN" not in content.upper()[:40] and len(content.strip()) > 60:
-            hits = [{
-                "title": name,
+            llm_hit = {
+                "title": f"{seed} (LLM knowledge)",
                 "url": "",
                 "snippet": content.strip()[:900],
-            }]
+            }
+            if not corp_hits:
+                hits = [llm_hit] + hits
+            else:
+                hits.append(llm_hit)
             method_bits.append(f"llm-knowledge:{label}")
 
     if not hits:
@@ -544,26 +630,43 @@ def enrich_company_from_web(
         result.method = "none"
         return result
 
-    context = _build_context(name, hits, website=website)
+    # Prefer keeping the user's brand spelling when search did not prove a rename
+    display = name
     if seed.lower() != name.lower():
-        context = f"User typed: {seed}\nCanonical name: {name}\n\n{context}"
+        # Only keep Wikipedia rename if at least one hit clearly uses the new name
+        # as a company; otherwise stick with what the user typed.
+        renamed_ok = any(
+            _looks_like_company_hit(name, h.get("title") or "", h.get("snippet") or "")
+            for h in hits
+        )
+        if not renamed_ok:
+            display = seed
+            result.resolved_name = seed
+            result.warnings.append(
+                f"Ignored weak rename '{seed}' → '{name}'; kept original seed."
+            )
+        else:
+            display = name
+
+    context = _build_context(display, hits, website=website)
+    if seed.lower() != display.lower():
+        context = f"User typed: {seed}\nCanonical name: {display}\n\n{context}"
     result.context = context
-    result.company_name = name  # surface corrected name to callers
+    result.company_name = display
     result.sources = [h.get("url") or "" for h in hits if h.get("url")]
     if official_site and official_site not in result.sources:
         result.sources.insert(0, official_site)
     elif official_site:
-        # Prefer official site first for website picker
         result.sources = [official_site] + [s for s in result.sources if s != official_site]
     result.keywords = _keywords_from_context(context)
 
     summary = None
-    if summarize and kimi_configured():
+    if summarize and llm_configured():
         summary, llm_warn = summarize_company_text(
             context,
             source_type="web_search",
-            source_ref=website or name,
-            name_hint=name,
+            source_ref=website or display,
+            name_hint=display,
             keywords=result.keywords,
         )
         if summary:

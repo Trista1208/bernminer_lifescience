@@ -38,7 +38,7 @@ The original analyst screen is still at http://localhost:5173/?classic.
 - The UI reads `cards[0]` of the response: `match.match_rate`, `match.score_breakdown.components`
   and `component_max` (the six score parts), `why_not_higher`, `capability_matches`,
   `bern_matches` and `warnings`. Field names follow `src/company_match/BACKEND_CONTRACT.md`.
-- The proposal PDF is made in the browser (html2canvas + jsPDF, loaded from cdnjs on first click),
+- The proposal PDF is made in the browser with jsPDF text layout (loaded from cdnjs on first click; no html2canvas),
   so that needs internet too.
 
 ## Plugging in the crawled Bern data

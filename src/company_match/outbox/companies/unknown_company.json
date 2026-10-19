@@ -1,14 +1,14 @@
 {
   "schema_version": "2.0",
-  "generated_at": "2026-10-18T18:17:08.257372+00:00",
+  "generated_at": "2026-10-19T09:24:04.453343+00:00",
   "id": "unknown_company",
   "name": "Unknown company",
   "domain": "life_science",
   "in_scope": false,
   "website_info": {
-    "url": "https://www.dexcom.com/g7-cgm-system?ipc=CH",
+    "url": "https://mabwell.com/en/",
     "source_type": "url",
-    "source_ref": "https://www.dexcom.com/g7-cgm-system?ipc=CH",
+    "source_ref": "https://mabwell.com/en/",
     "meta_title": null,
     "meta_description": null,
     "fetched_language": null,
@@ -79,11 +79,11 @@
     "confidence": 0.0,
     "method": "rules",
     "warnings": [
-      "Could not read source: Failed to fetch URL: https://www.dexcom.com/g7-cgm-system?ipc=CH (Tunnel connection failed: 403 Forbidden)"
+      "Could not read source: Skipped fetching https://mabwell.com/en/: time budget used up."
     ]
   },
   "queue": {
-    "position": 1,
+    "position": 2,
     "priority_rating": "P4",
     "priority_stage": "none",
     "priority_score": 0.0

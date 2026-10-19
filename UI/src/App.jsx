@@ -613,15 +613,15 @@ export default function App() {
     <div className="app">
       <header className="hero">
         <p className="badge-row">
+          <span className="badge">BearMiner</span>
           <span className="badge">Canton of Bern</span>
           <span className="badge">Life science only</span>
-          <span className="badge">Company layer</span>
         </p>
-        <h1 className="brand">Company intelligence layer</h1>
+        <h1 className="brand">BearMiner</h1>
         <p className="lede">
-          Drop a company PDF, paste text, or add a website. See what keywords and
-          main fields are extracted, how they are prioritized, and what your
-          navigator teammate should run first.
+          Dig Bern gold from life-science partners. Drop a company PDF, paste
+          text, or add a website — extract keywords, score collaboration
+          potential, and prioritize outreach for Canton of Bern.
         </p>
       </header>
 

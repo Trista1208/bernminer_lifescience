@@ -45,9 +45,11 @@ export default function Letter({ card, choice, partners }) {
   const greeting = choice.recipient?.trim() ? `Dear ${choice.recipient.trim()},` : `Dear ${company} team,`;
   const focus = (info.subsector || "").replace(/ & [^&]*Talent$/, "") || (card.keywords?.all || []).slice(0, 3).join(", ") || info.sector || "life science";
   const rate = Math.round(m.match_rate ?? 0);
+  // Strict: only show score when the toggle is explicitly on
+  const showScore = choice?.includeScore === true;
 
   return (
-    <article className="letter" id="bern-letter">
+    <article className="letter" id="bern-letter" data-show-score={showScore ? "1" : "0"}>
       <header className="letter__head">
         <div className="letter__brand">
           <BearMark size={46} />
@@ -65,19 +67,25 @@ export default function Letter({ card, choice, partners }) {
       <section className="letter__hero">
         <p className="letter__kicker">Proposal for {company}</p>
         <h1>Grow {company} in Bern, Switzerland</h1>
-        <div className="letter__score">
-          <div className="letter__score-num">{rate}<span>/100</span></div>
-          <div>
-            {coinsFor(rate) > 0 && (
-              <div className="letter__coins">
-                {Array.from({ length: coinsFor(rate) }, (_, i) => <Coin key={i} size={26} />)}
-                <span>{COIN_LABELS[coinsFor(rate)].replace(/^\d+ gold coins? · /, "")}</span>
-              </div>
-            )}
-            <strong>{m.verdict_label || m.tier}</strong>
-            <p>Collaboration-potential score from our Bern life-science matching model.</p>
+        {showScore ? (
+          <div className="letter__score">
+            <div className="letter__score-num">{rate}<span>/100</span></div>
+            <div>
+              {coinsFor(rate) > 0 && (
+                <div className="letter__coins">
+                  {Array.from({ length: coinsFor(rate) }, (_, i) => <Coin key={i} size={26} />)}
+                  <span>{COIN_LABELS[coinsFor(rate)].replace(/^\d+ gold coins? · /, "")}</span>
+                </div>
+              )}
+              <strong>{m.verdict_label || m.tier}</strong>
+              <p>Collaboration-potential score from our Bern life-science matching model.</p>
+            </div>
           </div>
-        </div>
+        ) : (
+          <p className="letter__hero-sub">
+            A collaboration proposal from the Canton of Bern life-science ecosystem.
+          </p>
+        )}
       </section>
 
       <p>{greeting}</p>
@@ -85,8 +93,9 @@ export default function Letter({ card, choice, partners }) {
         {warm
           ? `We have been following ${company}'s work in ${focus} with real interest, and we believe Bern is a place where it can grow faster. `
           : `We are writing on behalf of the Canton of Bern to propose a collaboration with ${company} in ${focus}. `}
-        Our matching model compared your profile with Bern's research groups, hospitals and support programmes,
-        and it points to concrete partners and a short path to working together.
+        {showScore
+          ? "Our matching model compared your profile with Bern's research groups, hospitals and support programmes, and it points to concrete partners and a short path to working together."
+          : "Based on your profile and Bern's research groups, hospitals and support programmes, we see concrete partners and a short path to working together."}
       </p>
 
       {chosen.length > 0 && (
@@ -117,16 +126,7 @@ export default function Letter({ card, choice, partners }) {
         </>
       )}
 
-      <h2>Proposed next steps</h2>
-      <ol className="letter__steps">
-        <li><span>Week 1–2</span>Introductory call with {choice.senderOrg || "Invest in Bern"} and the partners above</li>
-        {offers.slice(0, 3).map((o, i) => (
-          <li key={o.id}><span>{["Month 1", "Month 2", "Month 3"][i]}</span>{o.step}</li>
-        ))}
-        <li><span>Next</span>Agree a joint plan and a Bern landing package for {company}</li>
-      </ol>
-
-      {choice.includeScore && (
+      {showScore && (
         <>
           <h2>How we scored the match</h2>
           <table className="letter__table">
@@ -151,20 +151,23 @@ export default function Letter({ card, choice, partners }) {
         </>
       )}
 
-      <p>
-        {warm ? "We would love to welcome you to Bern. " : ""}
-        We would be glad to arrange a first conversation at a time that suits you.
-      </p>
-      <div className="letter__sign">
-        <p>Kind regards,</p>
-        <p className="letter__sender">{choice.senderName || "The Invest in Bern team"}</p>
-        <p>{choice.senderOrg || "Invest in Bern"}{choice.senderEmail ? ` · ${choice.senderEmail}` : ""}</p>
+      {/* Keep closing + signature + footer together so PDF paging does not orphan the sign-off */}
+      <div className="letter__close">
+        <p>
+          {warm ? "We would love to welcome you to Bern. " : ""}
+          We would be glad to arrange a first conversation at a time that suits you.
+        </p>
+        <div className="letter__sign">
+          <p>Kind regards,</p>
+          <p className="letter__sender">{choice.senderName || "The Invest in Bern team"}</p>
+          <p>{choice.senderOrg || "Invest in Bern"}{choice.senderEmail ? ` · ${choice.senderEmail}` : ""}</p>
+        </div>
+        <footer className="letter__foot">
+          Prepared with BearMiner, the Apertus-powered Bern life-science matching tool.
+          {showScore ? " Scores are indicative and based on public information." : ""}
+          {card._demo ? " Generated in demo mode." : ""}
+        </footer>
       </div>
-
-      <footer className="letter__foot">
-        Prepared with BearMiner, the Apertus-powered Bern life-science matching tool. Scores are indicative and based on public information.
-        {card._demo ? " Generated in demo mode." : ""}
-      </footer>
     </article>
   );
 }
