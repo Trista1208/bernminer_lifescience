@@ -322,6 +322,10 @@ def _mymemory_translate(text: str, source_language: str) -> str | None:
 def translate_with_deep_translator(text: str, source_language: str) -> str | None:
     from concurrent.futures import ThreadPoolExecutor, TimeoutError as FuturesTimeout
 
+    # Sovereign deployments set EXTERNAL_MT=0: no Google/MyMemory calls, Apertus only.
+    if os.environ.get("EXTERNAL_MT", "1").strip().lower() in {"0", "false", "no", "off"}:
+        return None
+
     src = _google_source_code(source_language)
     chunk_size = 1500 if source_language in {"zh", "ja", "ko"} else 3500
     timeout_s = 45 if source_language in {"zh", "ja", "ko"} else 20

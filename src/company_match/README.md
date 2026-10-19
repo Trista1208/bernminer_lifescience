@@ -53,6 +53,8 @@ Notes:
   paid Ollama credits (HTTP 402); on failure the client auto-retries with a local model.
   Override via `OLLAMA_MODEL`. A locally pulled Apertus GGUF also works offline.
 - Thinking text is discarded. Keep `OLLAMA_THINK=0` for local models (faster + better JSON).
+- Translation uses Apertus first. If no LLM answers, it falls back to Google Translate / MyMemory
+  (external services). Set `EXTERNAL_MT=0` for sovereign or air-gapped deployments to switch that off.
 - The challenge requires Apertus v1.5 for the submission. Local Ollama is for demos.
 
 ## Medical profile (LLM extraction)
